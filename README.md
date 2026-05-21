@@ -125,9 +125,9 @@ Edit the items under the `stats:` section:
 ```yaml
 stats:
   - label: "Client projects delivered"
-    value: "6+"
+    value: "10+"
   - label: "Years experience"
-    value: "2+"
+    value: "3+"
 ```
 
 ### 4. To Update Resume Experience & Skills:

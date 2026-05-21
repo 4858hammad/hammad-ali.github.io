@@ -179,6 +179,8 @@
             </div>
             <div class="exp-period">${exp.period}</div>
           </div>
+          ${exp.meta ? `<div class="exp-meta">${exp.meta}</div>` : ''}
+          ${exp.summary ? `<div class="exp-summary-text">${exp.summary}</div>` : ''}
           <ul class="exp-highlights">
             ${(exp.highlights || []).map(item => `<li>${item}</li>`).join('')}
           </ul>
@@ -200,12 +202,16 @@
 
     const projectsWrap = document.getElementById('experience-projects');
     if (projectsWrap) {
-      const selectedProjects = data.projects.filter(project =>
-        project.id === 'pgi-erp-customization' ||
-        project.id === 'silicon-signs-erp' ||
-        project.client === 'Prime Global Imports' ||
-        project.client === 'Silicon Signs'
-      );
+      const selectedProjectIds = [
+        'clearpath-orthodontics',
+        'mastercard-payment',
+        'tazah-sale-flow',
+        'sage-integration',
+        'ringfree-integration'
+      ];
+      const selectedProjects = selectedProjectIds
+        .map(id => data.projects.find(project => project.id === id))
+        .filter(Boolean);
 
       projectsWrap.innerHTML = selectedProjects.map(project => `
         <div class="exp-project-card" onclick="window.location.href='project.html?id=${project.id}'">
@@ -271,7 +277,7 @@
 
     if (heroTag) heroTag.innerText = "Python · Odoo ERP · Backend";
     if (heroTitle) heroTitle.innerHTML = `Building ERP solutions<br/>that <em>actually work</em> for your business`;
-    if (heroDesc) heroDesc.innerText = `I'm ${data.site.name} — ${data.site.tagline} with ${data.stats.find(s=>s.label.includes('experience'))?.value || '2+ years'} delivering custom modules, API integrations, and automated workflows for real clients.`;
+    if (heroDesc) heroDesc.innerText = `I'm ${data.site.name} — ${data.site.tagline} with ${data.stats.find(s=>s.label.includes('experience'))?.value || '3+ years'} delivering custom modules, API integrations, and automated workflows for real clients.`;
 
     if (btnRow) {
       btnRow.innerHTML = `
