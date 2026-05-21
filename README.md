@@ -1,6 +1,6 @@
 # Hammad Ali - Professional Portfolio
 
-A premium, high-converting, responsive developer portfolio built specifically for **Hammad Ali (Python & Odoo ERP Specialist)**.
+A premium, high-converting, responsive developer portfolio built specifically for **Hammad Ali (Python & Odoo ERP Consultant)**.
 
 This portfolio is **100% static yet fully dynamic**. It uses a single YAML file (`portfolio_data.yaml`) as its single source of truth. All pages fetch, parse, and render content dynamically at runtime using `js-yaml` via CDN. There are absolutely no build steps, and no content is hardcoded in the HTML files.
 

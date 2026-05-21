@@ -19,3 +19,6 @@ Thumbs.db
 # Local caches
 .cache/
 node_modules/
+
+# Note: tracked files that already exist in the repo and match ignore rules
+# will still be pushed until they are removed from the Git index.
