@@ -70,6 +70,13 @@
     `;
   }
 
+  function sortProjectsNewestFirst(projects) {
+    return [...projects].sort((a, b) => {
+      const yearDiff = Number(b.year || 0) - Number(a.year || 0);
+      return yearDiff !== 0 ? yearDiff : 0;
+    });
+  }
+
   // App Initialization
   initYAML(async function() {
     const data = await loadData();
@@ -84,6 +91,7 @@
     if (pageName === 'odoo.html') pageTitle = `Odoo ERP Projects - ${data.site.name}`;
     else if (pageName === 'android.html') pageTitle = `Android Projects - ${data.site.name}`;
     else if (pageName === 'web.html') pageTitle = `Web Projects - ${data.site.name}`;
+    else if (pageName === 'experience.html') pageTitle = `Experience - ${data.site.name}`;
     else if (pageName === 'project.html') {
       const urlParams = new URLSearchParams(window.location.search);
       const projId = urlParams.get('id');
@@ -106,6 +114,8 @@
       renderAndroidPage(data);
     } else if (pageName === 'web.html') {
       renderWebPage(data);
+    } else if (pageName === 'experience.html') {
+      renderExperiencePage(data);
     } else if (pageName === 'project.html') {
       renderProjectDetailPage(data);
     } else if (pageName === 'contact.html') {
@@ -129,11 +139,112 @@
           <a href="odoo.html" class="${page === 'odoo.html' ? 'active' : ''}">Odoo ERP</a>
           <a href="android.html" class="${page === 'android.html' ? 'active' : ''}">Android</a>
           <a href="web.html" class="${page === 'web.html' ? 'active' : ''}">Web</a>
+          <a href="experience.html" class="${page === 'experience.html' ? 'active' : ''}">Experience</a>
           <a href="contact.html" class="${page === 'contact.html' ? 'active' : ''}">Contact</a>
         </div>
         <div class="pill ${isAvail ? '' : 'not-avail'}">${isAvail ? 'Open to work' : 'Unavailable'}</div>
       </div>
     `;
+  }
+
+  function renderExperiencePage(data) {
+    const heroName = document.getElementById('exp-name');
+    const heroSummary = document.getElementById('exp-summary');
+    const heroStatus = document.getElementById('exp-status');
+    const heroLocation = document.getElementById('exp-location');
+    const heroAvatar = document.getElementById('exp-avatar');
+
+    if (heroName) heroName.textContent = data.site.name;
+    if (heroSummary) {
+      const latestExp = data.experience[0];
+      const latestLine = latestExp ? `${latestExp.role} at ${latestExp.company}` : data.site.tagline;
+      heroSummary.textContent = `${data.site.tagline} · ${latestLine}`;
+    }
+    if (heroLocation) {
+      heroLocation.textContent = `${data.contact.location} · ${data.contact.remote ? 'Remote OK' : 'On-site only'}`;
+    }
+    if (heroStatus) {
+      heroStatus.textContent = data.site.available_for_work ? 'Open to remote contracts & full-time roles' : 'Currently unavailable';
+    }
+    if (heroAvatar) heroAvatar.textContent = data.site.name.split(' ').map(p => p[0]).join('').slice(0, 2);
+
+    const expWrap = document.getElementById('experience-list');
+    if (expWrap) {
+      expWrap.innerHTML = data.experience.map(exp => `
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">${exp.role}</div>
+              <div class="exp-company">${exp.company}</div>
+            </div>
+            <div class="exp-period">${exp.period}</div>
+          </div>
+          <ul class="exp-highlights">
+            ${(exp.highlights || []).map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+
+    const skillWrap = document.getElementById('skill-sections');
+    if (skillWrap) {
+      skillWrap.innerHTML = data.skills.map(group => `
+        <div class="skill-cat">
+          <div class="skill-cat-title">${group.category}</div>
+          <div class="skill-list">
+            ${group.items.map(item => `<span class="skill-pill">${item}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const projectsWrap = document.getElementById('experience-projects');
+    if (projectsWrap) {
+      const selectedProjects = data.projects.filter(project =>
+        project.id === 'pgi-erp-customization' ||
+        project.id === 'silicon-signs-erp' ||
+        project.client === 'Prime Global Imports' ||
+        project.client === 'Silicon Signs'
+      );
+
+      projectsWrap.innerHTML = selectedProjects.map(project => `
+        <div class="exp-project-card" onclick="window.location.href='project.html?id=${project.id}'">
+          <div class="exp-project-head">
+            <div>
+              <div class="exp-project-title">${project.title}</div>
+              <div class="exp-project-meta">${project.client} · ${project.year} · ${project.odoo_version || 'Odoo'}</div>
+            </div>
+            <div class="exp-project-link">View project →</div>
+          </div>
+          <div class="exp-project-desc">${project.full_desc || project.short_desc}</div>
+          <div class="exp-project-tags">
+            ${project.tags.slice(0, 4).map(tag => `<span class="skill-pill">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    const contactBlock = document.getElementById('exp-contact');
+    if (contactBlock) {
+      contactBlock.innerHTML = `
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-val"><a href="mailto:${data.contact.email}">${data.contact.email}</a></div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Phone</div>
+          <div class="info-val">${data.contact.phone}</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">LinkedIn</div>
+          <div class="info-val"><a href="${data.contact.linkedin}" target="_blank" rel="noreferrer">Profile</a></div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">GitHub</div>
+          <div class="info-val"><a href="${data.contact.github}" target="_blank" rel="noreferrer">Repository</a></div>
+        </div>
+      `;
+    }
   }
 
   // Render Footer
@@ -209,7 +320,9 @@
     // 4. Featured Projects list
     const featuredGrid = document.getElementById('featured-grid');
     if (featuredGrid) {
-      const featuredProjects = data.projects.filter(p => p.featured === true).slice(0, 3);
+      const featuredProjects = sortProjectsNewestFirst(
+        data.projects.filter(p => p.featured === true)
+      ).slice(0, 3);
       featuredGrid.innerHTML = featuredProjects.map(proj => {
         const colorClass = getCategoryColorClass(proj.category);
         return `
@@ -249,7 +362,9 @@
     const listContainer = document.getElementById('odoo-list-container');
     if (!listContainer) return;
 
-    const odooProjects = data.projects.filter(p => p.category === 'odoo');
+    const odooProjects = sortProjectsNewestFirst(
+      data.projects.filter(p => p.category === 'odoo')
+    );
     
     // Collect all unique tags for filter subnav
     const tagsSet = new Set();
@@ -279,7 +394,9 @@
     function renderList(tagFilter) {
       let filtered = odooProjects;
       if (tagFilter !== 'all') {
-        filtered = odooProjects.filter(p => p.tags.includes(tagFilter));
+        filtered = sortProjectsNewestFirst(
+          odooProjects.filter(p => p.tags.includes(tagFilter))
+        );
       }
 
       if (filtered.length === 0) {
@@ -323,7 +440,9 @@
     const listContainer = document.getElementById('android-list-container');
     if (!listContainer) return;
 
-    const androidProjects = data.projects.filter(p => p.category === 'android');
+    const androidProjects = sortProjectsNewestFirst(
+      data.projects.filter(p => p.category === 'android')
+    );
 
     // Collect tags
     const tagsSet = new Set();
@@ -351,7 +470,9 @@
     function renderList(tagFilter) {
       let filtered = androidProjects;
       if (tagFilter !== 'all') {
-        filtered = androidProjects.filter(p => p.tags.includes(tagFilter));
+        filtered = sortProjectsNewestFirst(
+          androidProjects.filter(p => p.tags.includes(tagFilter))
+        );
       }
 
       if (filtered.length === 0) {
@@ -385,7 +506,9 @@
     const listContainer = document.getElementById('web-list-container');
     if (!listContainer) return;
 
-    const webProjects = data.projects.filter(p => p.category === 'web');
+    const webProjects = sortProjectsNewestFirst(
+      data.projects.filter(p => p.category === 'web')
+    );
 
     // Collect tags
     const tagsSet = new Set();
@@ -413,7 +536,9 @@
     function renderList(tagFilter) {
       let filtered = webProjects;
       if (tagFilter !== 'all') {
-        filtered = webProjects.filter(p => p.tags.includes(tagFilter));
+        filtered = sortProjectsNewestFirst(
+          webProjects.filter(p => p.tags.includes(tagFilter))
+        );
       }
 
       if (filtered.length === 0) {
@@ -454,13 +579,14 @@
     }
 
     // Find project
-    const projectIndex = data.projects.findIndex(p => p.id === projId);
+    const sortedProjects = sortProjectsNewestFirst(data.projects);
+    const projectIndex = sortedProjects.findIndex(p => p.id === projId);
     if (projectIndex === -1) {
       window.location.href = 'index.html';
       return;
     }
 
-    const project = data.projects[projectIndex];
+    const project = sortedProjects[projectIndex];
 
     // Banner & Label
     const bannerContainer = document.getElementById('banner-container');
@@ -554,7 +680,7 @@
 
     if (prevBtn) {
       if (projectIndex > 0) {
-        const prevProj = data.projects[projectIndex - 1];
+        const prevProj = sortedProjects[projectIndex - 1];
         prevBtn.innerHTML = `← Previous: ${prevProj.title}`;
         prevBtn.classList.remove('disabled');
         prevBtn.onclick = () => window.location.href = `project.html?id=${prevProj.id}`;
@@ -566,8 +692,8 @@
     }
 
     if (nextBtn) {
-      if (projectIndex < data.projects.length - 1) {
-        const nextProj = data.projects[projectIndex + 1];
+      if (projectIndex < sortedProjects.length - 1) {
+        const nextProj = sortedProjects[projectIndex + 1];
         nextBtn.innerHTML = `Next: ${nextProj.title} →`;
         nextBtn.classList.remove('disabled');
         nextBtn.onclick = () => window.location.href = `project.html?id=${nextProj.id}`;
