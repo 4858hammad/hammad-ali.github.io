@@ -1,0 +1,293 @@
+site:
+  name: "Hammad Ali"
+  tagline: "Python & Odoo ERP Specialist"
+  description: "Building custom ERP solutions that automate operations and connect business systems"
+  url: "https://hammad-ali-odoo.github.io"
+  available_for_work: true
+
+contact:
+  email: "hammadali4858@gmail.com"
+  phone: "+92 320 248 5828"
+  linkedin: "https://linkedin.com/in/hammad-ali-62417224b"
+  github: "https://github.com/hammad-ali-odoo"
+  location: "Lahore, Pakistan"
+  remote: true
+
+stats:
+  - label: "Client projects delivered"
+    value: "10+"
+  - label: "Years experience"
+    value: "2+"
+  - label: "Projects built"
+    value: "19+"
+  - label: "Odoo versions"
+    value: "14/16/17"
+
+experience:
+  - company: "Aetos Technology"
+    role: "Python Odoo Developer — Team Lead"
+    period: "Feb 2024 – Present"
+    highlights:
+      - "Led team of 3 developers, delivered 10+ client projects"
+      - "Built Mastercard Payment Provider for 500+ monthly transactions"
+      - "Architected Sage-to-Odoo sync engine eliminating manual reconciliation"
+  - company: "Axiom World"
+    role: "Junior Python Odoo Developer"
+    period: "Oct 2023 – Feb 2024"
+    highlights:
+      - "Developed 5+ custom Odoo modules across Sales, Inventory, Accounting"
+      - "Reduced page-load time by ~25% via PostgreSQL ORM optimization"
+
+skills:
+  - category: "ERP / Odoo"
+    items: ["Odoo 14/16/17", "ORM", "QWeb", "XML Views", "OWL", "Odoo.sh", "JSON-RPC"]
+  - category: "Backend"
+    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL"]
+  - category: "Integrations"
+    items: ["Mastercard", "Sage API", "Ringfree", "Firebase", "OAuth 2.0"]
+  - category: "DevOps"
+    items: ["Docker", "Git", "Linux", "Nginx"]
+  - category: "Mobile"
+    items: ["Android", "Java", "Kotlin", "React Native", "Firebase"]
+
+projects:
+  - id: "sage-integration"
+    title: "Sage Integration"
+    category: "odoo"
+    featured: true
+    year: 2024
+    client: "Aetos Technology"
+    role: "Lead Developer"
+    odoo_version: "Odoo 16"
+    image: "assets/images/sage-integration.png"
+    short_desc: "Flask-based Odoo sync engine for invoices and payments"
+    full_desc: "Built a Flask-based connector to sync Sage invoices, customers, and companies with Odoo Accounting using a scheduled REST API pipeline. Automated partial payments and reconciliation with robust error handling."
+    tags: ["Python", "Flask", "REST API", "Odoo 16"]
+    modules: ["Accounting", "Contacts", "Invoicing", "API Integration"]
+    tech_stack: ["Python 3.10", "Flask", "PostgreSQL", "Docker"]
+    highlights:
+      - "Automated invoice import from Sage into Odoo"
+      - "Partial payment and reconciliation handling"
+      - "Scheduled cron job for real-time sync"
+      - "Error logging and retry mechanism"
+
+  - id: "mastercard-payment"
+    title: "Mastercard Payment Provider"
+    category: "odoo"
+    featured: true
+    year: 2024
+    client: "Aetos Technology"
+    role: "Lead Developer"
+    odoo_version: "Odoo 16"
+    image: "assets/images/mastercard.png"
+    short_desc: "Custom Odoo payment acquirer for 500+ monthly transactions"
+    full_desc: "Custom Odoo payment acquirer module for Mastercard enabling automated invoice settlement directly inside Odoo Accounting."
+    tags: ["Python", "Odoo 16", "Payment Gateway"]
+    modules: ["Accounting", "Invoicing", "Payment"]
+    tech_stack: ["Python", "Odoo ORM", "REST API"]
+    highlights:
+      - "500+ monthly automated transactions"
+      - "Seamless Odoo Accounting integration"
+      - "Custom payment flow with error handling"
+
+  - id: "tazah-sale-flow"
+    title: "Tazah Technologies — Sale Order Flow"
+    category: "odoo"
+    featured: true
+    year: 2024
+    client: "Tazah Technologies"
+    role: "Lead Developer"
+    odoo_version: "Odoo 17"
+    image: "assets/images/tazah.png"
+    short_desc: "Custom module automating full sales lifecycle"
+    full_desc: "Designed and implemented a custom Sale Order Flow module to automate and track the lifecycle of sales from quotation to delivery and payment. Reduced order follow-up time by ~40%."
+    tags: ["Python", "Odoo 17", "Custom Module"]
+    modules: ["Sale", "Purchase", "Inventory", "Accounting"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Quotation to delivery full lifecycle automation"
+      - "~40% reduction in order follow-up time"
+      - "Custom reports for operations team"
+
+  - id: "ringfree-integration"
+    title: "RingFree Integration & Customization"
+    category: "odoo"
+    featured: true
+    year: 2024
+    client: "Client Project"
+    role: "Lead Developer"
+    odoo_version: "Odoo 16"
+    image: "assets/images/ringfree.png"
+    short_desc: "Odoo metered service billing and external system integration"
+    full_desc: "Developed a full integration between Odoo ERP and the RingFree external platform to automate usage-based metered billing and financial synchronization. The system ensured accurate usage calculation, automated invoice generation, and seamless bank payments reconciliation."
+    tags: ["Python", "REST API", "Odoo 16", "Metered Billing"]
+    modules: ["Accounting", "Sales", "Metered Billing", "Bank Payment Sync"]
+    tech_stack: ["Python", "REST API", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Integrated RingFree external web services with Odoo using REST APIs for real-time synchronization"
+      - "Implemented metered billing system to calculate customer charges based on service usage data"
+      - "Developed automated invoice generation workflows for monthly billing cycles"
+      - "Synchronized billing data with Sales and Accounting modules in Odoo"
+      - "Built bank payment synchronization logic to reconcile customer payments automatically"
+      - "Designed and generated custom financial reports for billing analysis and revenue tracking"
+      - "Handled API error management, retry mechanisms, and data validation for reliable integration"
+
+  - id: "fell-erp"
+    title: "Fell ERP Development"
+    category: "odoo"
+    featured: true
+    year: 2024
+    client: "Fell"
+    role: "Lead Developer"
+    odoo_version: "Odoo 17"
+    image: "assets/images/fell.png"
+    short_desc: "Customized Odoo operational reporting and business intelligence consolidation"
+    full_desc: "Designed and developed a customized ERP system focused on operational visibility and daily business reporting. The system consolidated key business activities across sales, purchase, inventory, and CRM into a centralized exceptional reporting engine with automated notification capabilities."
+    tags: ["Python", "Odoo 17", "Custom Module", "Custom Reporting"]
+    modules: ["Sale", "Purchase", "Inventory", "CRM", "Exceptional Reports"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Built custom Odoo modules for generating daily operational reports"
+      - "Developed daily exception reports for sales orders, purchase orders, delayed orders, pending payments, and uncompleted transactions"
+      - "Automated email notifications to responsible persons based on operational reports"
+      - "Integrated operational data across Sales, Purchase, Inventory, and CRM modules for unified reporting"
+      - "Designed and structured report formats for streamlined management decision-making"
+      - "Optimized queries and reporting database operations for large historical datasets"
+
+  - id: "clearpath-orthodontics"
+    title: "ClearPath Orthodontics ERP"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "ClearPath Orthodontics"
+    role: "Lead Developer"
+    odoo_version: "Odoo 17"
+    image: "assets/images/clearpath.png"
+    short_desc: "Clinical operations, logistics, biometric attendance, and manufacturing ERP"
+    full_desc: "Developed a comprehensive Odoo-based ERP system for an orthodontics business, covering clinical doctor portals, medical manufacturing workflows, logistics, and multi-branch biometric employee attendance."
+    tags: ["Odoo 17", "Python", "Manufacturing", "HR"]
+    modules: ["Manufacturing", "Logistics", "Sales", "Inventory", "HR"]
+    tech_stack: ["Odoo ORM", "Python", "PostgreSQL", "Biometric Integration"]
+    highlights:
+      - "Built and customized a Doctor Portal to manage patient orders, prescriptions, and clinical workflows"
+      - "Implemented Manufacturing (BOM) and Production workflows to support medical product preparation and operations"
+      - "Developed Shipping and logistics module to track order fulfillment and delivery processes"
+      - "Designed multi-branch attendance system integrated with biometric biometric devices"
+      - "Created Employee Portal for task management, attendance tracking, timesheets, and performance badges"
+      - "Ensured database scalability using custom business rules written in Python and PostgreSQL"
+
+  - id: "axis-marketing"
+    title: "Axis Marketing Management"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "Axis Marketing"
+    role: "Odoo Developer"
+    odoo_version: "Odoo 16"
+    image: "assets/images/axis-marketing.png"
+    short_desc: "Contract lifecycle, customer portal, and Meta campaign sync ERP"
+    full_desc: "Developed a full-scale marketing management ERP system featuring contract lifecycle automation, client-facing customer portals, internal workforce management task sheets, and campaign sync with external marketing platforms."
+    tags: ["Odoo 16", "Meta API", "Contract Management", "Customer Portal"]
+    modules: ["CRM", "Customer Portal", "Contract Management", "HR"]
+    tech_stack: ["Python", "Odoo ORM", "Meta API", "PostgreSQL"]
+    highlights:
+      - "Developed a Customer Portal allowing clients to manage contracts, license updates, and renewals"
+      - "Built a Contract & License Management system with automated renewal tracking"
+      - "Integrated Meta APIs for marketing campaign data synchronization and campaign handling"
+      - "Implemented Employee Portal for task assignment, attendance tracking, and timesheets"
+      - "Designed centralized contract tracking with automated notifications for expirations"
+      - "Ensured seamless integration across CRM, HR, and contract modules"
+
+  - id: "hrms-migration"
+    title: "HRMS Bundle Migration (16 → 17)"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "Aetos Technology"
+    role: "Lead Developer"
+    odoo_version: "Odoo 17"
+    image: "assets/images/hrms.png"
+    short_desc: "Full Odoo 16 to 17 HR module migration"
+    full_desc: "Migrated Employees, Payroll, Employee Loan and HR Tax modules from Odoo 16 to 17. Preserved complex payroll structures and loan installment logic with zero data loss."
+    tags: ["Python", "PostgreSQL", "Migration"]
+    modules: ["Employees", "Payroll", "Loans", "HR Tax"]
+    tech_stack: ["Python", "PostgreSQL", "Odoo ORM"]
+    highlights:
+      - "Zero data loss migration"
+      - "Complex payroll structure preserved"
+      - "Loan installment and skip logic maintained"
+
+  - id: "showroom-app"
+    title: "Showroom Ecommerce"
+    category: "android"
+    featured: true
+    year: 2024
+    client: "Aetos Technology"
+    role: "Lead Developer"
+    image: "assets/images/showroom.png"
+    short_desc: "React Native ecommerce app with dynamic Odoo backend orchestration"
+    full_desc: "Developed a multi-platform ecommerce and ERP integration system consisting of a cross-platform React Native ordering application and a backend Odoo-based orchestration layer. The system enabled direct customer ordering while synchronizing sales, HR, and payroll data across multiple external ERP systems (like Pavo ERP) with failover handling."
+    tags: ["React Native", "Odoo Hub", "REST API", "Failover Sync"]
+    modules: ["Sales", "HR", "Contracts", "Payroll", "API Integration"]
+    tech_stack: ["React Native", "Odoo Backend", "REST APIs", "Python", "PostgreSQL"]
+    highlights:
+      - "Developed a cross-platform mobile application (Android & iOS) using React Native"
+      - "Implemented real-time order placement directly into Odoo ERP via secure API integrations"
+      - "Implemented Odoo as a central integration hub between mobile app and Pavo ERP"
+      - "Designed failover handling where Odoo retains orders if external ERP is offline"
+      - "Developed internal HR modules in Odoo for employee contracts and payroll"
+      - "Ensured data consistency across distributed systems using retry mechanisms"
+
+  - id: "idea-pitching"
+    title: "Idea Pitching App"
+    category: "android"
+    featured: true
+    year: 2022
+    client: "Personal Project"
+    role: "Solo Developer"
+    image: "assets/images/idea-pitch.png"
+    short_desc: "Investor and pitcher real-time collaboration app"
+    full_desc: "Developed an Idea Pitching App with Firebase integration, including a real-time chat system for Investor and Pitcher collaboration and feedback."
+    tags: ["Kotlin", "Firebase", "XML", "Android"]
+    modules: []
+    tech_stack: ["Kotlin", "Android", "Firebase"]
+    highlights:
+      - "Real-time chat between investors and pitchers"
+      - "Firebase authentication"
+      - "Live feedback system"
+
+  - id: "pavobixbox"
+    title: "PavoBixbox Web / App"
+    category: "web"
+    featured: true
+    year: 2024
+    client: "Aetos Technology"
+    role: "Full Stack Developer"
+    image: "assets/images/pavobixbox.png"
+    short_desc: "Dockerized Django app syncing with Android via Firebase"
+    full_desc: "Developed a Dockerized web application using Python and Django enabling synchronization of orders, products and customers with Firebase, integrated with an Android app in Kotlin."
+    tags: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
+    modules: []
+    tech_stack: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
+    highlights:
+      - "Real-time Firebase sync between web and mobile"
+      - "Dockerized deployment"
+      - "Product and order management"
+
+  - id: "cv-maker"
+    title: "Simple CV Maker"
+    category: "web"
+    featured: false
+    year: 2022
+    client: "University Project"
+    role: "Solo Developer"
+    image: "assets/images/cv-maker.png"
+    short_desc: "Web CV builder with .NET MVC and SQL database"
+    full_desc: "Developed a CV maker web application using HTML, Bootstrap, SQL and .NET MVC Framework. Users can create and manage CVs stored in a SQL database."
+    tags: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
+    modules: []
+    tech_stack: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
+    highlights:
+      - "User registration and authentication"
+      - "CV creation and management"
+      - "SQL database storage"
