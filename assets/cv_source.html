@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 14mm 14mm 12mm 14mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Liberation Serif", "Times New Roman", Georgia, serif;
+    color: #1a1a1a;
+    font-size: 10.2pt;
+    line-height: 1.32;
+  }
+  .name {
+    text-align: center;
+    font-size: 23pt;
+    font-weight: 700;
+    letter-spacing: .3px;
+    margin: 0 0 4px 0;
+  }
+  .contact {
+    text-align: center;
+    font-size: 9.4pt;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  .contact .ic { color: #c0392b; font-weight:700; margin: 0 3px 0 12px; }
+  .contact .ic:first-child { margin-left: 0; }
+  table.cv { width: 100%; border-collapse: collapse; }
+  table.cv > tbody > tr > td {
+    vertical-align: top;
+    padding: 7px 0 8px 0;
+    border-top: 1px solid #222;
+  }
+  td.label {
+    width: 92px;
+    font-weight: 700;
+    font-size: 10.4pt;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  td.body { padding-left: 6px; }
+  .row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .org { font-weight: 700; }
+  .when { color: #333; font-size: 9.4pt; white-space: nowrap; padding-left: 10px; }
+  .role { font-style: italic; color: #222; margin-bottom: 2px; }
+  ul { margin: 2px 0 0 0; padding-left: 16px; }
+  li { margin: 1px 0; }
+  .block + .block { margin-top: 9px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    row-gap: 4px;
+  }
+  .skillrow { margin: 1px 0; }
+  .skillrow b { display:inline-block; min-width: 95px; }
+  .proj { margin-bottom: 7px; }
+  .proj .pt { font-weight: 700; }
+  .proj .meta { font-style: italic; color:#333; font-size: 9.5pt; }
+  .proj .desc { margin-top: 1px; }
+  a { color: #1a3e72; text-decoration: none; }
+  .muted { color:#444; }
+</style>
+</head>
+<body>
+
+  <div class="name">Hammad Ali</div>
+  <div class="contact">
+    <span class="ic">&#9742;</span>+92 320 248 5828
+    <span class="ic">&#9993;</span>hammadali4858@gmail.com
+  </div>
+
+  <table class="cv">
+    <tbody>
+
+    <tr>
+      <td class="label">Profiles</td>
+      <td class="body">
+        <div><b>LinkedIn:</b> <a href="https://linkedin.com/in/hammad-ali-62417224b">linkedin.com/in/hammad-ali-62417224b</a></div>
+        <div><b>GitHub:</b> <a href="https://github.com/hammad-ali-odoo">github.com/hammad-ali-odoo</a></div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Summary</td>
+      <td class="body">
+        Python &amp; Odoo ERP Consultant with 3+ years of experience delivering custom modules,
+        API integrations, and automated workflows. Skilled in building scalable, production-ready
+        ERP solutions across Odoo 16/17/18/19 Community and Enterprise environments, with strong
+        backend engineering and third-party system integration expertise.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Experience</td>
+      <td class="body">
+
+        <div class="block">
+          <div class="row-head"><span class="org">Tti Testing Laboratories</span><span class="when">May 2026 - Present</span></div>
+          <div class="role">Python / Odoo Developer &middot; Full-time, Hybrid</div>
+          <ul>
+            <li>Leading Odoo development and ERP customization, focusing on scalable ERP solutions, workflow automation, and system integrations</li>
+            <li>Working on advanced Odoo customization, API integrations, POS &amp; payment gateway solutions</li>
+            <li>Optimizing PostgreSQL performance and Docker deployments</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row-head"><span class="org">Aetos Technologies</span><span class="when">Jan 2026 - Apr 2026</span></div>
+          <div class="role">Team Lead &middot; Full-time, Hybrid</div>
+          <ul>
+            <li>Led Odoo development team of 3 engineers delivering ERP solutions across Accounting, CRM, Sales, and Inventory</li>
+            <li>Built Sage-to-Odoo integration that eliminated manual data entry (100% automation)</li>
+            <li>Integrated the Doctor portal with the ClearPath Odoo ERP system</li>
+            <li>Coordinated delivery across client requirements, support, and production releases</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row-head"><span class="org">Aetos Technologies</span><span class="when">Jan 2025 - Dec 2025</span></div>
+          <div class="role">Odoo Developer &middot; Full-time, Lahore</div>
+          <ul>
+            <li>Developed Mastercard payment module and automated 500+ transactions per month</li>
+            <li>Created Sale Order automation that reduced follow-up time by 40%</li>
+            <li>Integrated REST APIs (Ringfree, Firebase) for billing and automation</li>
+            <li>Led Odoo 16 to 17 migration with zero data loss</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row-head"><span class="org">Axiom World</span><span class="when">Aug 2023 - Jan 2025</span></div>
+          <div class="role">Python Developer &middot; Full-time, On-site</div>
+          <ul>
+            <li>Developed 5+ custom Odoo modules (Sales, Inventory, Accounting)</li>
+            <li>Improved system performance and reduced load time by 25%</li>
+            <li>Integrated third-party APIs and removed manual CSV workflows</li>
+            <li>Customized reports (QWeb) and dashboards for business insights</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="row-head"><span class="org">Hazel Mobile</span><span class="when">Aug 2022 - Nov 2022</span></div>
+          <div class="role">Mobile Application Developer &middot; Internship</div>
+          <ul>
+            <li>Built Android application features using Java and Kotlin</li>
+            <li>Applied MVC and MVVM patterns in app development</li>
+            <li>Collaborated on feature design, testing, and QA across releases</li>
+          </ul>
+        </div>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Education</td>
+      <td class="body">
+        <div class="row-head"><span class="org">Lahore Garrison University</span><span class="when">Jul 2019 - Jul 2023</span></div>
+        <div class="role">Bachelor's in Computer Science</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Tools</td>
+      <td class="body">
+        <div class="grid">
+          <span>GitHub</span><span>Postman</span><span>PyCharm</span><span>VS Code</span><span>Android Studio</span>
+          <span>Docker</span><span>Nginx</span><span>Linux</span><span>Odoo.sh</span><span>Google Colab</span>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Skills</td>
+      <td class="body">
+        <div class="skillrow"><b>ERP / Odoo:</b> Odoo 16/17/18/19, ORM, QWeb, XML Views, OWL, Odoo.sh, JSON-RPC</div>
+        <div class="skillrow"><b>Backend:</b> Python, Flask, Django, REST API, PostgreSQL</div>
+        <div class="skillrow"><b>Integrations:</b> Mastercard, Sage API, Ringfree, Firebase, OAuth 2.0</div>
+        <div class="skillrow"><b>DevOps:</b> Docker, Git, Linux, Nginx</div>
+        <div class="skillrow"><b>Mobile:</b> Android, Java, Kotlin, React Native, Firebase</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Projects</td>
+      <td class="body">
+
+        <div class="proj">
+          <div class="pt">Sage Integration <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Accounting, Contacts, Invoicing, API Integration &middot; Python, Flask, Odoo 17, Docker</div>
+          <div class="desc">Flask-based connector syncing Sage invoices, customers, and companies into Odoo with scheduled REST pipelines, automated partial payments, and reconciliation.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Mastercard Payment Provider <span class="muted">&mdash; Aetos Technology</span></div>
+          <div class="meta">Modules: Accounting, Invoicing, Payment &middot; Python, Odoo 17/18, REST API</div>
+          <div class="desc">Custom Odoo payment acquirer across Community &amp; Enterprise enabling automated invoice settlement; 500+ monthly automated transactions.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Tazah Technologies &mdash; Sale Order Flow <span class="muted">&mdash; Aetos Technology</span></div>
+          <div class="meta">Modules: Sale, Purchase, Inventory, Accounting &middot; Python, Odoo 17</div>
+          <div class="desc">Custom Sale Order Flow module automating the lifecycle from quotation to delivery and payment; ~40% reduction in order follow-up time.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">RingFree Integration &amp; Customization <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Accounting, Sales, Metered Billing, Bank Payment Sync &middot; Python, REST API, Odoo 16</div>
+          <div class="desc">Usage-based metered billing integration between Odoo and RingFree with automated invoicing, bank payment reconciliation, and custom financial reports.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Fell ERP Development <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Sale, Purchase, Inventory, CRM, Exceptional Reports &middot; Python, Odoo 16</div>
+          <div class="desc">Centralized operational reporting engine consolidating sales, purchase, inventory, and CRM with daily exception reports and automated email notifications.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Silicon Signs ERP Customization <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Manufacturing, Sales, BOM Management, Production &middot; Python, Odoo 18 Enterprise</div>
+          <div class="desc">Custom BOM versioning and comparison system in Odoo 18 Manufacturing with client-specific BOM selection integrated into Manufacturing Orders.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Prime Global Imports ERP Customization <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Sales, Invoicing, UI Customization, Navigation &middot; Python, Odoo 18 Enterprise, QWeb</div>
+          <div class="desc">Enterprise UI/UX enhancements including a custom sidebar layout, enterprise-style home menu, and advanced QWeb report customization for sales and invoicing.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">ClearPath Orthodontics ERP</div>
+          <div class="meta">Modules: Manufacturing, Logistics, Sales, Inventory, HR &middot; Odoo 18 Enterprise, Python, Biometric</div>
+          <div class="desc">Doctor Portal for patient orders and prescriptions, manufacturing/BOM workflows, logistics tracking, and multi-branch biometric attendance.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Axis Marketing Management</div>
+          <div class="meta">Modules: CRM, Customer Portal, Contract Management, HR &middot; Odoo 19 Enterprise, Meta API</div>
+          <div class="desc">Marketing management system connected with Meta for campaign updates and lead sync, plus contract &amp; license lifecycle with automated renewal tracking.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">HRMS Bundle Migration (16 &rarr; 17) <span class="muted">&mdash; Axiom World</span></div>
+          <div class="meta">Modules: Employees, Payroll, Loans, HR Tax &middot; Python, PostgreSQL, Odoo 17</div>
+          <div class="desc">Migrated HR modules from Odoo 16 to 17 preserving complex payroll structures and loan installment logic with zero data loss.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Showroom Ecommerce &mdash; ERP &amp; App <span class="muted">&mdash; Aetos Technology</span></div>
+          <div class="meta">Modules: Sales, HR, Contracts, Payroll &middot; React Native, Odoo, Pavo ERP, REST API</div>
+          <div class="desc">Cross-platform React Native app placing orders directly into Odoo, with Odoo as the integration hub and failover layer syncing to Pavo ERP.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">PavoBixbox Web / App <span class="muted">&mdash; Aetos Technology</span></div>
+          <div class="meta">Python, Django, Firebase, Docker, Kotlin</div>
+          <div class="desc">Dockerized Django web app syncing orders, products, and customers with Firebase, integrated with a Kotlin Android app for real-time updates.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Idea Pitching App</div>
+          <div class="meta">Kotlin, Android, Firebase</div>
+          <div class="desc">Investor and pitcher collaboration app with a real-time Firebase chat system, authentication, and live feedback.</div>
+        </div>
+
+        <div class="proj">
+          <div class="pt">Simple CV Maker</div>
+          <div class="meta">HTML, Bootstrap, SQL, .NET MVC</div>
+          <div class="desc">Web CV builder letting users create and manage CVs stored in a SQL database, with registration and authentication.</div>
+        </div>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Certifications</td>
+      <td class="body">
+        <div class="block">
+          <div class="row-head"><span class="org">Business Development</span><span class="when">Jan 2023 - Jul 2023</span></div>
+          <div class="role">Lahore Garrison University</div>
+        </div>
+        <div class="block">
+          <div class="org">Docker Training Course for Absolute Beginners &mdash; KodeKloud</div>
+          <div class="muted" style="font-size:9pt;">learn.kodekloud.com/user/certificate/bfd06425-8f71-4af0-912a-e4bd6a1a2073</div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">Languages</td>
+      <td class="body">English &nbsp;&nbsp;&middot;&nbsp;&nbsp; Urdu</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</body>
+</html>
