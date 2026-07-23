@@ -107,13 +107,6 @@ contact = DATA["contact"]
 site = DATA["site"]
 client_count = sum(1 for p in DATA["projects"] if p["client"] not in STUDENT_CLIENTS)
 
-RESULTS = [
-    "500+ payment transactions per month automated via a custom Mastercard provider",
-    "Manual accounting data entry eliminated entirely through Sage to Odoo sync",
-    "40% reduction in sales order follow-up time via lifecycle automation",
-    "25% faster page load after ORM and query optimisation",
-    "Zero data loss across a full HR module migration from Odoo 16 to 17",
-]
 
 DOC = f"""<!DOCTYPE html>
 <html lang="en">
@@ -153,22 +146,14 @@ DOC = f"""<!DOCTYPE html>
 <p>{e(contact['location'])} | Phone: {e(contact['phone'])} | Email: {e(contact['email'])}</p>
 <p>LinkedIn: {e(contact['linkedin'].replace('https://', ''))} | GitHub: {e(contact['github'].replace('https://', ''))} | Portfolio: {e(site['url'].replace('https://', ''))}</p>
 
-<h2>Key Achievements</h2>
-<ul>
-{chr(10).join(f'<li>{e(r)}</li>' for r in RESULTS)}
-</ul>
-
-<h2>Work Experience</h2>
-{experience_html()}
-
 <h2>Technical Skills</h2>
 {skills_html()}
 
 <h2>Tools</h2>
 <p>{e(', '.join(TOOLS))}</p>
 
-<h2>Education</h2>
-{chr(10).join(f'<p><strong>{e(s)}</strong>, {e(d)}<br>{e(deg)}</p>' for s, deg, d in EDUCATION)}
+<h2>Work Experience</h2>
+{experience_html()}
 
 <h2>Projects</h2>
 {projects_html()}
@@ -178,6 +163,9 @@ DOC = f"""<!DOCTYPE html>
 
 <h2>Languages</h2>
 <p>English, Urdu</p>
+
+<h2>Education</h2>
+{chr(10).join(f'<p><strong>{e(s)}</strong>, {e(d)}<br>{e(deg)}</p>' for s, deg, d in EDUCATION)}
 
 </body>
 </html>
