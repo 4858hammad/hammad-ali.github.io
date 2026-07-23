@@ -38,9 +38,9 @@ experience:
     meta: "Full-time · Hybrid"
     summary: "Odoo development and ERP customization at TTI Testing Laboratories, focused on HR operations, workflow automation, and system integrations."
     highlights:
-      - "Built an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff direct access to HR records and request workflows"
-      - "Developed an attendance dashboard with OWL front-end components, consolidating check-in and check-out records into aggregated management reporting"
-      - "Built a Field Sales Person module with a custom OWL interface, linking sales representatives to customers and territories and feeding field activity into the Sales pipeline"
+      - "Built an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff self-service access to payslips, attendance records and HR data, raising missing-attendance requests, and routing leave requests to managers for approval"
+      - "Developed an attendance dashboard with OWL front-end components consolidating check-in and check-out records into aggregated management reporting, covering remote employee attendance, staff on leave, and late arrivals"
+      - "Built a Field Sales Person module with a custom OWL interface, linking sales representatives to customers and territories, tracking targets against achievement, and recording payment recoveries collected in the field"
       - "Built an employee loan management module covering request, approval, disbursement and payroll-linked installment recovery"
       - "Delivered POS and payment-gateway customisations across Odoo Accounting and Sales"
   - company: "Aetos Technologies"
@@ -124,20 +124,22 @@ projects:
     role: "Odoo Developer"
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-field-sales-person-module.png"
-    short_desc: "Custom Odoo module for managing field sales representatives and their activity"
-    full_desc: "Built a custom Odoo 18 Enterprise module to manage field sales representatives — assigning them to customers and territories, tracking their activity in the field, and feeding that activity back into the Sales pipeline. The field sales interface is built with custom OWL components in the Odoo web client."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "Sales", "CRM", "Custom Module", "Field Sales"]
-    modules: ["Sale", "CRM", "Contacts", "Employees"]
+    short_desc: "Odoo module for field sales reps: territories, targets vs achievement, and payment recovery"
+    full_desc: "Built a custom Odoo 18 Enterprise module to manage field sales representatives — assigning them to customers and territories, setting targets and measuring achievement against them, and payment recovery tracking for collections made during customer visits. Field activity feeds back into the Sales pipeline, and the interface is built with custom OWL components in the Odoo web client."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "Sales", "CRM", "Custom Module", "Field Sales", "Target Tracking", "Payment Recovery"]
+    modules: ["Sale", "CRM", "Contacts", "Employees", "Accounting"]
     tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
     highlights:
       - "Developed a custom module linking field sales representatives to customers and territories"
       - "Built the field sales interface with custom OWL components in the Odoo 18 web client"
+      - "Implemented target setting and achievement tracking per representative"
+      - "Built payment recovery tracking so collections made on customer visits are recorded against the account"
       - "Built activity tracking so field visits and outcomes are recorded against the Sales pipeline"
       - "Added reporting views for sales management to monitor field team performance"
       # FILL IN: visit / check-in tracking? GPS or geolocation?
       # FILL IN: mobile access — portal, Odoo mobile app, or a separate app?
       # FILL IN: order taking in the field, or visit logging only?
-      # FILL IN: target vs achievement tracking, commission calculation?
+      # FILL IN: commission calculated from achievement, or targets tracked only?
       # FILL IN: how many reps / territories does it handle?
 
   - id: "tti-employee-portal"
@@ -149,17 +151,18 @@ projects:
     role: "Odoo Developer"
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-employee-self-service-portal.png"
-    short_desc: "Odoo self-service portal giving staff direct access to HR records and requests"
-    full_desc: "Built an employee self-service portal on Odoo 18 Enterprise for TTI Testing Laboratories, giving staff direct access to their own HR records and request workflows without routing everything through the HR team. Portal access is scoped with Odoo record rules and access groups so each employee sees only their own data."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Portal", "Access Rules", "Security"]
-    modules: ["Employees", "HR", "Portal", "Timesheets"]
+    short_desc: "Odoo self-service portal for payslips, attendance, leave requests and manager approvals"
+    full_desc: "Built an employee self-service portal on Odoo 18 Enterprise for TTI Testing Laboratories. Staff access their own payslips, attendance records and HR data directly, raise missing-attendance corrections and leave requests, and managers approve leave from the same portal — taking HR out of the middle of every routine request. Access is scoped with Odoo record rules and access groups so each employee sees only their own data and each manager only their own team."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Portal", "Payroll", "Leave Management", "Access Rules", "Security"]
+    modules: ["Employees", "HR", "Portal", "Time Off", "Payroll", "Attendance"]
     tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "QWeb", "PostgreSQL"]
     highlights:
-      - "Built portal views giving employees self-service access to their own HR records"
-      - "Implemented request and approval workflows routed to the correct approver"
-      - "Applied Odoo record rules and access groups so each user sees only their own data"
-      - "Built portal interface components with OWL in the Odoo 18 web client"
-      - "Customised QWeb templates for portal pages and printable documents"
+      - "Built portal views giving employees self-service access to their own payslips, attendance records and HR data"
+      - "Implemented missing-attendance requests so staff can correct check-in and check-out gaps without going through HR"
+      - "Built leave request and manager approval workflows routed to the correct approver"
+      - "Applied Odoo record rules and access groups so employees see only their own data and managers only their own team"
+      - "Built the portal interface with custom OWL components in the Odoo 18 web client"
+      - "Customised QWeb templates for portal pages and printable payslip documents"
       # FILL IN: how many employees / branches does it serve?
       # FILL IN: what did it replace — email requests, paper forms, spreadsheets?
       # FILL IN: how does this differ from the Employee Portal claimed by
@@ -174,14 +177,16 @@ projects:
     role: "Odoo Developer"
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-attendance-dashboard-owl.png"
-    short_desc: "Consolidated attendance reporting and monitoring dashboard in Odoo"
-    full_desc: "Developed an attendance dashboard in Odoo 18 Enterprise consolidating check-in and check-out records into a single management view, with aggregated reporting across employees and time periods for HR and operations staff. The dashboard front end is built with custom OWL components."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Attendance", "Reporting", "Dashboard"]
-    modules: ["Attendance", "Employees", "HR", "Reporting"]
+    short_desc: "OWL dashboard consolidating on-site and remote attendance, leave and late arrivals"
+    full_desc: "Developed an attendance dashboard in Odoo 18 Enterprise consolidating check-in and check-out records into a single management view. It covers remote employees alongside on-site staff, surfaces who is currently on leave, and flags late arrivals, with aggregated reporting across employees and date ranges for HR and operations. The dashboard front end is built with custom OWL components."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Attendance", "Remote Work", "Leave Management", "Reporting", "Dashboard"]
+    modules: ["Attendance", "Employees", "HR", "Time Off", "Reporting"]
     tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
     highlights:
       - "Built the dashboard interface with custom OWL components in the Odoo 18 Enterprise web client"
-      - "Consolidated attendance records into a single management dashboard view"
+      - "Consolidated on-site and remote employee attendance into a single management view"
+      - "Surfaced staff currently on leave alongside attendance so managers see real available headcount"
+      - "Flagged late arrivals for management follow-up"
       - "Built aggregated attendance reporting across employees and date ranges"
       - "Optimised queries against large historical attendance datasets"
       # FILL IN: biometric device integration? which device / protocol?
