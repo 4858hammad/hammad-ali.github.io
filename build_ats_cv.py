@@ -30,6 +30,9 @@ STUDENT_CLIENTS = {"University Project", "Personal Project"}
 # Roles are merged by company so one tenure reads as one tenure. Order matters.
 MERGE = {"Aetos Technologies": "Jan 2025 - Apr 2026"}
 
+TOOLS = ["GitHub", "Postman", "PyCharm", "VS Code", "Android Studio",
+         "Docker", "Nginx", "Linux", "Google Colab"]
+
 EDUCATION = [
     ("Lahore Garrison University", "BS Computer Science", "Jul 2019 - Jul 2023"),
 ]
@@ -104,16 +107,6 @@ contact = DATA["contact"]
 site = DATA["site"]
 client_count = sum(1 for p in DATA["projects"] if p["client"] not in STUDENT_CLIENTS)
 
-SUMMARY = (
-    f"Odoo ERP developer with 3+ years delivering production ERP systems across "
-    f"Odoo 16, 17, 18 and 19 in both Community and Enterprise environments. "
-    f"Specialised in custom module development, third-party integrations (payment "
-    f"gateways, accounting systems, REST APIs) and version migrations, with OWL "
-    f"front-end work on Odoo 18 Enterprise. Delivered {client_count} client projects "
-    f"across manufacturing, laboratory, clinical and e-commerce sectors, and led a "
-    f"3-engineer Odoo team through client delivery and production releases."
-)
-
 RESULTS = [
     "500+ payment transactions per month automated via a custom Mastercard provider",
     "Manual accounting data entry eliminated entirely through Sage to Odoo sync",
@@ -160,28 +153,28 @@ DOC = f"""<!DOCTYPE html>
 <p>{e(contact['location'])} | Phone: {e(contact['phone'])} | Email: {e(contact['email'])}</p>
 <p>LinkedIn: {e(contact['linkedin'].replace('https://', ''))} | GitHub: {e(contact['github'].replace('https://', ''))} | Portfolio: {e(site['url'].replace('https://', ''))}</p>
 
-<h2>Professional Summary</h2>
-<p>{e(SUMMARY)}</p>
-
 <h2>Key Achievements</h2>
 <ul>
 {chr(10).join(f'<li>{e(r)}</li>' for r in RESULTS)}
 </ul>
 
+<h2>Work Experience</h2>
+{experience_html()}
+
 <h2>Technical Skills</h2>
 {skills_html()}
 
-<h2>Work Experience</h2>
-{experience_html()}
+<h2>Tools</h2>
+<p>{e(', '.join(TOOLS))}</p>
 
 <h2>Education</h2>
 {chr(10).join(f'<p><strong>{e(s)}</strong>, {e(d)}<br>{e(deg)}</p>' for s, deg, d in EDUCATION)}
 
-<h2>Certifications</h2>
-{chr(10).join(f'<p>{e(n)}, {e(d)}</p>' for n, d in CERTIFICATIONS)}
-
 <h2>Projects</h2>
 {projects_html()}
+
+<h2>Certifications</h2>
+{chr(10).join(f'<p>{e(n)}, {e(d)}</p>' for n, d in CERTIFICATIONS)}
 
 <h2>Languages</h2>
 <p>English, Urdu</p>
