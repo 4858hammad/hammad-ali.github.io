@@ -22,26 +22,27 @@ contact:
   remote: true
 
 stats:
-  - label: "Client projects delivered"
-    value: "10"
-  - label: "Projects built"
-    value: "15"
-  - label: "Years experience"
-    value: "3+"
   - label: "Odoo versions"
     value: "16/17/18/19"
+  - label: "Client projects delivered"
+    value: "14"
+  - label: "Projects built"
+    value: "19"
+  - label: "Years experience"
+    value: "3+"
 
 experience:
   - company: "TTI Testing Laboratories"
     role: "Python / Odoo Developer"
     period: "May 2026 - Present"
     meta: "Full-time · Hybrid"
-    summary: "Leading Odoo development and ERP customization at TTI Testing Laboratories, focusing on scalable ERP solutions, workflow automation, and system integrations."
+    summary: "Odoo development and ERP customization at TTI Testing Laboratories, focused on HR operations, workflow automation, and system integrations."
     highlights:
-      - "Leading Odoo development and ERP customization at TTI Testing Laboratories"
-      - "Working on advanced Odoo customization, API integrations, POS & payment gateway solutions"
-      - "Optimizing PostgreSQL performance and Docker deployments"
-      - "Driving performance improvements using Python and Odoo technologies"
+      - "Built an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff direct access to HR records and request workflows"
+      - "Developed an attendance dashboard with OWL front-end components, consolidating check-in and check-out records into aggregated management reporting"
+      - "Built a Field Sales Person module with a custom OWL interface, linking sales representatives to customers and territories and feeding field activity into the Sales pipeline"
+      - "Built an employee loan management module covering request, approval, disbursement and payroll-linked installment recovery"
+      - "Delivered POS and payment-gateway customisations across Odoo Accounting and Sales"
   - company: "Aetos Technologies"
     role: "Team Lead"
     period: "Jan 2026 - Apr 2026"
@@ -83,13 +84,14 @@ experience:
       - "Collaborated on feature design, testing, and QA across releases"
 
 skills:
-  # NOTE (audit 3.3): OWL, Odoo.sh, OAuth 2.0 and JSON-RPC had no supporting project
-  # or bullet anywhere in this file. They have been removed rather than left
-  # unevidenced. Add each back the day a project below can demonstrate it.
+  # NOTE: OWL is listed because three shipped Odoo 18 Enterprise modules use it
+  # (employee portal, attendance dashboard, field sales). Odoo.sh, OAuth 2.0 and
+  # JSON-RPC remain OUT - no project in this file evidences them. Add each back
+  # the day a project below can demonstrate it.
   - category: "ERP / Odoo"
-    items: ["Odoo 16/17/18/19", "Odoo ORM", "QWeb", "XML Views", "Community & Enterprise"]
+    items: ["Odoo 16/17/18/19", "Odoo ORM", "OWL", "QWeb", "XML Views", "Community & Enterprise"]
   - category: "Backend"
-    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL"]
+    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL", "JavaScript"]
   - category: "Integrations"
     items: ["Mastercard", "Sage API", "RingFree", "Meta API", "Firebase", "Biometric Devices"]
   - category: "DevOps"
@@ -98,6 +100,118 @@ skills:
     items: ["Android", "Java", "Kotlin", "React Native", "Firebase"]
 
 projects:
+  # ─── TTI Testing Laboratories · May 2026 - Present ─────────────────────────
+  # All four confirmed as Odoo 18 Enterprise. OWL used in the employee portal,
+  # attendance dashboard and field sales module (not loan management).
+  #
+  # ⚠️ These are the only four projects in this file with NO metrics. Every other
+  # entry has a number. See the FILL IN markers on each.
+  #
+  # ⚠️ DUPLICATION CHECK: "Employee Portal" and "attendance" are also claimed by
+  # clearpath-orthodontics AND axis-marketing, both still labelled "Internal
+  # Project", 2026. Either those ARE this TTI work under a different label, or
+  # they are separate builds — in which case each description must say HOW it
+  # differs. A lab's attendance problem is not an orthodontics clinic's, and
+  # naming the difference turns apparent padding into a repeatable specialism.
+
+  # TO CONFIRM: employer. TTI is assumed; it may be Aetos or personal work.
+  - id: "field-sales-person"
+    title: "Field Sales Person Module"
+    category: "odoo"
+    featured: false
+    year: 2026
+    client: "TTI Testing Laboratories"    # TO CONFIRM
+    role: "Odoo Developer"
+    odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-field-sales-person-module.png"
+    short_desc: "Custom Odoo module for managing field sales representatives and their activity"
+    full_desc: "Built a custom Odoo 18 Enterprise module to manage field sales representatives — assigning them to customers and territories, tracking their activity in the field, and feeding that activity back into the Sales pipeline. The field sales interface is built with custom OWL components in the Odoo web client."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "Sales", "CRM", "Custom Module", "Field Sales"]
+    modules: ["Sale", "CRM", "Contacts", "Employees"]
+    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
+    highlights:
+      - "Developed a custom module linking field sales representatives to customers and territories"
+      - "Built the field sales interface with custom OWL components in the Odoo 18 web client"
+      - "Built activity tracking so field visits and outcomes are recorded against the Sales pipeline"
+      - "Added reporting views for sales management to monitor field team performance"
+      # FILL IN: visit / check-in tracking? GPS or geolocation?
+      # FILL IN: mobile access — portal, Odoo mobile app, or a separate app?
+      # FILL IN: order taking in the field, or visit logging only?
+      # FILL IN: target vs achievement tracking, commission calculation?
+      # FILL IN: how many reps / territories does it handle?
+
+  - id: "tti-employee-portal"
+    title: "Employee Self-Service Portal"
+    category: "odoo"
+    featured: true
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Odoo Developer"
+    odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-employee-self-service-portal.png"
+    short_desc: "Odoo self-service portal giving staff direct access to HR records and requests"
+    full_desc: "Built an employee self-service portal on Odoo 18 Enterprise for TTI Testing Laboratories, giving staff direct access to their own HR records and request workflows without routing everything through the HR team. Portal access is scoped with Odoo record rules and access groups so each employee sees only their own data."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Portal", "Access Rules", "Security"]
+    modules: ["Employees", "HR", "Portal", "Timesheets"]
+    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "QWeb", "PostgreSQL"]
+    highlights:
+      - "Built portal views giving employees self-service access to their own HR records"
+      - "Implemented request and approval workflows routed to the correct approver"
+      - "Applied Odoo record rules and access groups so each user sees only their own data"
+      - "Built portal interface components with OWL in the Odoo 18 web client"
+      - "Customised QWeb templates for portal pages and printable documents"
+      # FILL IN: how many employees / branches does it serve?
+      # FILL IN: what did it replace — email requests, paper forms, spreadsheets?
+      # FILL IN: how does this differ from the Employee Portal claimed by
+      #          clearpath-orthodontics and axis-marketing? (see duplication note)
+
+  - id: "tti-attendance-dashboard"
+    title: "Attendance Dashboard"
+    category: "odoo"
+    featured: true
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Odoo Developer"
+    odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-attendance-dashboard-owl.png"
+    short_desc: "Consolidated attendance reporting and monitoring dashboard in Odoo"
+    full_desc: "Developed an attendance dashboard in Odoo 18 Enterprise consolidating check-in and check-out records into a single management view, with aggregated reporting across employees and time periods for HR and operations staff. The dashboard front end is built with custom OWL components."
+    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Attendance", "Reporting", "Dashboard"]
+    modules: ["Attendance", "Employees", "HR", "Reporting"]
+    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
+    highlights:
+      - "Built the dashboard interface with custom OWL components in the Odoo 18 Enterprise web client"
+      - "Consolidated attendance records into a single management dashboard view"
+      - "Built aggregated attendance reporting across employees and date ranges"
+      - "Optimised queries against large historical attendance datasets"
+      # FILL IN: biometric device integration? which device / protocol?
+      #          (clearpath-orthodontics claims biometric attendance — same work?)
+      # FILL IN: any measurable result — hours saved, report time reduced?
+
+  - id: "tti-loan-management"
+    title: "Employee Loan Management"
+    category: "odoo"
+    featured: false
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Odoo Developer"
+    odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-employee-loan-management.png"
+    short_desc: "Odoo loan request, approval and installment deduction workflow"
+    full_desc: "Built an employee loan management module in Odoo 18 Enterprise covering the full loan lifecycle — request, approval, disbursement and installment recovery — with deductions flowing through to payroll."
+    tags: ["Python", "Odoo 18", "Enterprise", "HR", "Payroll", "Loans", "Custom Module"]
+    modules: ["Employees", "Payroll", "Loans", "Accounting"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Developed the full loan lifecycle: request, approval, disbursement and recovery"
+      - "Built an installment schedule with automatic deduction against payroll"
+      - "Implemented approval routing and status tracking for loan requests"
+      # FILL IN: skip / deferral logic for missed installments?
+      # FILL IN: does it post journal entries to Accounting?
+      # FILL IN: loan volume or value processed?
+      # NOTE: hrms-migration already claims "loan installment and skip logic" —
+      #       if that experience informed this build, say so; it is a strength.
+
   - id: "sage-integration"
     title: "Sage Integration"
     category: "odoo"
@@ -140,7 +254,7 @@ projects:
   - id: "tazah-sale-flow"
     title: "Tazah Technologies — Sale Order Flow"
     category: "odoo"
-    featured: true
+    featured: false
     year: 2025
     client: "Aetos Technologies"
     role: "Lead Developer"
@@ -187,7 +301,7 @@ projects:
   - id: "silicon-signs-erp"
     title: "Silicon Signs ERP Customization"
     category: "odoo"
-    featured: false
+    featured: true
     year: 2025
     client: "Axiom World"
     role: "Lead Developer"
@@ -234,7 +348,7 @@ projects:
   - id: "fell-erp"
     title: "Fell ERP Development"
     category: "odoo"
-    featured: true
+    featured: false
     year: 2024
     client: "Axiom World"
     role: "Lead Developer"
@@ -308,7 +422,7 @@ projects:
   - id: "hrms-migration"
     title: "HRMS Bundle Migration (16 → 17)"
     category: "odoo"
-    featured: false
+    featured: true
     year: 2024
     client: "Axiom World"
     role: "Junior Developer"

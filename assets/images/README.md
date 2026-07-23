@@ -23,6 +23,10 @@ single biggest conversion problem on the site.
 
 | File | Project | Suggested shot |
 |---|---|---|
+| `odoo-employee-self-service-portal.png` | TTI Employee Portal | The portal landing view — OWL work, lead with it |
+| `odoo-attendance-dashboard-owl.png` | TTI Attendance Dashboard | The OWL dashboard with aggregated data. Your strongest OWL evidence |
+| `odoo-field-sales-person-module.png` | Field Sales Person | Rep/territory assignment, or the OWL field interface |
+| `odoo-employee-loan-management.png` | TTI Loan Management | Loan request form + installment schedule |
 | `odoo-sage-accounting-integration.png` | Sage Integration | Sync pipeline diagram, or the synced invoice list in Odoo Accounting |
 | `odoo-mastercard-payment-provider.png` | Mastercard Payment Provider | Payment provider config screen + a completed transaction |
 | `odoo-bom-versioning-manufacturing.png` | Silicon Signs ERP | The BOM comparison view — your most technically impressive screen |
