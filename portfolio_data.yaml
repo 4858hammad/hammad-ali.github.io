@@ -38,11 +38,11 @@ experience:
     meta: "Full-time · Hybrid"
     summary: "Odoo development and ERP customization at TTI Testing Laboratories, focused on HR operations, workflow automation, and system integrations."
     highlights:
-      - "Built an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff self-service access to payslips, attendance records and HR data, raising missing-attendance requests, and routing leave requests to managers for approval"
-      - "Developed an attendance dashboard with OWL front-end components consolidating check-in and check-out records into aggregated management reporting, covering remote employee attendance, staff on leave, and late arrivals"
-      - "Built a Field Sales Person module with a custom OWL interface, linking sales representatives to customers and territories, tracking targets against achievement, and recording payment recoveries collected in the field"
-      - "Built an employee loan management module covering request, approval, disbursement and payroll-linked installment recovery"
-      - "Delivered POS and payment-gateway customisations across Odoo Accounting and Sales"
+      - "Developed an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff self-service access to payslips, attendance records and HR data, raising missing-attendance corrections, and routing leave requests to managers for approval"
+      - "Designed an attendance dashboard with custom OWL components consolidating check-in and check-out records into a single management view across remote and on-site staff, surfacing who is on leave and flagging late arrivals"
+      - "Engineered a Field Sales Person module with a custom OWL interface covering rep-to-customer and territory assignment, targets versus achievement, and field payment recovery"
+      - "Automated the full employee loan lifecycle — request, approval, disbursement and payroll-linked installment recovery"
+      - "Extended Odoo Accounting and Sales with POS and payment-gateway customisations"
   - company: "Aetos Technologies"
     role: "Team Lead"
     period: "Jan 2026 - Apr 2026"
@@ -50,18 +50,18 @@ experience:
     summary: "Led Odoo development team and handled integrations across accounting, CRM, sales, inventory, and clinical workflows."
     highlights:
       - "Led Odoo development team of 3 engineers delivering ERP solutions across Accounting, CRM, Sales, and Inventory"
-      - "Built Sage ↔ Odoo integration that eliminated manual data entry (100% automation)"
-      - "Integrated the Doctor portal with the ClearPath Odoo ERP system"
-      - "Coordinated delivery across client requirements, support, and production releases"
+      - "Eliminated manual accounting data entry entirely with a Sage ↔ Odoo sync engine (100% automation)"
+      - "Connected the ClearPath Doctor Portal to the Odoo ERP for patient orders, prescriptions and clinical workflows"
+      - "Owned delivery end to end: requirements gathering, client support, code review and production releases"
   - company: "Aetos Technologies"
     role: "Odoo Developer"
     period: "Jan 2025 - Dec 2025"
     meta: "Full-time · Lahore, Punjab, Pakistan"
     summary: "Delivered automation, integrations, migration work, and sales workflows across multiple client projects."
     highlights:
-      - "Developed Mastercard payment module and automated 500+ transactions per month"
-      - "Created Sale Order automation that reduced follow-up time by 40%"
-      - "Integrated REST APIs (RingFree, Firebase) for billing and automation"
+      - "Shipped a custom Mastercard payment provider handling 500+ transactions per month"
+      - "Designed a Sale Order lifecycle flow from quotation to payment, cutting order follow-up time ~40%"
+      - "Connected RingFree and Firebase REST APIs to drive automated invoicing and reconciliation"
       - "Led Odoo 16 to 17 migration with zero data loss"
   - company: "Axiom World"
     role: "Python Developer"
@@ -69,31 +69,30 @@ experience:
     meta: "Full-time · On-site"
     summary: "Developed custom Odoo modules, improved performance, and replaced manual workflows with API-driven processes."
     highlights:
-      - "Developed 5+ custom Odoo modules (Sales, Inventory, Accounting)"
-      - "Improved system performance and reduced load time by 25%"
-      - "Integrated third-party APIs and removed manual CSV workflows"
-      - "Customized reports (QWeb) and dashboards for business insights"
+      - "Delivered 5+ custom Odoo modules across Sales, Inventory and Accounting"
+      - "Cut page load time 25% through ORM refactoring and query optimisation"
+      - "Replaced manual CSV workflows with direct third-party API connections"
+      - "Produced QWeb reports and management dashboards for operational reporting"
   - company: "Hazel Mobile"
     role: "Mobile Application Developer"
     period: "Aug 2022 - Nov 2022"
     meta: "Internship"
     summary: "Worked on Android application development and UI patterns during internship."
     highlights:
-      - "Built Android application features using Java and Kotlin"
-      - "Applied MVC and MVVM patterns in app development"
-      - "Collaborated on feature design, testing, and QA across releases"
+      - "Shipped Android features in Java and Kotlin across multiple releases, applying MVC and MVVM patterns, and contributed to feature design, testing and QA"
 
 skills:
-  # NOTE: OWL is listed because three shipped Odoo 18 Enterprise modules use it
-  # (employee portal, attendance dashboard, field sales). Odoo.sh, OAuth 2.0 and
-  # JSON-RPC remain OUT - no project in this file evidences them. Add each back
-  # the day a project below can demonstrate it.
+  # OWL is listed because three shipped Odoo 18 Enterprise modules use it.
+  # Odoo.sh, OAuth 2.0 and JSON-RPC stay OUT - no project here evidences them.
+  # Add each back the day a project can demonstrate it.
   - category: "ERP / Odoo"
-    items: ["Odoo 16/17/18/19", "Odoo ORM", "OWL", "QWeb", "XML Views", "Community & Enterprise"]
+    items: ["Odoo 16/17/18/19", "Community & Enterprise", "Odoo ORM", "QWeb", "XML Views", "OWL", "Module Development", "Version Migration", "Record Rules & Access Groups"]
   - category: "Backend"
-    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL", "JavaScript"]
+    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL", "SQL", "JavaScript"]
   - category: "Integrations"
     items: ["Mastercard", "Sage API", "RingFree", "Meta API", "Firebase", "Biometric Devices"]
+  - category: "Functional"
+    items: ["Sales", "CRM", "Purchase", "Inventory", "Accounting", "Manufacturing (MRP/BOM)", "HR & Payroll"]
   - category: "DevOps"
     items: ["Docker", "Git", "Linux", "Nginx"]
   - category: "Mobile"
