@@ -523,7 +523,7 @@ a {
   font-weight: 600;
 }
 
-.page-hero h2 {
+.page-hero h1, .page-hero h2 {
   font-size: 24px;
   font-weight: 700;
   color: var(--color-text-primary);

@@ -1,5 +1,24 @@
 // Assets Application - Dynamic YAML loader and template renderer
 (function() {
+  // Canonical origin for this site. Verified live 2026-07-23. Change this ONE
+  // line (and the <link rel="canonical"> / og:url tags in the HTML heads) if you
+  // buy a domain or rename the repo to 4858hammad.github.io.
+  const SITE_BASE = 'https://4858hammad.github.io/hammad-ali.github.io';
+
+  // Everything below is interpolated into innerHTML. Escape it so an apostrophe
+  // or ampersand in the YAML cannot break the markup.
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // Optional list fields (README documents modules/tags as optional, but the
+  // renderers used to assume they were always present and threw without them).
+  function list(v) {
+    return Array.isArray(v) ? v : [];
+  }
+
   // Load js-yaml CDN library dynamically if needed
   function initYAML(callback) {
     if (typeof jsyaml !== 'undefined') {
@@ -36,6 +55,20 @@
     return path.split('/').pop().toLowerCase();
   }
 
+  // Set/replace a <meta> or <link> in <head> so JS-rendered pages still emit a
+  // unique description and canonical per project (project.html is one template
+  // serving 15 URLs; without this Google sees one page called "Project Details").
+  function setMeta(selector, attr, value) {
+    let el = document.head.querySelector(selector);
+    if (!el) {
+      el = document.createElement(selector.startsWith('link') ? 'link' : 'meta');
+      const m = selector.match(/\[(\w+)="([^"]+)"\]/);
+      if (m) el.setAttribute(m[1], m[2]);
+      document.head.appendChild(el);
+    }
+    el.setAttribute(attr, value);
+  }
+
   function getCategoryIcon(cat) {
     if (cat === 'odoo') return '⚙';
     if (cat === 'android') return '📱';
@@ -62,7 +95,7 @@
     }
     
     return `
-      <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img src="${esc(project.image)}" alt="${esc(project.title)} — ${esc(project.category)} project screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="img-placeholder ${project.category}" style="display:none; width:100%; height:100%;">
         <span class="icon">${getCategoryIcon(project.category)}</span>
         <span class="category-badge">${project.category}</span>
@@ -81,25 +114,44 @@
   initYAML(async function() {
     const data = await loadData();
     if (!data) {
-      document.body.innerHTML = '<div style="color:red; text-align:center; padding:50px;">Failed to load site configurations. Ensure portfolio_data.yaml is in the root directory.</div>';
+      // Do not wipe document.body — the hero, contact details and noscript
+      // fallback are real content and should survive a failed data fetch
+      // (e.g. cdnjs blocked by a corporate firewall). Prepend a notice instead.
+      const banner = document.createElement('div');
+      banner.setAttribute('role', 'alert');
+      banner.style.cssText = 'background:#fdecec; color:#8a1c1c; text-align:center; padding:12px; font-size:13px;';
+      banner.textContent = 'Some content could not be loaded. Email hammadali4858@gmail.com or call +92 320 248 5828.';
+      document.body.prepend(banner);
       return;
     }
 
-    // Set page title dynamically
+    // Titles: every static page now carries a hand-written, keyword-bearing
+    // <title> in its own <head>. Do NOT overwrite those here — doing so replaced
+    // them with short generic ones in the rendered DOM, which is what Google and
+    // the LinkedIn preview bot actually read. Only project.html needs a runtime
+    // title, because one template serves every project.
     const pageName = getActivePage();
-    let pageTitle = data.site.name;
-    if (pageName === 'odoo.html') pageTitle = `Odoo ERP Projects - ${data.site.name}`;
-    else if (pageName === 'android.html') pageTitle = `Android Projects - ${data.site.name}`;
-    else if (pageName === 'web.html') pageTitle = `Web Projects - ${data.site.name}`;
-    else if (pageName === 'experience.html') pageTitle = `Experience - ${data.site.name}`;
-    else if (pageName === 'project.html') {
+    let pageTitle = null;
+    if (pageName === 'project.html') {
       const urlParams = new URLSearchParams(window.location.search);
       const projId = urlParams.get('id');
       const proj = data.projects.find(p => p.id === projId);
-      if (proj) pageTitle = `${proj.title} - ${data.site.name}`;
-    } else if (pageName === 'contact.html') pageTitle = `Contact - ${data.site.name}`;
-    
-    document.title = pageTitle;
+      if (proj) {
+        const versionPart = proj.odoo_version ? ` — ${proj.odoo_version}` : '';
+        pageTitle = `${proj.title}${versionPart} Case Study | ${data.site.name}`;
+        setMeta('meta[name="description"]', 'content', proj.short_desc || '');
+        setMeta('link[rel="canonical"]', 'href', `${SITE_BASE}/project.html?id=${proj.id}`);
+        setMeta('meta[property="og:title"]', 'content', pageTitle);
+        setMeta('meta[property="og:description"]', 'content', proj.short_desc || '');
+        setMeta('meta[property="og:url"]', 'content', `${SITE_BASE}/project.html?id=${proj.id}`);
+        if (proj.image) {
+          setMeta('meta[property="og:image"]', 'content', `${SITE_BASE}/${proj.image}`);
+          setMeta('meta[name="twitter:image"]', 'content', `${SITE_BASE}/${proj.image}`);
+        }
+      }
+    }
+
+    if (pageTitle) document.title = pageTitle;
 
     // Render Shared Navigation & Header Shell
     renderNavigation(data);
@@ -224,7 +276,7 @@
           </div>
           <div class="exp-project-desc">${project.full_desc || project.short_desc}</div>
           <div class="exp-project-tags">
-            ${project.tags.slice(0, 4).map(tag => `<span class="skill-pill">${tag}</span>`).join('')}
+            ${list(project.tags).slice(0, 4).map(tag => `<span class="skill-pill">${tag}</span>`).join('')}
           </div>
         </div>
       `).join('');
@@ -275,19 +327,10 @@
     const heroDesc = document.getElementById('hero-desc');
     const btnRow = document.getElementById('btn-row');
 
-    if (heroTag) heroTag.innerText = "Python · Odoo ERP · Backend";
-    if (heroTitle) heroTitle.innerHTML = `Building ERP solutions<br/>that <em>actually work</em> for your business`;
-    if (heroDesc) heroDesc.innerText = `I'm ${data.site.name} — ${data.site.tagline} with ${data.stats.find(s=>s.label.includes('experience'))?.value || '3+ years'} delivering custom modules, API integrations, and automated workflows for real clients.`;
-
-    if (btnRow) {
-      btnRow.innerHTML = `
-        <a href="odoo.html" class="btn-primary">View Projects</a>
-        <a href="assets/Developer_hammad.pdf" download class="btn-outline" id="cv-download-btn">Download CV</a>
-      `;
-      // Let's resolve the path to CV - the PDF is "Developer hammad.pdf" in the parent folder,
-      // but in order to host it, the user will upload it to "assets/Developer_hammad.pdf".
-      // We will point the download link there.
-    }
+    // Hero copy now lives in index.html so that crawlers and no-JS clients see
+    // it. Do not overwrite it here — that would duplicate the same string in two
+    // places and let them drift apart.
+    void heroTag; void heroTitle; void heroDesc; void btnRow;
 
     // 2. Stats
     const statsContainer = document.getElementById('stats-container');
@@ -341,7 +384,7 @@
               <div class="proj-desc">${proj.short_desc}</div>
               <div class="proj-tags">
                 <span class="tag ${colorClass}">${proj.category === 'odoo' ? 'Odoo' : proj.category === 'android' ? 'Android' : 'Web'}</span>
-                ${proj.tags.slice(0, 2).map(tag => `<span class="tag ${colorClass}">${tag}</span>`).join('')}
+                ${list(proj.tags).slice(0, 2).map(tag => `<span class="tag ${colorClass}">${tag}</span>`).join('')}
               </div>
             </div>
           </div>
@@ -374,7 +417,7 @@
     
     // Collect all unique tags for filter subnav
     const tagsSet = new Set();
-    odooProjects.forEach(p => p.tags.forEach(t => tagsSet.add(t)));
+    odooProjects.forEach(p => list(p.tags).forEach(t => tagsSet.add(t)));
     const uniqueTags = Array.from(tagsSet);
 
     // Render filter bar buttons
@@ -401,7 +444,7 @@
       let filtered = odooProjects;
       if (tagFilter !== 'all') {
         filtered = sortProjectsNewestFirst(
-          odooProjects.filter(p => p.tags.includes(tagFilter))
+          odooProjects.filter(p => list(p.tags).includes(tagFilter))
         );
       }
 
@@ -411,9 +454,9 @@
       }
 
       listContainer.innerHTML = filtered.map(proj => {
-        const modulesStr = proj.modules.length > 0 
-          ? `<strong>Modules:</strong> ${proj.modules.join(' · ')}` 
-          : `<strong>Tech:</strong> ${proj.tech_stack.join(' · ')}`;
+        const modulesStr = list(proj.modules).length > 0
+          ? `<strong>Modules:</strong> ${esc(list(proj.modules).join(' · '))}`
+          : `<strong>Tech:</strong> ${esc(list(proj.tech_stack).join(' · '))}`;
 
         return `
           <div class="pcard" onclick="window.location.href='project.html?id=${proj.id}'">
@@ -427,7 +470,7 @@
               </div>
               <div class="pcard-desc">${proj.full_desc || proj.short_desc}</div>
               <div class="pcard-tags">
-                ${proj.tags.map(t => `<span class="tg">${t}</span>`).join('')}
+                ${list(proj.tags).map(t => `<span class="tg">${esc(t)}</span>`).join('')}
               </div>
               <div class="pcard-modules">${modulesStr}</div>
               <div class="view-btn">View details →</div>
@@ -452,7 +495,7 @@
 
     // Collect tags
     const tagsSet = new Set();
-    androidProjects.forEach(p => p.tags.forEach(t => tagsSet.add(t)));
+    androidProjects.forEach(p => list(p.tags).forEach(t => tagsSet.add(t)));
     const uniqueTags = Array.from(tagsSet);
 
     const filterBar = document.getElementById('filter-bar');
@@ -477,7 +520,7 @@
       let filtered = androidProjects;
       if (tagFilter !== 'all') {
         filtered = sortProjectsNewestFirst(
-          androidProjects.filter(p => p.tags.includes(tagFilter))
+          androidProjects.filter(p => list(p.tags).includes(tagFilter))
         );
       }
 
@@ -495,7 +538,7 @@
             <div class="aname">${proj.title}</div>
             <div class="adesc">${proj.short_desc}</div>
             <div class="atgs">
-              ${proj.tags.map(t => `<span class="atg">${t}</span>`).join('')}
+              ${list(proj.tags).map(t => `<span class="atg">${esc(t)}</span>`).join('')}
             </div>
             <span class="view4">View details →</span>
           </div>
@@ -518,7 +561,7 @@
 
     // Collect tags
     const tagsSet = new Set();
-    webProjects.forEach(p => p.tags.forEach(t => tagsSet.add(t)));
+    webProjects.forEach(p => list(p.tags).forEach(t => tagsSet.add(t)));
     const uniqueTags = Array.from(tagsSet);
 
     const filterBar = document.getElementById('filter-bar');
@@ -543,7 +586,7 @@
       let filtered = webProjects;
       if (tagFilter !== 'all') {
         filtered = sortProjectsNewestFirst(
-          webProjects.filter(p => p.tags.includes(tagFilter))
+          webProjects.filter(p => list(p.tags).includes(tagFilter))
         );
       }
 
@@ -584,8 +627,14 @@
       return;
     }
 
-    // Find project
-    const sortedProjects = sortProjectsNewestFirst(data.projects);
+    // Find project. Navigate within the current category only — previously this
+    // sorted across every category, so "Next" from an Odoo project could land on
+    // an Android app while the "Back to Odoo ERP Projects" link stayed put.
+    const projectRecord = data.projects.find(p => p.id === projId);
+    const sortedProjects = sortProjectsNewestFirst(
+      projectRecord ? data.projects.filter(p => p.category === projectRecord.category)
+                    : data.projects
+    );
     const projectIndex = sortedProjects.findIndex(p => p.id === projId);
     if (projectIndex === -1) {
       window.location.href = 'index.html';
@@ -631,7 +680,7 @@
       detailSub.innerText = `${project.client} · ${project.year} · ${displayCategory}`;
     }
     if (detailTags) {
-      detailTags.innerHTML = project.tags.map(t => `<span class="dtg">${t}</span>`).join('');
+      detailTags.innerHTML = list(project.tags).map(t => `<span class="dtg">${esc(t)}</span>`).join('');
     }
     if (aboutText) {
       aboutText.innerText = project.full_desc || project.short_desc;
@@ -728,11 +777,11 @@
     }
     if (linkedinVal) {
       const username = data.contact.linkedin.split('/').pop();
-      linkedinVal.innerHTML = `<a href="${data.contact.linkedin}" target="_blank">linkedin.com/in/${username}</a>`;
+      linkedinVal.innerHTML = `<a href="${esc(data.contact.linkedin)}" target="_blank" rel="noopener">linkedin.com/in/${esc(username)}</a>`;
     }
     if (githubVal) {
       const username = data.contact.github.split('/').pop();
-      githubVal.innerHTML = `<a href="${data.contact.github}" target="_blank">github.com/in/${username}</a>`;
+      githubVal.innerHTML = `<a href="${esc(data.contact.github)}" target="_blank" rel="noopener">github.com/${esc(username)}</a>`;
     }
     if (locationVal) {
       locationVal.innerText = `${data.contact.location}${data.contact.remote ? ' (Remote OK)' : ''}`;

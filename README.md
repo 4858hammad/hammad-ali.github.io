@@ -2,7 +2,16 @@
 
 A premium, high-converting, responsive developer portfolio built specifically for **Hammad Ali (Python & Odoo ERP Consultant)**.
 
-This portfolio is **100% static yet fully dynamic**. It uses a single YAML file (`portfolio_data.yaml`) as its single source of truth. All pages fetch, parse, and render content dynamically at runtime using `js-yaml` via CDN. There are absolutely no build steps, and no content is hardcoded in the HTML files.
+Static site, no build step. `portfolio_data.yaml` holds the project and CV
+content; `assets/app.js` fetches it at runtime, parses it with `js-yaml`, and
+renders each page.
+
+**Caveat on "no content is hardcoded":** three things are, deliberately.
+The home-page hero copy and the `<noscript>` block live in `index.html` so
+crawlers and no-JS clients see real content. Education and certifications are in
+`experience.html`. And `app.js` hardcodes five project IDs for the "Selected
+work" section on the experience page — rename one of those IDs in the YAML and
+that section silently empties.
 
 ---
 
@@ -10,17 +19,27 @@ This portfolio is **100% static yet fully dynamic**. It uses a single YAML file 
 
 ```text
 hammad-ali.github.io/
-├── index.html          # Home page
-├── odoo.html           # Odoo ERP projects listing
+├── index.html          # Home page (+ JSON-LD Person schema, noscript fallback)
+├── odoo.html           # Odoo ERP projects listing (10 client projects)
 ├── android.html        # Android projects listing
 ├── web.html            # Web / other projects listing
+├── experience.html     # Work history, skills, education, CV download
 ├── project.html        # Reusable single project detail template
-├── contact.html        # Contact page with interactive Formspree AJAX form
-├── portfolio_data.yaml # Single source of truth (all portfolio content)
-├── README.md           # Setup and deployment instructions
+├── contact.html        # Contact page with Formspree AJAX form
+├── 404.html            # Custom not-found page (served by GitHub Pages)
+├── robots.txt          # Points crawlers at the sitemap
+├── sitemap.xml         # All indexable URLs
+├── favicon.ico
+├── apple-touch-icon.png
+├── portfolio_data.yaml # Single source of truth for project & CV content
+├── README.md
 └── assets/
-    ├── style.css       # Premium responsive shared CSS
-    └── app.js          # JS parsing engine & dynamic template renderer
+    ├── style.css       # Shared responsive CSS
+    ├── app.js          # YAML loader, renderer, runtime meta tags
+    ├── Developer_hammad.pdf
+    └── images/
+        ├── README.md   # ⚠️ Screenshot checklist — most files still missing
+        └── og-cover.png
 ```
 
 ---
@@ -47,38 +66,63 @@ Then, open the printed local URL (usually [http://localhost:3000](http://localho
 
 ---
 
-## 🚀 GitHub Pages Deployment
+## 🚀 Deployment & site URL
 
-1. **Push Code to GitHub:**
-   Commit all files and push them to your GitHub repository (e.g., `https://github.com/hammad-ali-odoo/hammad-ali-odoo.github.io`).
+**Live URL:** <https://4858hammad.github.io/hammad-ali.github.io/>
 
-2. **Enable GitHub Pages:**
-   - Go to your repository settings on GitHub.
-   - Click on the **Pages** tab on the left sidebar (under "Code and automation").
-   - Under **Build and deployment**, set the source to **Deploy from a branch**.
-   - Select your main branch (usually `main` or `master`) and select the `/ (root)` folder.
-   - Click **Save**.
+The repo is `4858hammad/hammad-ali.github.io`. Because the repo name does not
+match the account name, GitHub Pages serves this as a *project* page at the
+doubled URL above — not at `hammad-ali.github.io`.
 
-3. **Visit Your Site:**
-   Your site will be live at `https://hammad-ali-odoo.github.io` within a minute!
+Verified 23 July 2026:
+
+| URL | Status |
+|---|---|
+| `https://4858hammad.github.io/hammad-ali.github.io/` | ✅ 200 — live |
+| `https://hammad-ali-odoo.github.io` | ❌ 404 — does not exist |
+| `https://github.com/hammad-ali-odoo` | ❌ 404 — does not exist |
+| `https://github.com/4858hammad` | ✅ 200 |
+
+### To get a cleaner URL
+
+- **Buy a domain** (~$12/yr). Add a `CNAME` file at the repo root containing just
+  the bare domain, set it under Settings → Pages, and tick **Enforce HTTPS**.
+- **Or rename the repo** to exactly `4858hammad.github.io` → serves at
+  `https://4858hammad.github.io/`.
+
+### ⚠️ If you change the URL, update it in all of these
+
+The absolute site URL is written in these places. There is no build step, so
+they do not update themselves:
+
+1. `portfolio_data.yaml` → `site.url`
+2. `assets/app.js` → the `SITE_BASE` constant near the top
+3. Every `*.html` → `<link rel="canonical">` and `<meta property="og:url">`
+4. Every `*.html` → the two `og:image` / `twitter:image` URLs
+5. `index.html` → `"url"` and `"sameAs"` inside the JSON-LD block
+6. `robots.txt` → the `Sitemap:` line
+7. `sitemap.xml` → every `<loc>`
+
+A one-line `sed` across the repo handles it:
+
+```bash
+grep -rl 'https://4858hammad.github.io/hammad-ali.github.io' . \
+  --exclude-dir=.git \
+  | xargs sed -i 's|https://4858hammad.github.io/hammad-ali.github.io|https://YOUR-NEW-URL|g'
+```
 
 ---
 
-## 📨 Setting Up the Contact Form
+## 📨 Contact Form
 
-The contact form is hooked up to **Formspree** and submits message payloads securely using AJAX without page reloads.
+The contact form is **already configured** and live — it posts to Formspree form
+`mzdwrpyp` via AJAX (`contact.html`, `action` attribute). No setup needed.
 
-To receive messages:
-1. Go to [https://formspree.io](https://formspree.io) and create a free account.
-2. Create a new form (e.g. named "Portfolio Contact").
-3. Copy the **Form ID** generated by Formspree (e.g. `xpzvkgzo`).
-4. Open [contact.html](file:///home/odoo_developer/development/cv/portfolio/hammad-ali.github.io/contact.html).
-5. Locate the `<form>` tag:
-   ```html
-   <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-6. Replace `YOUR_FORM_ID` in the `action` attribute with your actual Formspree ID.
-7. Save and push your changes to GitHub. That's it! Messages will now land directly in your inbox.
+A honeypot field (`_gotcha`) is included; Formspree silently drops any submission
+where it is filled, which stops most bot spam.
+
+To point it at a different Formspree form, change the `action` attribute on
+`<form id="contact-form">` in `contact.html`.
 
 ---
 
@@ -141,3 +185,63 @@ If you do not specify an image or if the image file listed in `portfolio_data.ya
 - **Odoo projects** get a dark navy/blue theme placeholder with a `⚙` icon.
 - **Android projects** get a green theme placeholder with a `📱` icon.
 - **Web projects** get a purple theme placeholder with a `🌐` icon.
+
+---
+
+## ⚠️ Outstanding items
+
+### Blocking (highest impact first)
+
+1. **Project screenshots are missing.** `assets/images/` contains only
+   `og-cover.png`. Every project falls back to a gradient placeholder, so
+   visitors see a developer portfolio with no screenshots. See
+   [`assets/images/README.md`](assets/images/README.md) for the exact filenames
+   and shot list.
+2. **Nine `# TO CONFIRM` markers in `portfolio_data.yaml`.** Several projects
+   have employers or years that conflict with the employment dates in the same
+   file. Search the YAML for `TO CONFIRM`.
+3. **The GitHub link on the circulating CV PDF is a 404**
+   (`github.com/hammad-ali-odoo`). Either rename the `4858hammad` account to
+   `hammad-ali-odoo` (free, and GitHub auto-redirects old repo URLs) or reissue
+   the PDF. `portfolio_data.yaml` currently points at `4858hammad`, which works.
+
+### Not yet done
+
+- Register the site in **Google Search Console** and **Bing Webmaster Tools**,
+  and submit `sitemap.xml`. Nothing else reveals which queries you surface for.
+- No analytics (Plausible, Umami or GA4).
+- `js-yaml` still loads from cdnjs with no Subresource Integrity hash and no
+  local fallback. The scripts are now `defer`red and a `<noscript>` block covers
+  crawlers, but a blocked CDN still degrades the page. Self-hosting the ~40 KB
+  library removes the dependency entirely.
+- `project.html` serves all 15 projects from one URL. Titles, descriptions and
+  canonicals are now set at runtime by `app.js`, which Google handles — but a
+  build step emitting one static file per project would be strictly better and
+  would fix the crawler-visibility problem at the same time.
+- The nav logo and footer render `hammad.dev`, a domain that is not registered.
+  It is derived in `app.js` from `site.name`; change it there if you want it to
+  match the real URL.
+- `assets/cv_source.html` is tracked but not linked from any page.
+- `style.css` and `app.js` are unminified.
+
+## 🧾 Changelog — 23 July 2026
+
+- Corrected employer names, project years, and the `Sage Integration` attribution
+- Rewrote the Showroom / PavoBixbox / CV Maker entries as the 2022 university
+  projects they are, removing production-ERP language from student work
+- Moved `showroom-erp` from the `odoo` category to `web` — `odoo.html` now shows
+  exactly the 10 client projects
+- Stats corrected: `10` client projects and `15` projects built (were `10+`/`19+`)
+- Removed OWL, Odoo.sh, OAuth 2.0 and JSON-RPC from the skills list — no project
+  in the file evidenced any of them
+- Added per-page `<title>`, meta description, canonical, Open Graph and Twitter
+  card tags; generated `og-cover.png`, `favicon.ico`, `apple-touch-icon.png`
+- Added JSON-LD `Person` schema, `robots.txt`, `sitemap.xml`, `404.html`
+- Added a `<noscript>` fallback on the home page for crawlers that do not run JS
+- One `<h1>` per page, carrying the target keyword
+- Hardcoded real contact details in `contact.html` (was `email@example.com`)
+- Added a `_gotcha` honeypot to the contact form
+- `app.js`: fixed the `github.com/in/` link typo; escaped all YAML interpolated
+  into `innerHTML`; guarded optional `modules` / `tags` fields; confined
+  prev/next navigation to the current category; per-project runtime meta tags;
+  a failed data fetch no longer wipes `document.body`

@@ -1,36 +1,44 @@
 site:
   name: "Hammad Ali"
   tagline: "Python & Odoo ERP Consultant"
-  description: "Building custom ERP solutions that automate operations and connect business systems"
-  url: "https://hammad-ali-odoo.github.io"
+  description: "Odoo ERP development, integrations and migrations across Odoo 16, 17, 18 and 19 — Community and Enterprise."
+  # NOTE: this must match the live site. Verified 2026-07-23:
+  #   https://hammad-ali-odoo.github.io  -> 404 (does not exist)
+  #   https://4858hammad.github.io/hammad-ali.github.io/ -> 200 (live)
+  # If you buy a domain or rename the repo, change this AND base_url in the
+  # <link rel="canonical"> / og:url tags in each HTML file.
+  url: "https://4858hammad.github.io/hammad-ali.github.io"
   available_for_work: true
 
 contact:
   email: "hammadali4858@gmail.com"
   phone: "+92 320 248 5828"
   linkedin: "https://linkedin.com/in/hammad-ali-62417224b"
-  github: "https://github.com/hammad-ali-odoo"
+  # NOTE: github.com/hammad-ali-odoo returns 404. Verified account: 4858hammad.
+  # Rename the GitHub account to hammad-ali-odoo (free, auto-redirects) and then
+  # change this back — until then this points at the account that actually exists.
+  github: "https://github.com/4858hammad"
   location: "Lahore, Pakistan"
   remote: true
 
 stats:
   - label: "Client projects delivered"
-    value: "10+"
+    value: "10"
+  - label: "Projects built"
+    value: "15"
   - label: "Years experience"
     value: "3+"
-  - label: "Projects built"
-    value: "19+"
   - label: "Odoo versions"
     value: "16/17/18/19"
 
 experience:
-  - company: "Tti Testing Laboratories"
+  - company: "TTI Testing Laboratories"
     role: "Python / Odoo Developer"
     period: "May 2026 - Present"
     meta: "Full-time · Hybrid"
-    summary: "Leading Odoo development and ERP customization at Tti Testing Laboratories, focusing on scalable ERP solutions, workflow automation, and system integrations."
+    summary: "Leading Odoo development and ERP customization at TTI Testing Laboratories, focusing on scalable ERP solutions, workflow automation, and system integrations."
     highlights:
-      - "Leading Odoo development and ERP customization at Tti Testing Laboratories"
+      - "Leading Odoo development and ERP customization at TTI Testing Laboratories"
       - "Working on advanced Odoo customization, API integrations, POS & payment gateway solutions"
       - "Optimizing PostgreSQL performance and Docker deployments"
       - "Driving performance improvements using Python and Odoo technologies"
@@ -52,7 +60,7 @@ experience:
     highlights:
       - "Developed Mastercard payment module and automated 500+ transactions per month"
       - "Created Sale Order automation that reduced follow-up time by 40%"
-      - "Integrated REST APIs (Ringfree, Firebase) for billing and automation"
+      - "Integrated REST APIs (RingFree, Firebase) for billing and automation"
       - "Led Odoo 16 to 17 migration with zero data loss"
   - company: "Axiom World"
     role: "Python Developer"
@@ -75,12 +83,15 @@ experience:
       - "Collaborated on feature design, testing, and QA across releases"
 
 skills:
+  # NOTE (audit 3.3): OWL, Odoo.sh, OAuth 2.0 and JSON-RPC had no supporting project
+  # or bullet anywhere in this file. They have been removed rather than left
+  # unevidenced. Add each back the day a project below can demonstrate it.
   - category: "ERP / Odoo"
-    items: ["Odoo 16/17/18/19", "ORM", "QWeb", "XML Views", "OWL", "Odoo.sh", "JSON-RPC"]
+    items: ["Odoo 16/17/18/19", "Odoo ORM", "QWeb", "XML Views", "Community & Enterprise"]
   - category: "Backend"
     items: ["Python", "Flask", "Django", "REST API", "PostgreSQL"]
   - category: "Integrations"
-    items: ["Mastercard", "Sage API", "Ringfree", "Firebase", "OAuth 2.0"]
+    items: ["Mastercard", "Sage API", "RingFree", "Meta API", "Firebase", "Biometric Devices"]
   - category: "DevOps"
     items: ["Docker", "Git", "Linux", "Nginx"]
   - category: "Mobile"
@@ -91,11 +102,11 @@ projects:
     title: "Sage Integration"
     category: "odoo"
     featured: true
-    year: 2025
-    client: "Axiom World"
+    year: 2026
+    client: "Aetos Technologies"
     role: "Lead Developer"
     odoo_version: "Odoo 17"
-    image: "assets/images/sage-integration.png"
+    image: "assets/images/odoo-sage-accounting-integration.png"
     short_desc: "Flask-based Odoo sync engine for invoices and payments"
     full_desc: "Built a Flask-based connector to sync Sage invoices, customers, and companies with Odoo Accounting using a scheduled REST API pipeline. Automated partial payments and reconciliation with robust error handling."
     tags: ["Python", "Flask", "REST API", "Odoo 17", "Community"]
@@ -112,10 +123,10 @@ projects:
     category: "odoo"
     featured: true
     year: 2025
-    client: "Aetos Technology"
+    client: "Aetos Technologies"
     role: "Lead Developer"
     odoo_version: "Odoo 17 / Odoo 18"
-    image: "assets/images/mastercard.png"
+    image: "assets/images/odoo-mastercard-payment-provider.png"
     short_desc: "Custom Odoo payment acquirer for 500+ monthly transactions"
     full_desc: "Built a custom Mastercard payment provider for Odoo 17 and Odoo 18 across Community and Enterprise environments, enabling automated invoice settlement directly inside Odoo Accounting."
     tags: ["Python", "Odoo 17", "Odoo 18", "Community", "Enterprise", "Payment Gateway"]
@@ -131,10 +142,10 @@ projects:
     category: "odoo"
     featured: true
     year: 2025
-    client: "Aetos Technology"
+    client: "Aetos Technologies"
     role: "Lead Developer"
     odoo_version: "Odoo 17"
-    image: "assets/images/tazah.png"
+    image: "assets/images/odoo-sale-order-lifecycle-automation.png"
     short_desc: "Custom module automating full sales lifecycle"
     full_desc: "Designed and implemented a custom Sale Order Flow module to automate and track the lifecycle of sales from quotation to delivery and payment. Reduced order follow-up time by ~40%."
     tags: ["Python", "Odoo 17", "Community", "Custom Module"]
@@ -145,6 +156,8 @@ projects:
       - "~40% reduction in order follow-up time"
       - "Custom reports for operations team"
 
+  # TO CONFIRM (audit Part 2): Axiom World ended Jan 2025, so an Odoo 18
+  # Enterprise build dated 2025 leaves a one-month window. Correct employer + year?
   - id: "pgi-erp-customization"
     title: "Prime Global Imports ERP Customization"
     category: "odoo"
@@ -153,6 +166,7 @@ projects:
     client: "Axiom World"
     role: "Odoo Developer"
     odoo_version: "Odoo 18"
+    image: "assets/images/odoo-18-enterprise-ui-customization.png"
     short_desc: "Odoo Enterprise UI upgrades, sidebar navigation, and customized sales and invoice reports"
     full_desc: "Worked on customization and enhancement of an Odoo 18 Enterprise ERP system for Axiom World, focusing on backend UI and UX improvements, a custom sidebar layout, an enterprise-like home menu experience, and advanced QWeb report customization for sales and invoicing modules."
     tags: ["Python", "Odoo 18", "Enterprise", "UI/UX", "QWeb", "Reporting"]
@@ -165,7 +179,11 @@ projects:
       - "Customized Sales Order and Invoice reports to match business requirements"
       - "Modified QWeb templates to improve layout, branding, and readability"
       - "Enhanced internal navigation and dashboard-style entry points for users and administrators"
+    # TO CONFIRM: if the sidebar / home-menu work used OWL components, say so
+    # explicitly here — it currently reads as cosmetic, and it may be your only
+    # OWL evidence (audit 3.3).
 
+  # TO CONFIRM (audit Part 2): same date conflict as Prime Global Imports.
   - id: "silicon-signs-erp"
     title: "Silicon Signs ERP Customization"
     category: "odoo"
@@ -174,6 +192,7 @@ projects:
     client: "Axiom World"
     role: "Lead Developer"
     odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-bom-versioning-manufacturing.png"
     short_desc: "Advanced manufacturing customization with BOM versioning and comparison workflows"
     full_desc: "Worked on a fully customized Odoo 18 Enterprise ERP implementation for Silicon Signs through Axiom World, focusing on manufacturing optimization, BOM version control, and cross-module ERP enhancements. The system was extended to support intelligent BOM versioning, BOM comparison, and client-specific manufacturing selection workflows integrated with sales and manufacturing execution."
     tags: ["Python", "Odoo 18", "Enterprise", "Manufacturing", "BOM Versioning", "Comparison"]
@@ -187,6 +206,8 @@ projects:
       - "Enabled client-specific BOM selection for production planning"
       - "Integrated BOM versioning with Manufacturing Orders for accurate execution"
 
+  # TO CONFIRM (audit Part 2): your Aetos 2025 bullet also claims the RingFree
+  # REST API integration. Which employer owns this project?
   - id: "ringfree-integration"
     title: "RingFree Integration & Customization"
     category: "odoo"
@@ -195,7 +216,7 @@ projects:
     client: "Axiom World"
     role: "Lead Developer"
     odoo_version: "Odoo 16"
-    image: "assets/images/ringfree.png"
+    image: "assets/images/odoo-metered-billing-ringfree-integration.png"
     short_desc: "Odoo metered service billing and external system integration"
     full_desc: "Developed a full integration between Odoo ERP and the RingFree external platform to automate usage-based metered billing and financial synchronization. The system ensured accurate usage calculation, automated invoice generation, and seamless bank payments reconciliation."
     tags: ["Python", "REST API", "Odoo 16", "Enterprise", "Metered Billing"]
@@ -218,7 +239,7 @@ projects:
     client: "Axiom World"
     role: "Lead Developer"
     odoo_version: "Odoo 16"
-    image: "assets/images/fell.png"
+    image: "assets/images/odoo-operational-exception-reporting.png"
     short_desc: "Customized Odoo operational reporting and business intelligence consolidation"
     full_desc: "Designed and developed a customized ERP system focused on operational visibility and daily business reporting. The system consolidated key business activities across sales, purchase, inventory, and CRM into a centralized exceptional reporting engine with automated notification capabilities."
     tags: ["Python", "Odoo 16", "Enterprise", "Custom Module", "Custom Reporting"]
@@ -232,6 +253,8 @@ projects:
       - "Designed and structured report formats for streamlined management decision-making"
       - "Optimized queries and reporting database operations for large historical datasets"
 
+  # TO CONFIRM (audit Part 2): your Aetos Team Lead bullet credits this work.
+  # Should client be "Aetos Technologies" rather than "Internal Project"?
   - id: "clearpath-orthodontics"
     title: "ClearPath Orthodontics ERP"
     category: "odoo"
@@ -240,7 +263,7 @@ projects:
     client: "Internal Project"
     role: "Lead Developer"
     odoo_version: "Odoo 18"
-    image: "assets/images/clearpath.png"
+    image: "assets/images/odoo-clinical-erp-biometric-attendance.png"
     short_desc: "Clinical operations, logistics, biometric attendance, and manufacturing ERP"
     full_desc: "Integrated and extended an Odoo 18 Enterprise ERP for ClearPath Orthodontics, including a Doctor Portal for patient orders, prescriptions, and clinical workflows, along with shipping and logistics flows for order fulfillment and delivery."
     tags: ["Odoo 18", "Enterprise", "Python", "Manufacturing", "HR"]
@@ -250,10 +273,14 @@ projects:
       - "Built and customized a Doctor Portal to manage patient orders, prescriptions, and clinical workflows"
       - "Implemented Manufacturing (BOM) and Production workflows to support medical product preparation and operations"
       - "Customized the Shipping and logistics module to track order fulfillment and delivery processes"
-      - "Designed multi-branch attendance system integrated with biometric biometric devices"
+      - "Designed multi-branch attendance system integrated with biometric devices"
       - "Created Employee Portal for task management, attendance tracking, timesheets, and performance badges"
       - "Ensured database scalability using custom business rules written in Python and PostgreSQL"
+    # TO CONFIRM: multi-branch + portal users implies access groups and record
+    # rules. If you built those, add a highlight — security is Tier 2 demand
+    # and you currently get no credit for it (audit 3.4).
 
+  # TO CONFIRM (audit Part 2): 2026 spans Aetos (Jan-Apr) and TTI (May-). Which?
   - id: "axis-marketing"
     title: "Axis Marketing Management"
     category: "odoo"
@@ -262,7 +289,7 @@ projects:
     client: "Internal Project"
     role: "Odoo Developer"
     odoo_version: "Odoo 19"
-    image: "assets/images/axis-marketing.png"
+    image: "assets/images/odoo-19-meta-ads-lead-sync.png"
     short_desc: "Contract lifecycle, customer portal, and Meta campaign sync ERP"
     full_desc: "Developed an Odoo 19 Enterprise marketing management system connected with Meta for timely campaign updates, lead generation, and customer license and renewal tracking."
     tags: ["Odoo 19", "Enterprise", "Meta API", "Contract Management", "Customer Portal"]
@@ -276,6 +303,8 @@ projects:
       - "Designed centralized contract tracking with automated notifications for expirations"
       - "Ensured seamless integration across CRM, HR, and contract modules"
 
+  # TO CONFIRM (audit Part 2): your Aetos 2025 bullet says you LED this migration,
+  # but the role here is "Junior Developer" at a different employer. Which is right?
   - id: "hrms-migration"
     title: "HRMS Bundle Migration (16 → 17)"
     category: "odoo"
@@ -284,7 +313,7 @@ projects:
     client: "Axiom World"
     role: "Junior Developer"
     odoo_version: "Odoo 17"
-    image: "assets/images/hrms.png"
+    image: "assets/images/odoo-16-to-17-hr-payroll-migration.png"
     short_desc: "Full Odoo 16 to 17 HR module migration"
     full_desc: "Migrated Employees, Payroll, Employee Loan and HR Tax modules from Odoo 16 to 17. Preserved complex payroll structures and loan installment logic with zero data loss."
     tags: ["Python", "PostgreSQL", "Migration", "Odoo 17", "Community"]
@@ -295,57 +324,60 @@ projects:
       - "Complex payroll structure preserved"
       - "Loan installment and skip logic maintained"
 
-  - id: "showroom-app"
-    title: "Showroom Ecommerce - App"
-    category: "android"
-    featured: true
-    year: 2024
-    client: "Aetos Technology"
-    role: "Lead Developer"
-    image: "assets/images/showroom.png"
-    short_desc: "React Native mobile app for Android and iOS ordering directly into Odoo"
-    full_desc: "Developed a cross-platform mobile ecommerce application for Android and iOS using React Native. The app enabled customers to browse products, manage carts, and place orders directly into Odoo through secure API integrations, with order status synchronized between the app and ERP."
-    tags: ["React Native", "Odoo", "Pavo ERP", "REST API", "Failover Sync", "Android", "iOS"]
-    modules: ["Sales", "API Integration", "Order Management"]
-    tech_stack: ["React Native", "REST APIs", "Odoo Integration"]
-    highlights:
-      - "Developed a cross-platform mobile ecommerce application for Android and iOS using React Native"
-      - "Implemented direct order placement from the mobile app into Odoo through secure API integrations"
-      - "Built product browsing, cart management, and order checkout flows"
-      - "Ensured synchronization of order status between the mobile app and ERP system"
+  # --- University / personal projects ---------------------------------------
+  # Descriptions rewritten to match what these actually were (audit Part 0).
+  # The previous text described production ERP failover architecture and payroll
+  # delivery on what are 2022 student projects.
 
-  - id: "showroom-erp"
-    title: "Showroom Ecommerce - ERP"
-    category: "odoo"
-    featured: true
-    year: 2024
-    client: "Aetos Technology"
-    role: "Lead Developer"
-    odoo_version: "Odoo"
-    image: "assets/images/showroom.png"
-    short_desc: "Odoo orchestration layer for orders, bundles, Pavo ERP sync, and HR operations"
-    full_desc: "Developed the backend Odoo orchestration layer for Showroom Ecommerce. The system managed sales workflows including orders, bundles, and pricing structures in Odoo, integrated with Pavo ERP for order posting and synchronization, and used Odoo as a bridge and failover layer when the external ERP was unavailable. HR modules for employees, contracts, and payroll were also handled inside Odoo."
-    tags: ["Odoo", "Python", "Pavo ERP", "REST API", "Failover Sync"]
-    modules: ["Sales", "HR", "Contracts", "Payroll", "Order Management"]
-    tech_stack: ["Odoo", "Python", "PostgreSQL", "REST APIs"]
+  # TO CONFIRM: year (degree ran Jul 2019 - Jul 2023)
+  - id: "showroom-app"
+    title: "Showroom Ecommerce — Mobile App"
+    category: "android"
+    featured: false
+    year: 2022
+    client: "University Project"
+    role: "Solo Developer"
+    image: "assets/images/showroom-react-native-app.png"
+    short_desc: "Cross-platform React Native shopping app with a Django backend"
+    full_desc: "A cross-platform React Native e-commerce app built as a university project, covering product browsing, cart and checkout, backed by a Django service with Firebase used to keep order status in sync between the app and the backend."
+    tags: ["React Native", "Firebase", "REST API", "Android", "iOS"]
+    modules: []
+    tech_stack: ["React Native", "Django", "Firebase", "REST APIs"]
     highlights:
-      - "Implemented Odoo as a central integration hub between the mobile app and external systems"
-      - "Managed sales workflows including orders, bundles, and pricing structures in Odoo"
-      - "Integrated Odoo with Pavo ERP for order transmission and synchronization"
-      - "Designed failover handling so Odoo retained and managed orders if the external ERP was unavailable"
-      - "Developed HR modules for employee management, contracts lifecycle, and payroll processing"
-      - "Ensured data consistency across multiple systems using API synchronization and retry mechanisms"
+      - "Built product browsing, cart management and checkout flows in React Native"
+      - "Consumed a REST API backed by a Django service"
+      - "Used Firebase to sync order status between the app and the backend"
+
+  # TO CONFIRM: this is the backend half of showroom-app — consider merging the
+  # two into a single entry rather than listing one project twice.
+  - id: "showroom-erp"
+    title: "Showroom Ecommerce — Backend"
+    category: "web"
+    featured: false
+    year: 2022
+    client: "University Project"
+    role: "Solo Developer"
+    image: "assets/images/showroom-react-native-app.png"
+    short_desc: "Django order and catalogue backend for the Showroom app"
+    full_desc: "The backend half of the Showroom university project: a Django service handling the product catalogue, order records and pricing, exposing a REST API to the React Native client with Firebase used for order-status sync."
+    tags: ["Python", "Django", "REST API", "Firebase"]
+    modules: []
+    tech_stack: ["Python", "Django", "PostgreSQL", "Firebase"]
+    highlights:
+      - "Modelled products, orders and pricing in Django"
+      - "Exposed a REST API consumed by the React Native client"
+      - "Synced order status through Firebase"
 
   - id: "idea-pitching"
     title: "Idea Pitching App"
     category: "android"
-    featured: true
+    featured: false
     year: 2022
     client: "Personal Project"
     role: "Solo Developer"
-    image: "assets/images/idea-pitch.png"
+    image: "assets/images/idea-pitching-android-firebase.png"
     short_desc: "Investor and pitcher real-time collaboration app"
-    full_desc: "Developed an Idea Pitching App with Firebase integration, including a real-time chat system for Investor and Pitcher collaboration and feedback."
+    full_desc: "An Android app built with Kotlin and Firebase, with real-time chat between investors and pitchers and a feedback flow on submitted ideas."
     tags: ["Kotlin", "Firebase", "XML", "Android"]
     modules: []
     tech_stack: ["Kotlin", "Android", "Firebase"]
@@ -354,23 +386,24 @@ projects:
       - "Firebase authentication"
       - "Live feedback system"
 
+  # TO CONFIRM: year (degree ran Jul 2019 - Jul 2023)
   - id: "pavobixbox"
     title: "PavoBixbox Web / App"
     category: "web"
-    featured: true
-    year: 2024
-    client: "Aetos Technology"
-    role: "Full Stack Developer"
-    image: "assets/images/pavobixbox.png"
-    short_desc: "Dockerized Django app syncing with Android via Firebase"
-    full_desc: "Developed a Dockerized web application using Python and Django enabling synchronization of orders, products and customers with Firebase, integrated with an Android app in Kotlin."
+    featured: false
+    year: 2022
+    client: "University Project"
+    role: "Solo Developer"
+    image: "assets/images/pavobixbox-django-firebase.png"
+    short_desc: "Dockerized Django app syncing with an Android client via Firebase"
+    full_desc: "A university project pairing a Dockerized Django web application with a Kotlin Android client, using Firebase to keep orders, products and customer records in sync between the two."
     tags: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
     modules: []
     tech_stack: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
     highlights:
-      - "Real-time Firebase sync between web and mobile"
-      - "Dockerized deployment"
-      - "Product and order management"
+      - "Firebase sync between the web app and the Android client"
+      - "Dockerized local deployment"
+      - "Product and order management screens"
 
   - id: "cv-maker"
     title: "Simple CV Maker"
@@ -379,9 +412,9 @@ projects:
     year: 2022
     client: "University Project"
     role: "Solo Developer"
-    image: "assets/images/cv-maker.png"
+    image: "assets/images/cv-maker-dotnet-mvc.png"
     short_desc: "Web CV builder with .NET MVC and SQL database"
-    full_desc: "Developed a CV maker web application using HTML, Bootstrap, SQL and .NET MVC Framework. Users can create and manage CVs stored in a SQL database."
+    full_desc: "A CV builder web application built for a university module using HTML, Bootstrap, SQL and the .NET MVC framework, letting users create and manage CVs stored in a SQL database."
     tags: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
     modules: []
     tech_stack: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
