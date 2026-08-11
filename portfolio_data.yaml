@@ -62,12 +62,12 @@ experience:
     role: "Python / Odoo Developer"
     period: "Aug 2023 - Jan 2025"
     meta: "Full-time · On-site"
-    summary: "Contributed as part of the Odoo team on manufacturing, billing, reporting and HR migration projects."
+    summary: "Contributed across manufacturing, billing, reporting and HR migration projects while taking lead ownership on selected work."
     highlights:
-      - "Built Silicon Signs manufacturing customizations across MRP, BOM versioning/comparison, Sales, Inventory and reporting"
+      - "Led Silicon Signs manufacturing customizations across MRP, BOM versioning/comparison, Sales, Inventory and reporting"
       - "Personally implemented RingFree REST integration, metered billing, monthly invoicing, payment/bank synchronization and reports"
       - "Built Fell ERP Sales reporting, daily operational reports, automated email notifications and SQL/report optimization"
-      - "Migrated HRMS modules from Odoo 16 to 17 including Employees, Payroll, Loans, HR Tax, data/code migration and regression testing"
+      - "Contributed as part of the team to the Odoo 16 to 17 HRMS migration, personally working on Employees, Payroll, Loans, HR Tax, data/code migration and regression testing"
 
   - company: "Hazel Mobile"
     role: "Mobile Application Developer Intern"
@@ -325,11 +325,11 @@ projects:
     featured: false
     year: 2024
     client: "Axiom World"
-    role: "Odoo Developer · Team Contributor"
+    role: "Lead Developer"
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-bom-versioning-manufacturing.png"
     short_desc: "Manufacturing, BOM versioning/comparison, Sales, Inventory and custom reporting"
-    full_desc: "Contributed as part of the Axiom World team on Silicon Signs, working directly across Manufacturing/MRP, BOM versioning and comparison, Sales, Inventory and custom reports."
+    full_desc: "Led the Silicon Signs manufacturing customization work at Axiom World, covering Manufacturing/MRP, BOM versioning and comparison, Sales, Inventory and custom reports."
     tags: ["Odoo 18", "MRP", "BOM", "Sales", "Inventory", "Reporting"]
     modules: ["Manufacturing", "Sales", "Inventory"]
     tech_stack: ["Python", "Odoo ORM", "PostgreSQL", "QWeb"]
