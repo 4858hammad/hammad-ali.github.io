@@ -1,12 +1,7 @@
 site:
   name: "Hammad Ali"
-  tagline: "Python & Odoo ERP Consultant"
-  description: "Odoo ERP development, integrations and migrations across Odoo 16, 17, 18 and 19 — Community and Enterprise."
-  # NOTE: this must match the live site. Verified 2026-07-23:
-  #   https://hammad-ali-odoo.github.io  -> 404 (does not exist)
-  #   https://4858hammad.github.io/hammad-ali.github.io/ -> 200 (live)
-  # If you buy a domain or rename the repo, change this AND base_url in the
-  # <link rel="canonical"> / og:url tags in each HTML file.
+  tagline: "Senior Odoo Developer · Odoo Technical Lead"
+  description: "Senior Odoo developer with 3+ years of hands-on experience across Odoo 14–19, building production ERP modules, OWL interfaces, portals, payment and API integrations, migrations, reporting and DevOps."
   url: "https://4858hammad.github.io/hammad-ali.github.io"
   available_for_work: true
 
@@ -14,230 +9,237 @@ contact:
   email: "hammadali4858@gmail.com"
   phone: "+92 320 248 5828"
   linkedin: "https://linkedin.com/in/hammad-ali-62417224b"
-  # NOTE: github.com/hammad-ali-odoo returns 404. Verified account: 4858hammad.
-  # Rename the GitHub account to hammad-ali-odoo (free, auto-redirects) and then
-  # change this back — until then this points at the account that actually exists.
   github: "https://github.com/4858hammad"
   location: "Lahore, Pakistan"
   remote: true
 
 stats:
   - label: "Odoo versions"
-    value: "16/17/18/19"
-  - label: "Client projects delivered"
-    value: "14"
-  - label: "Projects built"
-    value: "19"
+    value: "14–19"
+  - label: "Production scale"
+    value: "250+ users"
+  - label: "Leadership"
+    value: "3 Dev + 1 Functional"
   - label: "Years experience"
     value: "3+"
 
 experience:
   - company: "TTI Testing Laboratories"
-    role: "Python / Odoo Developer"
+    role: "Senior Odoo Developer"
     period: "May 2026 - Present"
     meta: "Full-time · Hybrid"
-    summary: "Odoo development and ERP customization at TTI Testing Laboratories, focused on HR operations, workflow automation, and system integrations."
+    summary: "Independently own Odoo 18 development and production support while coordinating directly with business teams across four branches."
     highlights:
-      - "Developed an employee self-service portal on Odoo 18 Enterprise with custom OWL components, giving staff self-service access to payslips, attendance records and HR data, raising missing-attendance corrections, and routing leave requests to managers for approval"
-      - "Designed an attendance dashboard with custom OWL components consolidating check-in and check-out records into a single management view across remote and on-site staff, surfacing who is on leave and flagging late arrivals"
-      - "Engineered a Field Sales Person module with a custom OWL interface covering rep-to-customer and territory assignment, targets versus achievement, and field payment recovery"
-      - "Automated the full employee loan lifecycle — request, approval, disbursement and payroll-linked installment recovery"
-      - "Extended Odoo Accounting and Sales with POS and payment-gateway customisations"
+      - "Build and maintain custom modules across Sales, Purchase, Accounting, Inventory, CRM, HR, Payroll, Attendance, Time Off, Projects/Timesheets and MRP"
+      - "Built employee self-service and attendance solutions supporting 250+ employees across Lahore, Karachi, Sialkot and Faisalabad"
+      - "Built a portal-based field sales solution for ~15–20 salespeople and 5–7 managers, including territory security, targets, collections, visits and CRM lead creation"
+      - "Wrote migration/backfill logic for 54,000+ historical sales records and related invoice/payment mappings, processing data in controlled batches"
+      - "Design bidirectional integrations with external testing/certification systems and multi-source CRM lead capture from website, GoHighLevel and forms"
+      - "Handle Odoo.sh deployments, PostgreSQL/SQL work, access security, performance optimization, bug fixing and production troubleshooting"
+
   - company: "Aetos Technologies"
-    role: "Team Lead"
+    role: "Odoo Team Lead"
     period: "Jan 2026 - Apr 2026"
     meta: "Full-time · Hybrid"
-    summary: "Led Odoo development team and handled integrations across accounting, CRM, sales, inventory, and clinical workflows."
+    summary: "Led 3 Odoo developers and 1 functional consultant while remaining hands-on in architecture and delivery."
     highlights:
-      - "Led Odoo development team of 3 engineers delivering ERP solutions across Accounting, CRM, Sales, and Inventory"
-      - "Eliminated manual accounting data entry entirely with a Sage ↔ Odoo sync engine (100% automation)"
-      - "Connected the ClearPath Doctor Portal to the Odoo ERP for patient orders, prescriptions and clinical workflows"
-      - "Owned delivery end to end: requirements gathering, client support, code review and production releases"
+      - "Owned task assignment, code reviews, technical design/architecture, requirement discussions, developer mentoring and delivery planning"
+      - "Led Odoo 19 Axis Marketing Management with two junior developers across CRM, Meta lead sync, contracts, renewals and customer/employee portals"
+      - "Led ClearPath Orthodontics ERP delivery across Doctor Portal, advance payments, Sales, MRP/BOM, Inventory, employee portal and multi-location attendance"
+      - "Built and supported integrations across accounting, payments, APIs and production ERP workflows"
+
   - company: "Aetos Technologies"
     role: "Odoo Developer"
     period: "Jan 2025 - Dec 2025"
-    meta: "Full-time · Lahore, Punjab, Pakistan"
-    summary: "Delivered automation, integrations, migration work, and sales workflows across multiple client projects."
+    meta: "Full-time · Lahore, Pakistan"
+    summary: "Delivered custom Odoo modules, payment integrations, ERP automation and production workflows across client projects."
     highlights:
-      - "Shipped a custom Mastercard payment provider handling 500+ transactions per month"
-      - "Designed a Sale Order lifecycle flow from quotation to payment, cutting order follow-up time ~40%"
-      - "Connected RingFree and Firebase REST APIs to drive automated invoicing and reconciliation"
-      - "Led Odoo 16 to 17 migration with zero data loss"
+      - "Built an end-to-end Mastercard Hosted Checkout payment provider covering transaction creation, callback verification, payment state handling and invoice reconciliation"
+      - "Delivered a custom sales lifecycle flow spanning quotation, delivery and payment"
+      - "Worked across Accounting, CRM, Sales, Inventory, Manufacturing, portal and external API integrations"
+
   - company: "Axiom World"
-    role: "Python Developer"
+    role: "Python / Odoo Developer"
     period: "Aug 2023 - Jan 2025"
     meta: "Full-time · On-site"
-    summary: "Developed custom Odoo modules, improved performance, and replaced manual workflows with API-driven processes."
+    summary: "Contributed as part of the Odoo team on manufacturing, billing, reporting and HR migration projects."
     highlights:
-      - "Delivered 5+ custom Odoo modules across Sales, Inventory and Accounting"
-      - "Cut page load time 25% through ORM refactoring and query optimisation"
-      - "Replaced manual CSV workflows with direct third-party API connections"
-      - "Produced QWeb reports and management dashboards for operational reporting"
+      - "Built Silicon Signs manufacturing customizations across MRP, BOM versioning/comparison, Sales, Inventory and reporting"
+      - "Personally implemented RingFree REST integration, metered billing, monthly invoicing, payment/bank synchronization and reports"
+      - "Built Fell ERP Sales reporting, daily operational reports, automated email notifications and SQL/report optimization"
+      - "Migrated HRMS modules from Odoo 16 to 17 including Employees, Payroll, Loans, HR Tax, data/code migration and regression testing"
+
   - company: "Hazel Mobile"
-    role: "Mobile Application Developer"
+    role: "Mobile Application Developer Intern"
     period: "Aug 2022 - Nov 2022"
     meta: "Internship"
-    summary: "Worked on Android application development and UI patterns during internship."
+    summary: "Early mobile-development experience building Android features with Java/Kotlin and contributing to testing and UI implementation."
     highlights:
-      - "Shipped Android features in Java and Kotlin across multiple releases, applying MVC and MVVM patterns, and contributed to feature design, testing and QA"
+      - "Worked with Android, Java, Kotlin and mobile UI patterns before specializing in Python/Odoo development"
 
 skills:
-  # OWL is listed because three shipped Odoo 18 Enterprise modules use it.
-  # Odoo.sh, OAuth 2.0 and JSON-RPC stay OUT - no project here evidences them.
-  # Add each back the day a project can demonstrate it.
-  - category: "ERP / Odoo"
-    items: ["Odoo 16/17/18/19", "Community & Enterprise", "Odoo ORM", "QWeb", "XML Views", "OWL", "Module Development", "Version Migration", "Record Rules & Access Groups"]
-  - category: "Backend"
-    items: ["Python", "Flask", "Django", "REST API", "PostgreSQL", "SQL", "JavaScript"]
-  - category: "Integrations"
-    items: ["Mastercard", "Sage API", "RingFree", "Meta API", "Firebase", "Biometric Devices"]
+  - category: "Odoo / ERP"
+    items: ["Odoo 14–19", "Community & Enterprise", "Odoo ORM", "Custom Modules", "XML/QWeb", "OWL", "JavaScript", "Portal Development", "Controllers & Routes", "ACLs & Record Rules", "Multi-company Security", "Odoo 16→17 Migration"]
+  - category: "Backend & Data"
+    items: ["Python", "PostgreSQL", "SQL", "REST APIs", "Flask", "Django", "Pandas", "Cron Jobs", "Batch Processing", "Threading / Multiprocessing"]
   - category: "Functional"
-    items: ["Sales", "CRM", "Purchase", "Inventory", "Accounting", "Manufacturing (MRP/BOM)", "HR & Payroll"]
-  - category: "DevOps"
-    items: ["Docker", "Git", "Linux", "Nginx"]
+    items: ["Sales", "CRM", "Purchase", "Inventory", "Accounting", "Payments", "Manufacturing / MRP / BOM", "HR", "Payroll", "Attendance", "Time Off", "Projects / Timesheets"]
+  - category: "Reporting & Frontend"
+    items: ["QWeb PDF", "XLSX / Excel", "OWL Dashboards", "Chart.js", "SQL Reports", "Pivot / Graph Views", "Scheduled Email Reports", "Custom Widgets", "Client Actions", "Systray"]
+  - category: "Integrations"
+    items: ["Mastercard Hosted Checkout", "Sage", "RingFree", "Meta API", "GoHighLevel", "ZK Devices", "REST APIs", "Basic Auth", "External Certification Systems"]
+  - category: "DevOps & Delivery"
+    items: ["Odoo.sh", "Ubuntu / Linux", "Nginx", "systemd", "SSL / Certbot", "Domain / DNS", "PostgreSQL Backup / Restore", "Git", "Pull Requests", "Code Reviews", "GitHub Actions CI/CD", "Postman", "Odoo Automated Tests", "Staging"]
   - category: "Mobile"
-    items: ["Android", "Java", "Kotlin", "React Native", "Firebase"]
+    items: ["React Native", "Android", "iOS", "Java", "Kotlin", "Firebase"]
 
 projects:
-  # ─── TTI Testing Laboratories · May 2026 - Present ─────────────────────────
-  # All four confirmed as Odoo 18 Enterprise. OWL used in the employee portal,
-  # attendance dashboard and field sales module (not loan management).
-  #
-  # ⚠️ These are the only four projects in this file with NO metrics. Every other
-  # entry has a number. See the FILL IN markers on each.
-  #
-  # ⚠️ DUPLICATION CHECK: "Employee Portal" and "attendance" are also claimed by
-  # clearpath-orthodontics AND axis-marketing, both still labelled "Internal
-  # Project", 2026. Either those ARE this TTI work under a different label, or
-  # they are separate builds — in which case each description must say HOW it
-  # differs. A lab's attendance problem is not an orthodontics clinic's, and
-  # naming the difference turns apparent padding into a repeatable specialism.
-
-  # TO CONFIRM: employer. TTI is assumed; it may be Aetos or personal work.
-  - id: "field-sales-person"
-    title: "Field Sales Person Module"
-    category: "odoo"
-    featured: false
-    year: 2026
-    client: "TTI Testing Laboratories"    # TO CONFIRM
-    role: "Odoo Developer"
-    odoo_version: "Odoo 18 Enterprise"
-    image: "assets/images/odoo-field-sales-person-module.png"
-    short_desc: "Odoo module for field sales reps: territories, targets vs achievement, and payment recovery"
-    full_desc: "Built a custom Odoo 18 Enterprise module to manage field sales representatives — assigning them to customers and territories, setting targets and measuring achievement against them, and payment recovery tracking for collections made during customer visits. Field activity feeds back into the Sales pipeline, and the interface is built with custom OWL components in the Odoo web client."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "Sales", "CRM", "Custom Module", "Field Sales", "Target Tracking", "Payment Recovery"]
-    modules: ["Sale", "CRM", "Contacts", "Employees", "Accounting"]
-    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
-    highlights:
-      - "Developed a custom module linking field sales representatives to customers and territories"
-      - "Built the field sales interface with custom OWL components in the Odoo 18 web client"
-      - "Implemented target setting and achievement tracking per representative"
-      - "Built payment recovery tracking so collections made on customer visits are recorded against the account"
-      - "Built activity tracking so field visits and outcomes are recorded against the Sales pipeline"
-      - "Added reporting views for sales management to monitor field team performance"
-      # FILL IN: visit / check-in tracking? GPS or geolocation?
-      # FILL IN: mobile access — portal, Odoo mobile app, or a separate app?
-      # FILL IN: order taking in the field, or visit logging only?
-      # FILL IN: commission calculated from achievement, or targets tracked only?
-      # FILL IN: how many reps / territories does it handle?
-
   - id: "tti-employee-portal"
     title: "Employee Self-Service Portal"
     category: "odoo"
     featured: true
     year: 2026
     client: "TTI Testing Laboratories"
-    role: "Odoo Developer"
+    role: "Senior Odoo Developer"
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-employee-self-service-portal.png"
-    short_desc: "Odoo self-service portal for payslips, attendance, leave requests and manager approvals"
-    full_desc: "Built an employee self-service portal on Odoo 18 Enterprise for TTI Testing Laboratories. Staff access their own payslips, attendance records and HR data directly, raise missing-attendance corrections and leave requests, and managers approve leave from the same portal — taking HR out of the middle of every routine request. Access is scoped with Odoo record rules and access groups so each employee sees only their own data and each manager only their own team."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Portal", "Payroll", "Leave Management", "Access Rules", "Security"]
-    modules: ["Employees", "HR", "Portal", "Time Off", "Payroll", "Attendance"]
-    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "QWeb", "PostgreSQL"]
+    short_desc: "Production employee portal serving 250+ employees across four branches"
+    full_desc: "Designed and built the backend and portal frontend for TTI's Odoo 18 employee self-service experience. More than 250 employees across Lahore, Karachi, Sialkot and Faisalabad use the same Odoo environment to access attendance, leave requests, timesheets, tasks, payslips, loans, documents and profile information with role-aware security."
+    tags: ["Odoo 18", "Python", "Portal", "HR", "Payroll", "Security", "250+ Users"]
+    modules: ["Employees", "Attendance", "Time Off", "Payroll", "Timesheets", "Portal"]
+    tech_stack: ["Python", "Odoo ORM", "JavaScript", "QWeb", "PostgreSQL"]
     highlights:
-      - "Built portal views giving employees self-service access to their own payslips, attendance records and HR data"
-      - "Implemented missing-attendance requests so staff can correct check-in and check-out gaps without going through HR"
-      - "Built leave request and manager approval workflows routed to the correct approver"
-      - "Applied Odoo record rules and access groups so employees see only their own data and managers only their own team"
-      - "Built the portal interface with custom OWL components in the Odoo 18 web client"
-      - "Customised QWeb templates for portal pages and printable payslip documents"
-      # FILL IN: how many employees / branches does it serve?
-      # FILL IN: what did it replace — email requests, paper forms, spreadsheets?
-      # FILL IN: how does this differ from the Employee Portal claimed by
-      #          clearpath-orthodontics and axis-marketing? (see duplication note)
+      - "Serves 250+ employees across 4 branches"
+      - "Self-service attendance, leave, timesheets, tasks, payslips, loans, documents and profiles"
+      - "Built backend business logic and portal frontend"
+      - "Implemented ACLs, record rules and user-specific visibility"
 
   - id: "tti-attendance-dashboard"
-    title: "Attendance Dashboard"
+    title: "Attendance Dashboard & Leave Gantt"
     category: "odoo"
     featured: true
     year: 2026
     client: "TTI Testing Laboratories"
-    role: "Odoo Developer"
-    odoo_version: "Odoo 18 Enterprise"
+    role: "Senior Odoo Developer"
+    odoo_version: "Odoo 18"
     image: "assets/images/odoo-attendance-dashboard-owl.png"
-    short_desc: "OWL dashboard consolidating on-site and remote attendance, leave and late arrivals"
-    full_desc: "Developed an attendance dashboard in Odoo 18 Enterprise consolidating check-in and check-out records into a single management view. It covers remote employees alongside on-site staff, surfaces who is currently on leave, and flags late arrivals, with aggregated reporting across employees and date ranges for HR and operations. The dashboard front end is built with custom OWL components."
-    tags: ["Python", "Odoo 18", "Enterprise", "OWL", "HR", "Attendance", "Remote Work", "Leave Management", "Reporting", "Dashboard"]
-    modules: ["Attendance", "Employees", "HR", "Time Off", "Reporting"]
-    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL", "QWeb"]
+    short_desc: "Full-stack OWL attendance and leave analytics for 250+ employees across four branches"
+    full_desc: "Designed the workflow and business logic and built both the Python/Odoo backend and OWL/JavaScript frontend for an interactive attendance and leave board. It combines daily employee status, click-to-edit records, KPIs, leave insights, trend charts, filters and Excel export while remaining timezone-, schedule- and access-right aware."
+    tags: ["Odoo 18", "OWL", "JavaScript", "Python", "Attendance", "Analytics", "Excel"]
+    modules: ["Attendance", "Employees", "Time Off", "Reporting"]
+    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "Chart.js", "PostgreSQL"]
     highlights:
-      - "Built the dashboard interface with custom OWL components in the Odoo 18 Enterprise web client"
-      - "Consolidated on-site and remote employee attendance into a single management view"
-      - "Surfaced staff currently on leave alongside attendance so managers see real available headcount"
-      - "Flagged late arrivals for management follow-up"
-      - "Built aggregated attendance reporting across employees and date ranges"
-      - "Optimised queries against large historical attendance datasets"
-      # FILL IN: biometric device integration? which device / protocol?
-      #          (clearpath-orthodontics claims biometric attendance — same work?)
-      # FILL IN: any measurable result — hours saved, report time reduced?
+      - "Present, absent, late, recurring-late and check-in/out issue KPIs with drill-down"
+      - "Gantt-style daily grid with half-day and multi-day leave handling"
+      - "Single-RPC data loading instead of per-cell queries for better performance"
+      - "Timezone, resource-calendar, shift and public-holiday aware"
+      - "Interactive charts, multi-company filters and Excel export"
+
+  - id: "field-sales-person"
+    title: "Field Salesperson Portal"
+    category: "odoo"
+    featured: true
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Senior Odoo Developer"
+    odoo_version: "Odoo 18"
+    image: "assets/images/odoo-field-sales-person-module.png"
+    short_desc: "Portal-based field sales operations for ~15–20 reps and 5–7 managers without internal-user seats"
+    full_desc: "Built a self-service field sales portal on Odoo 18 so field reps can work from standard portal accounts. The solution connects visits, meetings, leads, orders, invoices, payments, collections and targets while enforcing territory-aware visibility for salespeople, managers and overseers."
+    tags: ["Odoo 18", "Portal", "CRM", "Sales", "Accounting", "Security", "Migration"]
+    modules: ["CRM", "Sales", "Accounting", "Calendar", "Portal"]
+    tech_stack: ["Python", "Odoo ORM", "QWeb", "JavaScript", "PostgreSQL"]
+    highlights:
+      - "Supports ~15–20 field salespeople and 5–7 managers"
+      - "Visit → meeting → CRM lead → order → invoice → payment workflow"
+      - "Territory hierarchy with salesperson, manager and overseer visibility"
+      - "Targets, recovery rate, top customers/products and live sales KPIs"
+      - "Wrote batch migration/backfill logic for 54,000+ historical records and territory mappings"
 
   - id: "tti-loan-management"
-    title: "Employee Loan Management"
+    title: "Employee Loan Management & Payroll Recovery"
+    category: "odoo"
+    featured: true
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Senior Odoo Developer"
+    odoo_version: "Odoo 18 Enterprise"
+    image: "assets/images/odoo-employee-loan-management.png"
+    short_desc: "End-to-end employee loans, accounting, payroll deductions, OWL analytics and self-service"
+    full_desc: "Built an Odoo 18 Enterprise loan and salary-advance solution supporting TTI's 250+ employee workforce. Configurable loan types provision accounting and payroll records; approval generates disbursement entries and installment schedules; payroll automatically deducts installments; employees track repayment from the portal."
+    tags: ["Odoo 18", "Payroll", "Accounting", "OWL", "Portal", "Loans"]
+    modules: ["Employees", "Payroll", "Accounting", "Portal"]
+    tech_stack: ["Python", "Odoo ORM", "OWL", "JavaScript", "PostgreSQL"]
+    highlights:
+      - "Automatic disbursement journal entries and payroll-linked installment recovery"
+      - "Configurable loan types with salary rules, payslip inputs, sequences and account mapping"
+      - "OWL dashboard for disbursed, recovered, outstanding, overdue and recovery analytics"
+      - "Employee portal for repayment progress and paid/overdue/upcoming installments"
+      - "Flexible rescheduling of unpaid installments"
+
+  - id: "tti-certification-integration"
+    title: "Testing & Certification System Integration"
+    category: "odoo"
+    featured: true
+    year: 2026
+    client: "TTI Testing Laboratories"
+    role: "Senior Odoo Developer"
+    odoo_version: "Odoo 18"
+    image: ""
+    short_desc: "Bidirectional Odoo integration connecting parcel intake, testing proposals, sales orders, reports and certification"
+    full_desc: "Designed and built a bidirectional integration between Odoo and an external testing/certification platform. The workflow connects parcel intake, testing proposals, customer approval, certification-body validation, Odoo Sales Orders, laboratory testing, test reports and final certification/licensing."
+    tags: ["Odoo 18", "REST API", "Integration", "Sales", "Certification", "Workflow"]
+    modules: ["Sales", "CRM", "Documents", "Custom Integration"]
+    tech_stack: ["Python", "Odoo ORM", "REST API", "PostgreSQL"]
+    highlights:
+      - "Designed the Odoo-side business workflow and API integration"
+      - "Bidirectional data exchange between Odoo and the certification platform"
+      - "Connected customer approvals and testing proposals to Odoo Sales Orders"
+      - "Returned generated test reports into the certification/licensing process"
+
+  - id: "tti-crm-lead-integration"
+    title: "Multi-Source CRM Lead Integration"
     category: "odoo"
     featured: false
     year: 2026
     client: "TTI Testing Laboratories"
-    role: "Odoo Developer"
-    odoo_version: "Odoo 18 Enterprise"
-    image: "assets/images/odoo-employee-loan-management.png"
-    short_desc: "Odoo loan request, approval and installment deduction workflow"
-    full_desc: "Built an employee loan management module in Odoo 18 Enterprise covering the full loan lifecycle — request, approval, disbursement and installment recovery — with deductions flowing through to payroll."
-    tags: ["Python", "Odoo 18", "Enterprise", "HR", "Payroll", "Loans", "Custom Module"]
-    modules: ["Employees", "Payroll", "Loans", "Accounting"]
-    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
+    role: "Senior Odoo Developer"
+    odoo_version: "Odoo 18"
+    image: ""
+    short_desc: "Website, GoHighLevel and form leads routed into Odoo CRM with deduplication and automatic assignment"
+    full_desc: "Built APIs that bring leads from the company website, GoHighLevel and web forms into Odoo CRM. The integration validates incoming data, prevents duplicates, tracks source, assigns the correct salesperson/team and drives the lead through configured stages toward proposal and testing workflows."
+    tags: ["Odoo 18", "CRM", "REST API", "GoHighLevel", "Basic Auth", "Automation"]
+    modules: ["CRM", "Sales", "Contacts"]
+    tech_stack: ["Python", "Odoo ORM", "REST API", "Basic Auth", "PostgreSQL"]
     highlights:
-      - "Developed the full loan lifecycle: request, approval, disbursement and recovery"
-      - "Built an installment schedule with automatic deduction against payroll"
-      - "Implemented approval routing and status tracking for loan requests"
-      # FILL IN: skip / deferral logic for missed installments?
-      # FILL IN: does it post journal entries to Accounting?
-      # FILL IN: loan volume or value processed?
-      # NOTE: hrms-migration already claims "loan installment and skip logic" —
-      #       if that experience informed this build, say so; it is a strength.
+      - "Built inbound APIs using Basic Authentication"
+      - "Implemented duplicate detection and source tracking"
+      - "Automated salesperson/team assignment and lead stages"
+      - "Connected lead acquisition with downstream proposal and testing operations"
 
-  - id: "sage-integration"
-    title: "Sage Integration"
+  - id: "clearpath-orthodontics"
+    title: "ClearPath Orthodontics ERP"
     category: "odoo"
     featured: true
-    year: 2026
+    year: 2025
     client: "Aetos Technologies"
     role: "Lead Developer"
-    odoo_version: "Odoo 17"
-    image: "assets/images/odoo-sage-accounting-integration.png"
-    short_desc: "Flask-based Odoo sync engine for invoices and payments"
-    full_desc: "Built a Flask-based connector to sync Sage invoices, customers, and companies with Odoo Accounting using a scheduled REST API pipeline. Automated partial payments and reconciliation with robust error handling."
-    tags: ["Python", "Flask", "REST API", "Odoo 17", "Community"]
-    modules: ["Accounting", "Contacts", "Invoicing", "API Integration"]
-    tech_stack: ["Python 3.10", "Flask", "PostgreSQL", "Docker"]
+    odoo_version: "Odoo 18"
+    image: "assets/images/odoo-clinical-erp-biometric-attendance.png"
+    short_desc: "Doctor portal, advance payments, MRP and Inventory processing ~250 daily orders"
+    full_desc: "Led the ClearPath Orthodontics Odoo implementation and worked with the functional team to translate business requirements into portal, Sales, payment, Manufacturing and Inventory workflows. Approximately 200 doctors/clinics used the portal and the operation processed around 250 orders per day."
+    tags: ["Odoo 18", "Portal", "Payments", "MRP", "BOM", "Inventory", "ZK Attendance"]
+    modules: ["Sales", "Manufacturing", "Inventory", "Accounting", "Attendance", "Portal"]
+    tech_stack: ["Python", "Odoo ORM", "QWeb", "PostgreSQL", "ZK Integration"]
     highlights:
-      - "Automated invoice import from Sage into Odoo"
-      - "Partial payment and reconciliation handling"
-      - "Scheduled cron job for real-time sync"
-      - "Error logging and retry mechanism"
+      - "~200 doctor/clinic portal users and ~250 daily orders"
+      - "Advance-payment workflow before order release into manufacturing"
+      - "BOMs, Manufacturing Orders, production stages, material consumption and inventory movements"
+      - "Customized a generic ZK attendance connector for multi-location use, APIs, duplicate handling, work locations and time handling"
+      - "Added employee- and department-specific attendance downloads"
 
   - id: "mastercard-payment"
-    title: "Mastercard Payment Provider"
+    title: "Mastercard Hosted Checkout Payment Provider"
     category: "odoo"
     featured: true
     year: 2025
@@ -245,246 +247,174 @@ projects:
     role: "Lead Developer"
     odoo_version: "Odoo 17 / Odoo 18"
     image: "assets/images/odoo-mastercard-payment-provider.png"
-    short_desc: "Custom Odoo payment acquirer for 500+ monthly transactions"
-    full_desc: "Built a custom Mastercard payment provider for Odoo 17 and Odoo 18 across Community and Enterprise environments, enabling automated invoice settlement directly inside Odoo Accounting."
-    tags: ["Python", "Odoo 17", "Odoo 18", "Community", "Enterprise", "Payment Gateway"]
-    modules: ["Accounting", "Invoicing", "Payment"]
+    short_desc: "End-to-end Odoo payment provider handling ~200 online payments per day"
+    full_desc: "Built the complete Mastercard Hosted Checkout payment-provider flow for Odoo, covering transaction creation, redirect/checkout, callback handling, transaction verification, Odoo payment state management and invoice reconciliation."
+    tags: ["Odoo 17", "Odoo 18", "Mastercard", "Payments", "Accounting", "REST API"]
+    modules: ["Payment", "Accounting", "Invoicing"]
     tech_stack: ["Python", "Odoo ORM", "REST API"]
     highlights:
-      - "500+ monthly automated transactions"
-      - "Seamless Odoo Accounting integration"
-      - "Custom payment flow with error handling"
+      - "Handles approximately 200 online payment transactions per day"
+      - "Built transaction creation and Hosted Checkout redirect flow"
+      - "Implemented callback/notification handling and transaction verification"
+      - "Updates payment.transaction states and reconciles paid invoices"
 
-  - id: "tazah-sale-flow"
-    title: "Tazah Technologies — Sale Order Flow"
-    category: "odoo"
-    featured: false
-    year: 2025
-    client: "Aetos Technologies"
-    role: "Lead Developer"
-    odoo_version: "Odoo 17"
-    image: "assets/images/odoo-sale-order-lifecycle-automation.png"
-    short_desc: "Custom module automating full sales lifecycle"
-    full_desc: "Designed and implemented a custom Sale Order Flow module to automate and track the lifecycle of sales from quotation to delivery and payment. Reduced order follow-up time by ~40%."
-    tags: ["Python", "Odoo 17", "Community", "Custom Module"]
-    modules: ["Sale", "Purchase", "Inventory", "Accounting"]
-    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
-    highlights:
-      - "Quotation to delivery full lifecycle automation"
-      - "~40% reduction in order follow-up time"
-      - "Custom reports for operations team"
-
-  # TO CONFIRM (audit Part 2): Axiom World ended Jan 2025, so an Odoo 18
-  # Enterprise build dated 2025 leaves a one-month window. Correct employer + year?
-  - id: "pgi-erp-customization"
-    title: "Prime Global Imports ERP Customization"
-    category: "odoo"
-    featured: false
-    year: 2025
-    client: "Axiom World"
-    role: "Odoo Developer"
-    odoo_version: "Odoo 18"
-    image: "assets/images/odoo-18-enterprise-ui-customization.png"
-    short_desc: "Odoo Enterprise UI upgrades, sidebar navigation, and customized sales and invoice reports"
-    full_desc: "Worked on customization and enhancement of an Odoo 18 Enterprise ERP system for Axiom World, focusing on backend UI and UX improvements, a custom sidebar layout, an enterprise-like home menu experience, and advanced QWeb report customization for sales and invoicing modules."
-    tags: ["Python", "Odoo 18", "Enterprise", "UI/UX", "QWeb", "Reporting"]
-    modules: ["Sales", "Invoicing", "UI Customization", "Navigation"]
-    tech_stack: ["Python", "Odoo ORM", "QWeb", "PostgreSQL"]
-    highlights:
-      - "Customized the Odoo 18 Enterprise interface to improve usability and navigation"
-      - "Implemented a custom sidebar layout to enhance module accessibility and user flow"
-      - "Developed an enterprise-like home menu experience inside Odoo Enterprise edition"
-      - "Customized Sales Order and Invoice reports to match business requirements"
-      - "Modified QWeb templates to improve layout, branding, and readability"
-      - "Enhanced internal navigation and dashboard-style entry points for users and administrators"
-    # TO CONFIRM: if the sidebar / home-menu work used OWL components, say so
-    # explicitly here — it currently reads as cosmetic, and it may be your only
-    # OWL evidence (audit 3.3).
-
-  # TO CONFIRM (audit Part 2): same date conflict as Prime Global Imports.
-  - id: "silicon-signs-erp"
-    title: "Silicon Signs ERP Customization"
-    category: "odoo"
-    featured: true
-    year: 2025
-    client: "Axiom World"
-    role: "Lead Developer"
-    odoo_version: "Odoo 18 Enterprise"
-    image: "assets/images/odoo-bom-versioning-manufacturing.png"
-    short_desc: "Advanced manufacturing customization with BOM versioning and comparison workflows"
-    full_desc: "Worked on a fully customized Odoo 18 Enterprise ERP implementation for Silicon Signs through Axiom World, focusing on manufacturing optimization, BOM version control, and cross-module ERP enhancements. The system was extended to support intelligent BOM versioning, BOM comparison, and client-specific manufacturing selection workflows integrated with sales and manufacturing execution."
-    tags: ["Python", "Odoo 18", "Enterprise", "Manufacturing", "BOM Versioning", "Comparison"]
-    modules: ["Manufacturing", "Sales", "BOM Management", "Production"]
-    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
-    highlights:
-      - "Developed a custom BOM versioning system inside the Odoo 18 Enterprise Manufacturing module"
-      - "Implemented support for multiple BOM versions for the same product"
-      - "Built a BOM comparison view to evaluate structure, components, and quantity differences"
-      - "Added logic to detect existing similar BOMs before creating new versions"
-      - "Enabled client-specific BOM selection for production planning"
-      - "Integrated BOM versioning with Manufacturing Orders for accurate execution"
-
-  # TO CONFIRM (audit Part 2): your Aetos 2025 bullet also claims the RingFree
-  # REST API integration. Which employer owns this project?
-  - id: "ringfree-integration"
-    title: "RingFree Integration & Customization"
-    category: "odoo"
-    featured: true
-    year: 2024
-    client: "Axiom World"
-    role: "Lead Developer"
-    odoo_version: "Odoo 16"
-    image: "assets/images/odoo-metered-billing-ringfree-integration.png"
-    short_desc: "Odoo metered service billing and external system integration"
-    full_desc: "Developed a full integration between Odoo ERP and the RingFree external platform to automate usage-based metered billing and financial synchronization. The system ensured accurate usage calculation, automated invoice generation, and seamless bank payments reconciliation."
-    tags: ["Python", "REST API", "Odoo 16", "Enterprise", "Metered Billing"]
-    modules: ["Accounting", "Sales", "Metered Billing", "Bank Payment Sync"]
-    tech_stack: ["Python", "REST API", "Odoo ORM", "PostgreSQL"]
-    highlights:
-      - "Integrated RingFree external web services with Odoo using REST APIs for real-time synchronization"
-      - "Implemented metered billing system to calculate customer charges based on service usage data"
-      - "Developed automated invoice generation workflows for monthly billing cycles"
-      - "Synchronized billing data with Sales and Accounting modules in Odoo"
-      - "Built bank payment synchronization logic to reconcile customer payments automatically"
-      - "Designed and generated custom financial reports for billing analysis and revenue tracking"
-      - "Handled API error management, retry mechanisms, and data validation for reliable integration"
-
-  - id: "fell-erp"
-    title: "Fell ERP Development"
-    category: "odoo"
-    featured: false
-    year: 2024
-    client: "Axiom World"
-    role: "Lead Developer"
-    odoo_version: "Odoo 16"
-    image: "assets/images/odoo-operational-exception-reporting.png"
-    short_desc: "Customized Odoo operational reporting and business intelligence consolidation"
-    full_desc: "Designed and developed a customized ERP system focused on operational visibility and daily business reporting. The system consolidated key business activities across sales, purchase, inventory, and CRM into a centralized exceptional reporting engine with automated notification capabilities."
-    tags: ["Python", "Odoo 16", "Enterprise", "Custom Module", "Custom Reporting"]
-    modules: ["Sale", "Purchase", "Inventory", "CRM", "Exceptional Reports"]
-    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
-    highlights:
-      - "Built custom Odoo modules for generating daily operational reports"
-      - "Developed daily exception reports for sales orders, purchase orders, delayed orders, pending payments, and uncompleted transactions"
-      - "Automated email notifications to responsible persons based on operational reports"
-      - "Integrated operational data across Sales, Purchase, Inventory, and CRM modules for unified reporting"
-      - "Designed and structured report formats for streamlined management decision-making"
-      - "Optimized queries and reporting database operations for large historical datasets"
-
-  # TO CONFIRM (audit Part 2): your Aetos Team Lead bullet credits this work.
-  # Should client be "Aetos Technologies" rather than "Internal Project"?
-  - id: "clearpath-orthodontics"
-    title: "ClearPath Orthodontics ERP"
-    category: "odoo"
-    featured: false
-    year: 2026
-    client: "Internal Project"
-    role: "Lead Developer"
-    odoo_version: "Odoo 18"
-    image: "assets/images/odoo-clinical-erp-biometric-attendance.png"
-    short_desc: "Clinical operations, logistics, biometric attendance, and manufacturing ERP"
-    full_desc: "Integrated and extended an Odoo 18 Enterprise ERP for ClearPath Orthodontics, including a Doctor Portal for patient orders, prescriptions, and clinical workflows, along with shipping and logistics flows for order fulfillment and delivery."
-    tags: ["Odoo 18", "Enterprise", "Python", "Manufacturing", "HR"]
-    modules: ["Manufacturing", "Logistics", "Sales", "Inventory", "HR"]
-    tech_stack: ["Odoo ORM", "Python", "PostgreSQL", "Biometric Integration"]
-    highlights:
-      - "Built and customized a Doctor Portal to manage patient orders, prescriptions, and clinical workflows"
-      - "Implemented Manufacturing (BOM) and Production workflows to support medical product preparation and operations"
-      - "Customized the Shipping and logistics module to track order fulfillment and delivery processes"
-      - "Designed multi-branch attendance system integrated with biometric devices"
-      - "Created Employee Portal for task management, attendance tracking, timesheets, and performance badges"
-      - "Ensured database scalability using custom business rules written in Python and PostgreSQL"
-    # TO CONFIRM: multi-branch + portal users implies access groups and record
-    # rules. If you built those, add a highlight — security is Tier 2 demand
-    # and you currently get no credit for it (audit 3.4).
-
-  # TO CONFIRM (audit Part 2): 2026 spans Aetos (Jan-Apr) and TTI (May-). Which?
   - id: "axis-marketing"
     title: "Axis Marketing Management"
     category: "odoo"
-    featured: false
+    featured: true
     year: 2026
-    client: "Internal Project"
-    role: "Odoo Developer"
+    client: "Aetos Technologies"
+    role: "Lead Developer"
     odoo_version: "Odoo 19"
     image: "assets/images/odoo-19-meta-ads-lead-sync.png"
-    short_desc: "Contract lifecycle, customer portal, and Meta campaign sync ERP"
-    full_desc: "Developed an Odoo 19 Enterprise marketing management system connected with Meta for timely campaign updates, lead generation, and customer license and renewal tracking."
-    tags: ["Odoo 19", "Enterprise", "Meta API", "Contract Management", "Customer Portal"]
-    modules: ["CRM", "Customer Portal", "Contract Management", "HR"]
-    tech_stack: ["Python", "Odoo ORM", "Meta API", "PostgreSQL"]
+    short_desc: "Odoo 19 CRM, Meta lead sync, contracts, renewals and portals led with two junior developers"
+    full_desc: "Led delivery of an Odoo 19 marketing-management solution while working hands-on with two junior developers. The system connects CRM and Meta lead synchronization with contracts, licenses, renewals, customer portal, employee portal, attendance/timesheets and automated notifications."
+    tags: ["Odoo 19", "CRM", "Meta API", "Contracts", "Portal", "Leadership"]
+    modules: ["CRM", "Contacts", "Portal", "Employees", "Timesheets"]
+    tech_stack: ["Python", "Odoo ORM", "REST API", "QWeb", "PostgreSQL"]
     highlights:
-      - "Developed customer workflows for managing license updates and renewals"
-      - "Built a Contract & License Management system with automated renewal tracking"
-      - "Connected Meta APIs for timely campaign updates and lead synchronization"
-      - "Implemented Employee Portal for task assignment, attendance tracking, and timesheets"
-      - "Designed centralized contract tracking with automated notifications for expirations"
-      - "Ensured seamless integration across CRM, HR, and contract modules"
+      - "Led two junior developers while remaining hands-on in implementation"
+      - "Meta API campaign/lead synchronization"
+      - "Contract, license and renewal lifecycle management"
+      - "Customer and employee portals with automated notifications"
 
-  # TO CONFIRM (audit Part 2): your Aetos 2025 bullet says you LED this migration,
-  # but the role here is "Junior Developer" at a different employer. Which is right?
-  - id: "hrms-migration"
-    title: "HRMS Bundle Migration (16 → 17)"
+  - id: "pavo-oms"
+    title: "Pavo OMS Mobile Ordering & Odoo Bridge"
     category: "odoo"
     featured: true
+    year: 2025
+    client: "Independent / Freelance"
+    role: "Lead Developer"
+    odoo_version: "Odoo 17"
+    image: ""
+    short_desc: "React Native ordering app with Odoo 17 as a resilient bridge to Pavo OMS"
+    full_desc: "Led an independent March–May 2025 project combining a React Native Android/iOS app, Odoo 17 and Pavo OMS APIs. Odoo acts as the resilient bridge: mobile orders land in Odoo first and can continue operating during OMS downtime, then synchronize to Pavo when service is restored."
+    tags: ["Odoo 17", "React Native", "Android", "iOS", "REST API", "CI/CD", "DevOps"]
+    modules: ["Sales", "Contacts", "Products", "Inventory"]
+    tech_stack: ["React Native", "Python", "Odoo ORM", "REST API", "PostgreSQL", "GitHub Actions"]
+    highlights:
+      - "Synchronized customers, products, inventory and orders with Pavo OMS"
+      - "Barcode scanning lets shoppers build a digital cart while moving through the store"
+      - "Designed fallback synchronization so sales flow continues during OMS outages"
+      - "Deployed on IONOS with Ubuntu, PostgreSQL, Nginx, SSL/Certbot, systemd, backups and domain configuration"
+      - "Implemented GitHub Actions CI/CD"
+
+  - id: "pgi-erp-customization"
+    title: "Prime Global Imports — Odoo 18 ERP"
+    category: "odoo"
+    featured: true
+    year: 2025
+    client: "Independent / Freelance"
+    role: "Lead Developer"
+    odoo_version: "Odoo 18"
+    image: "assets/images/odoo-18-enterprise-ui-customization.png"
+    short_desc: "Independent end-to-end Odoo 18 ERP delivery from business modules through production infrastructure"
+    full_desc: "Led this independent July–December 2025 Odoo 18 project alongside full-time employment. Owned Sales, Purchase, user/access management, sales-representative management, reporting/UI customization and the production infrastructure and deployment pipeline."
+    tags: ["Odoo 18", "Sales", "Purchase", "Security", "DevOps", "GitHub Actions"]
+    modules: ["Sales", "Purchase", "Contacts", "Users", "Reporting"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL", "Ubuntu", "Nginx", "GitHub Actions"]
+    highlights:
+      - "End-to-end ownership of development, deployment and production operations"
+      - "Sales, Purchase, user/access and sales-representative management"
+      - "Ubuntu/Linux, PostgreSQL, Nginx, SSL/Certbot, systemd, backups and domain configuration"
+      - "GitHub Actions CI/CD"
+
+  - id: "silicon-signs-erp"
+    title: "Silicon Signs Manufacturing ERP"
+    category: "odoo"
+    featured: false
     year: 2024
     client: "Axiom World"
-    role: "Junior Developer"
-    odoo_version: "Odoo 17"
-    image: "assets/images/odoo-16-to-17-hr-payroll-migration.png"
-    short_desc: "Full Odoo 16 to 17 HR module migration"
-    full_desc: "Migrated Employees, Payroll, Employee Loan and HR Tax modules from Odoo 16 to 17. Preserved complex payroll structures and loan installment logic with zero data loss."
-    tags: ["Python", "PostgreSQL", "Migration", "Odoo 17", "Community"]
-    modules: ["Employees", "Payroll", "Loans", "HR Tax"]
-    tech_stack: ["Python", "PostgreSQL", "Odoo ORM"]
+    role: "Odoo Developer · Team Contributor"
+    odoo_version: "Odoo 18"
+    image: "assets/images/odoo-bom-versioning-manufacturing.png"
+    short_desc: "Manufacturing, BOM versioning/comparison, Sales, Inventory and custom reporting"
+    full_desc: "Contributed as part of the Axiom World team on Silicon Signs, working directly across Manufacturing/MRP, BOM versioning and comparison, Sales, Inventory and custom reports."
+    tags: ["Odoo 18", "MRP", "BOM", "Sales", "Inventory", "Reporting"]
+    modules: ["Manufacturing", "Sales", "Inventory"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL", "QWeb"]
     highlights:
-      - "Zero data loss migration"
-      - "Complex payroll structure preserved"
-      - "Loan installment and skip logic maintained"
+      - "Custom BOM versioning and comparison workflows"
+      - "Client-specific BOM selection for manufacturing"
+      - "Sales and Inventory integration with production"
+      - "Custom operational reports"
 
-  # --- University / personal projects ---------------------------------------
-  # Descriptions rewritten to match what these actually were (audit Part 0).
-  # The previous text described production ERP failover architecture and payroll
-  # delivery on what are 2022 student projects.
+  - id: "ringfree-integration"
+    title: "RingFree Metered Billing Integration"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "Axiom World"
+    role: "Odoo Developer · Team Contributor"
+    odoo_version: "Odoo 16"
+    image: "assets/images/odoo-metered-billing-ringfree-integration.png"
+    short_desc: "REST integration for usage-based billing, monthly invoices, payments and reporting"
+    full_desc: "Contributed as part of the Axiom World team and personally implemented the core RingFree integration: REST APIs, metered/usage-based billing, monthly invoice automation, payment/bank synchronization and reporting."
+    tags: ["Odoo 16", "REST API", "Metered Billing", "Accounting", "Reporting"]
+    modules: ["Sales", "Accounting", "Invoicing"]
+    tech_stack: ["Python", "REST API", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Usage-based billing from external service data"
+      - "Automated monthly invoice generation"
+      - "Payment/bank synchronization and reconciliation support"
+      - "Custom financial and operational reports"
 
-  # TO CONFIRM: year (degree ran Jul 2019 - Jul 2023)
+  - id: "fell-erp"
+    title: "Fell ERP Reporting & Automation"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "Axiom World"
+    role: "Odoo Developer · Team Contributor"
+    odoo_version: "Odoo 16"
+    image: "assets/images/odoo-operational-exception-reporting.png"
+    short_desc: "Sales reporting, daily operational reports, automated notifications and SQL optimization"
+    full_desc: "Contributed as part of the Axiom World team with direct responsibility for Sales, daily reports, automated email/notification workflows and SQL/report optimization."
+    tags: ["Odoo 16", "Sales", "SQL", "Reporting", "Automation"]
+    modules: ["Sales", "Reporting", "Mail"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL", "SQL", "QWeb"]
+    highlights:
+      - "Daily operational and exception reporting"
+      - "Automated email notifications"
+      - "SQL/report optimization for historical data"
+
+  - id: "hrms-migration"
+    title: "HRMS Migration — Odoo 16 to 17"
+    category: "odoo"
+    featured: false
+    year: 2024
+    client: "Axiom World"
+    role: "Odoo Developer · Team Contributor"
+    odoo_version: "Odoo 16 → 17"
+    image: "assets/images/odoo-16-to-17-hr-payroll-migration.png"
+    short_desc: "Employees, Payroll, Loans and HR Tax migration from Odoo 16 to 17"
+    full_desc: "Contributed to the complete HRMS migration from Odoo 16 to 17, personally working on Employees, Payroll, Employee Loans, HR Tax, database/data migration, custom module/code migration and regression testing."
+    tags: ["Odoo 16", "Odoo 17", "Migration", "Payroll", "HR", "PostgreSQL"]
+    modules: ["Employees", "Payroll", "Loans", "HR Tax"]
+    tech_stack: ["Python", "Odoo ORM", "PostgreSQL"]
+    highlights:
+      - "Migrated custom HR modules and business logic"
+      - "Handled database/data migration and validation"
+      - "Preserved payroll and loan workflows"
+      - "Performed regression and functional testing"
+
   - id: "showroom-app"
-    title: "Showroom Ecommerce — Mobile App"
+    title: "Showroom Ecommerce Mobile App"
     category: "android"
     featured: false
     year: 2022
     client: "University Project"
     role: "Solo Developer"
     image: "assets/images/showroom-react-native-app.png"
-    short_desc: "Cross-platform React Native shopping app with a Django backend"
-    full_desc: "A cross-platform React Native e-commerce app built as a university project, covering product browsing, cart and checkout, backed by a Django service with Firebase used to keep order status in sync between the app and the backend."
-    tags: ["React Native", "Firebase", "REST API", "Android", "iOS"]
+    short_desc: "Cross-platform React Native shopping app with Django/Firebase backend"
+    full_desc: "Early cross-platform mobile project covering product browsing, cart, checkout and order status, built with React Native and backed by Django/Firebase."
+    tags: ["React Native", "Django", "Firebase", "Android", "iOS"]
     modules: []
-    tech_stack: ["React Native", "Django", "Firebase", "REST APIs"]
+    tech_stack: ["React Native", "Django", "Firebase", "REST API"]
     highlights:
-      - "Built product browsing, cart management and checkout flows in React Native"
-      - "Consumed a REST API backed by a Django service"
-      - "Used Firebase to sync order status between the app and the backend"
-
-  # TO CONFIRM: this is the backend half of showroom-app — consider merging the
-  # two into a single entry rather than listing one project twice.
-  - id: "showroom-erp"
-    title: "Showroom Ecommerce — Backend"
-    category: "web"
-    featured: false
-    year: 2022
-    client: "University Project"
-    role: "Solo Developer"
-    image: "assets/images/showroom-react-native-app.png"
-    short_desc: "Django order and catalogue backend for the Showroom app"
-    full_desc: "The backend half of the Showroom university project: a Django service handling the product catalogue, order records and pricing, exposing a REST API to the React Native client with Firebase used for order-status sync."
-    tags: ["Python", "Django", "REST API", "Firebase"]
-    modules: []
-    tech_stack: ["Python", "Django", "PostgreSQL", "Firebase"]
-    highlights:
-      - "Modelled products, orders and pricing in Django"
-      - "Exposed a REST API consumed by the React Native client"
-      - "Synced order status through Firebase"
+      - "Product browsing, cart and checkout"
+      - "REST API integration"
+      - "Order-status synchronization"
 
   - id: "idea-pitching"
     title: "Idea Pitching App"
@@ -494,49 +424,12 @@ projects:
     client: "Personal Project"
     role: "Solo Developer"
     image: "assets/images/idea-pitching-android-firebase.png"
-    short_desc: "Investor and pitcher real-time collaboration app"
-    full_desc: "An Android app built with Kotlin and Firebase, with real-time chat between investors and pitchers and a feedback flow on submitted ideas."
-    tags: ["Kotlin", "Firebase", "XML", "Android"]
+    short_desc: "Kotlin/Firebase collaboration app for investors and idea pitchers"
+    full_desc: "Android app built with Kotlin and Firebase featuring authentication, real-time chat and feedback on submitted ideas."
+    tags: ["Kotlin", "Firebase", "Android"]
     modules: []
     tech_stack: ["Kotlin", "Android", "Firebase"]
     highlights:
-      - "Real-time chat between investors and pitchers"
+      - "Real-time chat"
       - "Firebase authentication"
-      - "Live feedback system"
-
-  # TO CONFIRM: year (degree ran Jul 2019 - Jul 2023)
-  - id: "pavobixbox"
-    title: "PavoBixbox Web / App"
-    category: "web"
-    featured: false
-    year: 2022
-    client: "University Project"
-    role: "Solo Developer"
-    image: "assets/images/pavobixbox-django-firebase.png"
-    short_desc: "Dockerized Django app syncing with an Android client via Firebase"
-    full_desc: "A university project pairing a Dockerized Django web application with a Kotlin Android client, using Firebase to keep orders, products and customer records in sync between the two."
-    tags: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
-    modules: []
-    tech_stack: ["Python", "Django", "Firebase", "Docker", "Kotlin"]
-    highlights:
-      - "Firebase sync between the web app and the Android client"
-      - "Dockerized local deployment"
-      - "Product and order management screens"
-
-  - id: "cv-maker"
-    title: "Simple CV Maker"
-    category: "web"
-    featured: false
-    year: 2022
-    client: "University Project"
-    role: "Solo Developer"
-    image: "assets/images/cv-maker-dotnet-mvc.png"
-    short_desc: "Web CV builder with .NET MVC and SQL database"
-    full_desc: "A CV builder web application built for a university module using HTML, Bootstrap, SQL and the .NET MVC framework, letting users create and manage CVs stored in a SQL database."
-    tags: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
-    modules: []
-    tech_stack: ["HTML", "Bootstrap", "SQL", ".NET MVC"]
-    highlights:
-      - "User registration and authentication"
-      - "CV creation and management"
-      - "SQL database storage"
+      - "Live feedback workflow"
