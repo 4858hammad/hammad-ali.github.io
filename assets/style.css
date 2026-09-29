@@ -2121,6 +2121,38 @@ body::after {
 .page-hero > .avatar { width: 64px; height: 64px; }
 .logo-mark { font-size: 11px; }
 
+/* ---- Hire me cards ---- */
+.hire-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.hire-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 22px 20px;
+  transition: var(--transition-smooth);
+}
+
+.hire-card:hover { transform: translateY(-4px); border-color: rgba(139, 155, 255, 0.45); }
+
+.hire-k {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: 10px;
+}
+
+.hire-v { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25; }
+.hire-n { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.6; }
+
+.hire-list { list-style: none; margin-bottom: 10px; }
+.hire-list li { font-size: 13px; color: var(--color-text-primary); padding: 5px 0 5px 16px; position: relative; line-height: 1.45; }
+.hire-list li::before { content: "→"; position: absolute; left: 0; color: var(--color-accent-blue); }
+
+@media (max-width: 1000px) { .hire-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .hire-grid { grid-template-columns: 1fr; } }
+
 .cover-metric { white-space: nowrap; }
 .pcard-img .cover-metric { font-size: 30px; }
 .pcard-img .cover { padding: 14px 16px; }

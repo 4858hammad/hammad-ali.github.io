@@ -232,6 +232,7 @@
       renderContactPage(data);
     }
 
+    renderHire(data);
     observeReveals();
     animateCounters();
   });
@@ -386,6 +387,39 @@
       <span>${esc(data.site.name)} · Odoo Developer · ${esc(data.contact.location)}</span>
       <span>© ${year} ${esc(data.site.name)}</span>
     `;
+  }
+
+  // "Work with me" cards (rate, availability, time zone, engagement types).
+  // Content lives in the `hire:` block of portfolio_data.yaml; rendered into
+  // every element carrying the .hire-mount class.
+  function renderHire(data) {
+    const h = data.hire;
+    document.querySelectorAll('.hire-mount').forEach(mount => {
+      if (!h) return;
+      mount.innerHTML = `
+        <div class="hire-grid">
+          <div class="hire-card reveal">
+            <div class="hire-k">Rate</div>
+            <div class="hire-v grad-text">${esc(h.rate)}</div>
+            <div class="hire-n">${esc(h.rate_note)}</div>
+          </div>
+          <div class="hire-card reveal">
+            <div class="hire-k">Availability</div>
+            <div class="hire-v">Open to work</div>
+            <div class="hire-n">${esc(h.availability)}</div>
+          </div>
+          <div class="hire-card reveal">
+            <div class="hire-k">Time zone</div>
+            <div class="hire-v">${esc(h.timezone)}</div>
+            <div class="hire-n">${esc(h.timezone_note)}</div>
+          </div>
+          <div class="hire-card reveal">
+            <div class="hire-k">How we can work</div>
+            <ul class="hire-list">${list(h.engagements).map(e => `<li>${esc(e)}</li>`).join('')}</ul>
+            <div class="hire-n">${esc(h.response)}</div>
+          </div>
+        </div>`;
+    });
   }
 
   // Render Home Page Details

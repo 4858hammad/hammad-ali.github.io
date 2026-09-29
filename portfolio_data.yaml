@@ -15,6 +15,18 @@ contact:
   location: "Lahore, Pakistan"
   remote: true
 
+hire:
+  rate: "USD 30 / hour"
+  rate_note: "Negotiable. Depends on scope, hours per week and contract length; happy to discuss for long-term work."
+  availability: "Flexible: 15–40 hours per week, from part-time contracts to full-time remote."
+  timezone: "PKT (UTC+5), Lahore"
+  timezone_note: "Comfortable overlapping with EU and Gulf working hours; US overlap by arrangement."
+  engagements:
+    - "Hourly or monthly contract"
+    - "Fixed-price project after a short discovery call"
+    - "Full-time remote: Odoo Technical Lead / Senior Developer"
+  response: "I reply within 24 hours."
+
 stats:
   - label: "Odoo versions"
     value: "14–19"
