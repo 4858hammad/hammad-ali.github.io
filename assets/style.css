@@ -2126,7 +2126,26 @@ body::after {
    thumbnail crops to the left zone, where the metric lives. */
 .proj-img, .aimg { height: auto; aspect-ratio: 3 / 1; }
 .proj-img img, .aimg img, .pcard-img img, .proj-banner img { object-position: left center; }
-.pcard-img { min-height: 190px; }
+/* Listing page: same card layout as the home page (banner on top, 2 columns). */
+.proj-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.pcard { flex-direction: column; }
+/* Fixed 3:1 box (padding-top trick) so the banner always fills the top of the
+   card; aspect-ratio alone is unreliable for a child of a flex column. */
+.pcard-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 33.3333%;
+  min-height: 0;
+  flex-shrink: 0;
+  border-right: none;
+  border-bottom: 1px solid var(--glass-border);
+}
+.pcard-img > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pcard-img > img { object-fit: cover; object-position: left center; }
+.pcard-body { padding: 18px 20px 20px; }
+@media (max-width: 800px) { .proj-list { grid-template-columns: 1fr; } }
 .proj-banner { height: auto; aspect-ratio: 3 / 1; }
 
 /* ---- Hire me cards ---- */
@@ -2167,7 +2186,6 @@ body::after {
 
 @media (max-width: 640px) {
   .code-card pre { font-size: 10.5px; padding: 14px; }
-  .pcard-img { height: 150px; }
 }
 
 .proj-banner .cover { padding: 28px 32px; }
@@ -2231,7 +2249,6 @@ body::after {
 }
 
 .pcard:hover, .acard:hover { border-color: rgba(139, 155, 255, 0.5); box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4); }
-.pcard-img { width: 200px; border-right: 1px solid var(--glass-border); }
 .aimg { background: none !important; border-bottom: 1px solid var(--glass-border); height: 156px; }
 .agrid { padding: 8px 0; }
 
