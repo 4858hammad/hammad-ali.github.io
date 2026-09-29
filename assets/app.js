@@ -201,7 +201,9 @@
         setMeta('meta[property="og:title"]', 'content', pageTitle);
         setMeta('meta[property="og:description"]', 'content', proj.short_desc || '');
         setMeta('meta[property="og:url"]', 'content', `${SITE_BASE}/project.html?id=${proj.id}`);
-        if (proj.image) {
+        // Social crawlers (LinkedIn, X) ignore SVG, so keep the site-wide PNG
+        // cover for those and only override with raster project images.
+        if (proj.image && !/\.svg$/i.test(proj.image)) {
           setMeta('meta[property="og:image"]', 'content', `${SITE_BASE}/${proj.image}`);
           setMeta('meta[name="twitter:image"]', 'content', `${SITE_BASE}/${proj.image}`);
         }

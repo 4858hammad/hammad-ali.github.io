@@ -2121,6 +2121,14 @@ body::after {
 .page-hero > .avatar { width: 64px; height: 64px; }
 .logo-mark { font-size: 11px; }
 
+/* ---- Project banners (assets/images/*.svg, 1200x400) ----
+   Home + Android cards show the whole 3:1 banner. The narrow listing
+   thumbnail crops to the left zone, where the metric lives. */
+.proj-img, .aimg { height: auto; aspect-ratio: 3 / 1; }
+.proj-img img, .aimg img, .pcard-img img, .proj-banner img { object-position: left center; }
+.pcard-img { min-height: 190px; }
+.proj-banner { height: auto; aspect-ratio: 3 / 1; }
+
 /* ---- Hire me cards ---- */
 .hire-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
