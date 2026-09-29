@@ -32,29 +32,102 @@
   <div class="container">
     <div id="nav-container"></div>
     <div class="hero">
-      <div class="hero-tag" id="hero-tag">Senior Odoo Developer · Technical Leadership · Integrations</div>
-      <h1 id="hero-title">I build production Odoo systems<br/>from workflow to <em>deployment.</em></h1>
-      <p id="hero-desc">3+ years across Odoo 14–19 — custom modules, OWL and portal frontends, Accounting, Sales, CRM, HR/Payroll, MRP, payment and REST integrations, PostgreSQL, migrations and production DevOps. Experience leading 3 developers + 1 functional consultant.</p>
-      <div class="btn-row" id="btn-row">
-        <a href="odoo.html" class="btn-primary">View Odoo Projects</a>
-        <a href="assets/Hammad_Ali_Senior_Odoo_Developer_ATS_CV.pdf" download="Hammad_Ali_Senior_Odoo_Developer_ATS_CV.pdf" class="btn-outline">Download CV</a>
+      <div class="hero-copy">
+        <div class="hero-badge"><span class="dot"></span>Open to remote Technical Lead &amp; Senior roles</div>
+        <div class="hero-tag" id="hero-tag">Senior Odoo Developer · Technical Leadership · Integrations</div>
+        <h1 id="hero-title">I build production Odoo systems<br/>from workflow to <em>deployment.</em></h1>
+        <p id="hero-desc">3+ years across Odoo 14–19 — custom modules, OWL and portal frontends, Accounting, Sales, CRM, HR/Payroll, MRP, payment and REST integrations, PostgreSQL, migrations and production DevOps. Experience leading 3 developers + 1 functional consultant.</p>
+        <div class="btn-row" id="btn-row">
+          <a href="odoo.html" class="btn-primary">View Odoo Projects</a>
+          <a href="assets/Hammad_Ali_Senior_Odoo_Developer_CV.pdf" data-cv download="Hammad_Ali_Senior_Odoo_Developer_CV.pdf" class="btn-outline">Download CV ↓</a>
+          <a href="contact.html" class="btn-outline">Let’s talk →</a>
+        </div>
+        <div class="hero-trust">
+          <span>Odoo 14–19</span>
+          <span>Enterprise &amp; Odoo.sh</span>
+          <span>Led a team of 4</span>
+          <span>Remote-ready</span>
+        </div>
+      </div>
+      <div class="code-card" aria-hidden="true">
+        <div class="code-bar"><i></i><i></i><i></i><span>payment_transaction.py — illustrative</span></div>
+<pre><span class="c"># Hosted-checkout callback → payment state → invoice</span>
+<span class="k">class</span> <span class="f">PaymentTransaction</span>(models.Model):
+    _inherit = <span class="s">'payment.transaction'</span>
+
+    <span class="k">def</span> <span class="f">_process_notification_data</span>(self, data):
+        super()._process_notification_data(data)
+        <span class="k">if</span> self.provider_code != <span class="s">'mastercard'</span>:
+            <span class="k">return</span>
+        status = self._verify_with_gateway(data)
+        <span class="k">if</span> status == <span class="s">'CAPTURED'</span>:
+            self._set_done()
+            self._reconcile_invoices()
+        <span class="k">else</span>:
+            self._set_error(status)<span class="cursor"></span></pre>
       </div>
     </div>
+
     <div class="stats-row" id="stats-container"></div>
-    <div class="section" style="padding-bottom:16px;">
-      <div class="sec-header"><h2 class="sec-title">Browse by category</h2></div>
-      <div class="cat-strip" id="category-strip"></div>
-    </div>
+
     <div class="section">
-      <div class="sec-header"><h2 class="sec-title">Featured projects</h2><a href="odoo.html" class="see-all">See all →</a></div>
+      <div class="sec-header reveal">
+        <div>
+          <span class="eyebrow">What I do</span>
+          <h2 class="sec-title">End-to-end Odoo engineering</h2>
+          <p class="sec-sub">From the first requirements call to production support, one developer who can own the whole path.</p>
+        </div>
+      </div>
+      <div class="svc-grid">
+        <div class="svc reveal"><div class="svc-ico">🧩</div><h3>Custom modules &amp; OWL</h3><p>Odoo 14–19, Community and Enterprise. ORM logic, QWeb, and OWL/JavaScript dashboards that ship to production.</p></div>
+        <div class="svc reveal"><div class="svc-ico">🔌</div><h3>Integrations &amp; payments</h3><p>Mastercard Hosted Checkout, Sage, Meta, GoHighLevel and bidirectional REST APIs with callbacks and reconciliation.</p></div>
+        <div class="svc reveal"><div class="svc-ico">🚚</div><h3>Migrations &amp; data</h3><p>Odoo 16→17 HRMS migration and a 54,000+ record backfill in controlled batches, with validation and regression testing.</p></div>
+        <div class="svc reveal"><div class="svc-ico">🔐</div><h3>Portals &amp; security</h3><p>Employee, doctor, customer and field-sales portals with ACLs, record rules and territory-aware visibility.</p></div>
+        <div class="svc reveal"><div class="svc-ico">📊</div><h3>Accounting, MRP &amp; HR</h3><p>Accounting, Sales, Purchase, Inventory, MRP/BOM, CRM and Payroll. Functional depth, not just code.</p></div>
+        <div class="svc reveal"><div class="svc-ico">🚀</div><h3>DevOps &amp; leadership</h3><p>Odoo.sh, Ubuntu, Nginx, PostgreSQL, GitHub Actions CI/CD, plus code review and mentoring for a team of four.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header reveal">
+        <div>
+          <span class="eyebrow">Selected work</span>
+          <h2 class="sec-title">Featured projects</h2>
+          <p class="sec-sub">Real systems with real numbers: users, orders, payments and records.</p>
+        </div>
+        <a href="odoo.html" class="see-all">See all →</a>
+      </div>
       <div class="proj-grid" id="featured-grid"></div>
     </div>
-    <div class="divider"></div>
-    <div class="about-strip">
-      <div class="avatar">HA</div>
-      <div class="about-text" id="about-text-container"></div>
-      <a href="contact.html" class="btn-outline">Contact me →</a>
+
+    <div class="marquee" aria-label="Technologies">
+      <div class="marquee-track">
+        <span>Odoo 14–19</span><span>Python</span><span>OWL</span><span>JavaScript</span><span>PostgreSQL</span><span>REST APIs</span><span>Flask</span><span>QWeb</span><span>Odoo.sh</span><span>Docker</span><span>Nginx</span><span>GitHub Actions</span><span>Accounting</span><span>MRP / BOM</span><span>HR &amp; Payroll</span><span>CRM</span>
+        <span>Odoo 14–19</span><span>Python</span><span>OWL</span><span>JavaScript</span><span>PostgreSQL</span><span>REST APIs</span><span>Flask</span><span>QWeb</span><span>Odoo.sh</span><span>Docker</span><span>Nginx</span><span>GitHub Actions</span><span>Accounting</span><span>MRP / BOM</span><span>HR &amp; Payroll</span><span>CRM</span>
+      </div>
     </div>
+
+    <div class="section">
+      <div class="sec-header reveal">
+        <div>
+          <span class="eyebrow">Journey</span>
+          <h2 class="sec-title">From developer to technical lead</h2>
+        </div>
+        <a href="experience.html" class="see-all">Full experience →</a>
+      </div>
+      <div class="timeline" id="timeline-container"></div>
+    </div>
+
+    <div class="cta-band reveal">
+      <h2>Need an Odoo developer who <span class="grad-text">owns the outcome?</span></h2>
+      <p>Open to remote Technical Lead and Senior Odoo roles, and to contract work. Send a short note about your project and I will reply with how I would approach it.</p>
+      <div class="btn-row">
+        <a href="mailto:hammadali4858@gmail.com" class="btn-primary">Email me</a>
+        <a href="https://linkedin.com/in/hammad-ali-62417224b" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
+        <a href="assets/Hammad_Ali_Senior_Odoo_Developer_CV.pdf" data-cv download="Hammad_Ali_Senior_Odoo_Developer_CV.pdf" class="btn-outline">Download CV ↓</a>
+      </div>
+    </div>
+
     <div class="footer" id="footer-container"></div>
   </div>
   <noscript>

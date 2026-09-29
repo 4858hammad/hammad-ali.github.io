@@ -19,6 +19,60 @@
     return Array.isArray(v) ? v : [];
   }
 
+  // Flag JS-on early so the scroll-reveal CSS only hides content when it can
+  // actually be revealed again.
+  document.documentElement.classList.add('js');
+
+  // Fade elements in as they enter the viewport. Safe to call repeatedly after
+  // each render; already-observed nodes are skipped.
+  let revealObserver = null;
+  function observeReveals() {
+    const nodes = document.querySelectorAll('.reveal:not(.in):not([data-obs])');
+    if (!('IntersectionObserver' in window)) {
+      nodes.forEach(n => n.classList.add('in'));
+      return;
+    }
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }
+    nodes.forEach((n, i) => {
+      n.setAttribute('data-obs', '1');
+      if (!n.style.getPropertyValue('--d')) n.style.setProperty('--d', `${(i % 6) * 70}ms`);
+      revealObserver.observe(n);
+    });
+  }
+
+  // Count a stat like "250+" or "54k+" up from 0 once it is on screen. Values
+  // without a leading number ("3 Dev + 1 Functional") are left untouched.
+  function animateCounters() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.stat-n[data-count]').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      if (reduce || isNaN(target) || !('IntersectionObserver' in window)) return;
+      el.textContent = '0' + suffix;
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        const start = performance.now();
+        const dur = 1200;
+        (function tick(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        })(start);
+      }, { threshold: 0.6 });
+      io.observe(el);
+    });
+  }
+
   // Load js-yaml CDN library dynamically if needed
   function initYAML(callback) {
     if (typeof jsyaml !== 'undefined') {
@@ -82,24 +136,27 @@
   }
 
   // Render HTML Image element with auto placeholder fallback
+  // Designed cover used whenever a project has no screenshot: the headline
+  // metric (from `metric` / `metric_label` in the YAML) on a category gradient.
+  function renderCover(project) {
+    const version = project.odoo_version || (project.category === 'odoo' ? 'Odoo' : project.category);
+    const body = project.metric
+      ? `<div class="cover-metric">${esc(project.metric)}</div><div class="cover-label">${esc(project.metric_label || '')}</div>`
+      : `<span class="cover-icon">${getCategoryIcon(project.category)}</span>`;
+    return `<div class="cover ${esc(project.category)}"><span class="cover-ver">${esc(version)}</span>${body}</div>`;
+  }
+
   function renderProjectImage(project, isDetail = false) {
-    const fallbackHtml = `
-      <div class="img-placeholder ${project.category}">
-        <span class="icon">${getCategoryIcon(project.category)}</span>
-        <span class="category-badge">${project.category}</span>
-      </div>
-    `;
-    
+    const fallbackHtml = renderCover(project);
+
     if (!project.image) {
       return fallbackHtml;
     }
-    
+
+    // Screenshot when the file exists, metric cover when it does not.
     return `
-      <img src="${esc(project.image)}" alt="${esc(project.title)} — ${esc(project.category)} project screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="img-placeholder ${project.category}" style="display:none; width:100%; height:100%;">
-        <span class="icon">${getCategoryIcon(project.category)}</span>
-        <span class="category-badge">${project.category}</span>
-      </div>
+      <img src="${esc(project.image)}" alt="${esc(project.title)} — ${esc(project.category)} project screenshot" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div style="display:none; width:100%; height:100%;">${fallbackHtml}</div>
     `;
   }
 
@@ -156,6 +213,7 @@
     // Render Shared Navigation & Header Shell
     renderNavigation(data);
     renderFooter(data);
+    document.querySelectorAll('a[data-cv]').forEach(a => { a.href = data.site.cv; });
 
     // Page-specific routing logic
     if (pageName === 'index.html') {
@@ -173,6 +231,9 @@
     } else if (pageName === 'contact.html') {
       renderContactPage(data);
     }
+
+    observeReveals();
+    animateCounters();
   });
 
   // Render Header/Navbar
@@ -185,7 +246,8 @@
     
     navContainer.innerHTML = `
       <div class="nav">
-        <a href="index.html" class="nav-logo">${data.site.name.split(' ')[0].toLowerCase()}<em>.dev</em></a>
+        <a href="index.html" class="nav-logo"><span class="logo-mark">${data.site.name.split(' ').map(p => p[0]).join('').slice(0, 2)}</span>${esc(data.site.name)}</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
         <div class="nav-links">
           <a href="index.html" class="${page === 'index.html' ? 'active' : ''}">Home</a>
           <a href="odoo.html" class="${page === 'odoo.html' ? 'active' : ''}">Odoo ERP</a>
@@ -197,6 +259,14 @@
         <div class="pill ${isAvail ? '' : 'not-avail'}">${isAvail ? 'Open to work' : 'Unavailable'}</div>
       </div>
     `;
+
+    const navEl = navContainer.querySelector('.nav');
+    const toggle = navContainer.querySelector('.nav-toggle');
+    toggle.addEventListener('click', () => {
+      const open = navEl.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? '✕' : '☰';
+    });
   }
 
   function renderExperiencePage(data) {
@@ -257,9 +327,9 @@
       const selectedProjectIds = [
         'clearpath-orthodontics',
         'mastercard-payment',
-        'tazah-sale-flow',
         'sage-integration',
-        'ringfree-integration'
+        'ringfree-integration',
+        'tti-certification-integration'
       ];
       const selectedProjects = selectedProjectIds
         .map(id => data.projects.find(project => project.id === id))
@@ -311,11 +381,10 @@
     if (!footerContainer) return;
 
     const year = new Date().getFullYear();
-    const shortDomain = data.site.name.split(' ')[0].toLowerCase() + '.dev';
-    
+
     footerContainer.innerHTML = `
-      <span>${shortDomain} · GitHub Pages</span>
-      <span>© ${year} ${data.site.name}</span>
+      <span>${esc(data.site.name)} · Odoo Developer · ${esc(data.contact.location)}</span>
+      <span>© ${year} ${esc(data.site.name)}</span>
     `;
   }
 
@@ -335,12 +404,18 @@
     // 2. Stats
     const statsContainer = document.getElementById('stats-container');
     if (statsContainer) {
-      statsContainer.innerHTML = data.stats.map(stat => `
-        <div class="stat">
-          <div class="stat-n">${stat.value}</div>
-          <div class="stat-l">${stat.label}</div>
-        </div>
-      `).join('');
+      statsContainer.innerHTML = data.stats.map(stat => {
+        const value = String(stat.value);
+        // Only pure "250+" / "54k+" style values animate; anything else is shown as-is.
+        const m = value.match(/^(\d+)(k?\+?)$/);
+        const attrs = m ? ` data-count="${m[1]}" data-suffix="${esc(m[2])}"` : '';
+        const small = value.length > 8 ? ' style="font-size:20px; line-height:1.55;"' : '';
+        return `
+        <div class="stat reveal">
+          <div class="stat-n"${attrs}${small}>${esc(value)}</div>
+          <div class="stat-l">${esc(stat.label)}</div>
+        </div>`;
+      }).join('');
     }
 
     // 3. Category projects counts
@@ -371,11 +446,11 @@
     if (featuredGrid) {
       const featuredProjects = sortProjectsNewestFirst(
         data.projects.filter(p => p.featured === true)
-      ).slice(0, 3);
+      ).slice(0, 6);
       featuredGrid.innerHTML = featuredProjects.map(proj => {
         const colorClass = getCategoryColorClass(proj.category);
         return `
-          <div class="proj-card" onclick="window.location.href='project.html?id=${proj.id}'">
+          <div class="proj-card reveal" onclick="window.location.href='project.html?id=${proj.id}'">
             <div class="proj-img">
               ${renderProjectImage(proj)}
             </div>
@@ -392,7 +467,24 @@
       }).join('');
     }
 
-    // 5. About info
+    // 5. Career timeline (from `experience` in the YAML)
+    const timeline = document.getElementById('timeline-container');
+    if (timeline) {
+      timeline.innerHTML = data.experience.filter(e => !/intern/i.test(e.role)).map(exp => `
+        <div class="tl-item reveal">
+          <div class="tl-top">
+            <div>
+              <div class="tl-role">${esc(exp.role)}</div>
+              <div class="tl-co">${esc(exp.company)}</div>
+            </div>
+            <div class="tl-when">${esc(exp.period)}</div>
+          </div>
+          <p>${esc(exp.summary || '')}</p>
+        </div>
+      `).join('');
+    }
+
+    // 6. About info
     const aboutText = document.getElementById('about-text-container');
     if (aboutText) {
       // Find latest experience title

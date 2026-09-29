@@ -4,6 +4,8 @@ site:
   description: "Senior Odoo developer with 3+ years of hands-on experience across Odoo 14–19, building production ERP modules, OWL interfaces, portals, payment and API integrations, migrations, reporting and DevOps."
   url: "https://4858hammad.github.io/hammad-ali.github.io"
   available_for_work: true
+  cv: "assets/Hammad_Ali_Senior_Odoo_Developer_CV.pdf"
+  availability: "Open to remote Odoo Technical Lead / Senior Developer roles and contracts"
 
 contact:
   email: "hammadali4858@gmail.com"
@@ -17,14 +19,14 @@ stats:
   - label: "Odoo versions"
     value: "14–19"
 
-  - label: "Production scale"
-    value: "250+ users"
+  - label: "Users in production"
+    value: "250+"
 
-  - label: "Leadership"
+  - label: "Records migrated"
+    value: "54k+"
+
+  - label: "Team led"
     value: "3 Dev + 1 Functional"
-
-  - label: "Years experience"
-    value: "3+"
 
 experience:
   - company: "TTI Testing Laboratories"
@@ -187,6 +189,8 @@ projects:
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-employee-self-service-portal.png"
     short_desc: "Production employee portal serving 250+ employees across four branches"
+    metric: "250+"
+    metric_label: "employees on one portal"
     full_desc: "Designed and built the backend and portal frontend for TTI's Odoo 18 employee self-service experience. More than 250 employees across Lahore, Karachi, Sialkot and Faisalabad use the same Odoo environment to access attendance, leave requests, timesheets, tasks, payslips, loans, documents and profile information with role-aware security."
     tags:
       - "Odoo 18"
@@ -225,6 +229,8 @@ projects:
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-attendance-dashboard-owl.png"
     short_desc: "Full-stack OWL attendance and leave analytics for 250+ employees across four branches"
+    metric: "1 RPC"
+    metric_label: "per dashboard load"
     full_desc: "Designed the workflow and business logic and built both the Python/Odoo backend and OWL/JavaScript frontend for an interactive attendance and leave board. It combines daily employee status, click-to-edit records, KPIs, leave insights, trend charts, filters and Excel export while remaining timezone-, schedule- and access-right aware."
     tags:
       - "Odoo 18"
@@ -263,6 +269,8 @@ projects:
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-field-sales-person-module.png"
     short_desc: "Portal-based field sales operations for ~15–20 reps and 5–7 managers without internal-user seats"
+    metric: "54k+"
+    metric_label: "records migrated"
     full_desc: "Built a self-service field sales portal on Odoo 18 so field reps can work from standard portal accounts. The solution connects visits, meetings, leads, orders, invoices, payments, collections and targets while enforcing territory-aware visibility for salespeople, managers and overseers."
     tags:
       - "Odoo 18"
@@ -301,6 +309,8 @@ projects:
     odoo_version: "Odoo 18 Enterprise"
     image: "assets/images/odoo-employee-loan-management.png"
     short_desc: "End-to-end employee loans, accounting, payroll deductions, OWL analytics and self-service"
+    metric: "Auto"
+    metric_label: "payroll loan recovery"
     full_desc: "Built an Odoo 18 Enterprise loan and salary-advance solution supporting TTI's 250+ employee workforce. Configurable loan types provision accounting and payroll records; approval generates disbursement entries and installment schedules; payroll automatically deducts installments; employees track repayment from the portal."
     tags:
       - "Odoo 18"
@@ -337,6 +347,8 @@ projects:
     odoo_version: "Odoo 18"
     image: ""
     short_desc: "Bidirectional Odoo integration connecting parcel intake, testing proposals, sales orders, reports and certification"
+    metric: "2-way"
+    metric_label: "REST integration"
     full_desc: "Designed and built a bidirectional integration between Odoo and an external testing/certification platform. The workflow connects parcel intake, testing proposals, customer approval, certification-body validation, Odoo Sales Orders, laboratory testing, test reports and final certification/licensing."
     tags:
       - "Odoo 18"
@@ -371,6 +383,8 @@ projects:
     odoo_version: "Odoo 18"
     image: ""
     short_desc: "Website, GoHighLevel and form leads routed into Odoo CRM with deduplication and automatic assignment"
+    metric: "3"
+    metric_label: "lead sources unified"
     full_desc: "Built APIs that bring leads from the company website, GoHighLevel and web forms into Odoo CRM. The integration validates incoming data, prevents duplicates, tracks source, assigns the correct salesperson/team and drives the lead through configured stages toward proposal and testing workflows."
     tags:
       - "Odoo 18"
@@ -405,6 +419,8 @@ projects:
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-clinical-erp-biometric-attendance.png"
     short_desc: "Doctor portal, advance payments, MRP and Inventory processing ~250 daily orders"
+    metric: "250/day"
+    metric_label: "orders processed (approx.)"
     full_desc: "Led the ClearPath Orthodontics Odoo implementation and worked with the functional team to translate business requirements into portal, Sales, payment, Manufacturing and Inventory workflows. Approximately 200 doctors/clinics used the portal and the operation processed around 250 orders per day."
     tags:
       - "Odoo 18"
@@ -444,6 +460,8 @@ projects:
     odoo_version: "Odoo 17 / Odoo 18"
     image: "assets/images/odoo-mastercard-payment-provider.png"
     short_desc: "End-to-end Odoo payment provider handling ~200 online payments per day"
+    metric: "200/day"
+    metric_label: "online payments (approx.)"
     full_desc: "Built the complete Mastercard Hosted Checkout payment-provider flow for Odoo, covering transaction creation, redirect/checkout, callback handling, transaction verification, Odoo payment state management and invoice reconciliation."
     tags:
       - "Odoo 17"
@@ -466,6 +484,39 @@ projects:
       - "Implemented callback/notification handling and transaction verification"
       - "Updates payment.transaction states and reconciles paid invoices"
 
+  - id: "sage-integration"
+    title: "Sage–Odoo Accounting Integration"
+    category: "odoo"
+    featured: false
+    year: 2026
+    client: "Aetos Technologies"
+    role: "Lead Developer"
+    odoo_version: "Odoo 18"
+    image: ""
+    short_desc: "Two-way sync of companies, customers, invoices and payments between Sage and Odoo"
+    metric: "2-way"
+    metric_label: "accounting sync"
+    full_desc: "Led a Python/Flask integration that synchronizes companies, customers, invoices and payments between Sage and Odoo Accounting. Field mapping, partial-payment handling, reconciliation, logging and scheduled jobs keep both ledgers consistent."
+    tags:
+      - "Odoo 18"
+      - "Accounting"
+      - "Flask"
+      - "REST API"
+      - "Integration"
+    modules:
+      - "Accounting"
+      - "Contacts"
+      - "Invoicing"
+    tech_stack:
+      - "Python"
+      - "Flask"
+      - "REST API"
+      - "Odoo ORM"
+    highlights:
+      - "Synchronized companies, customers, invoices and payments between Sage and Odoo"
+      - "Field mapping and partial-payment handling with reconciliation"
+      - "Logging and scheduled jobs for unattended, auditable sync runs"
+
   - id: "axis-marketing"
     title: "Axis Marketing Management"
     category: "odoo"
@@ -476,6 +527,8 @@ projects:
     odoo_version: "Odoo 19"
     image: "assets/images/odoo-19-meta-ads-lead-sync.png"
     short_desc: "Odoo 19 CRM, Meta lead sync, contracts, renewals and portals led with two junior developers"
+    metric: "Odoo 19"
+    metric_label: "led 2 junior devs"
     full_desc: "Led delivery of an Odoo 19 marketing-management solution while working hands-on with two junior developers. The system connects CRM and Meta lead synchronization with contracts, licenses, renewals, customer portal, employee portal, attendance/timesheets and automated notifications."
     tags:
       - "Odoo 19"
@@ -512,6 +565,8 @@ projects:
     odoo_version: "Odoo 17"
     image: ""
     short_desc: "React Native ordering app with Odoo 17 as a resilient bridge to Pavo OMS"
+    metric: "Offline"
+    metric_label: "safe order bridge"
     full_desc: "Led an independent March–May 2025 project combining a React Native Android/iOS app, Odoo 17 and Pavo OMS APIs. Odoo acts as the resilient bridge: mobile orders land in Odoo first and can continue operating during OMS downtime, then synchronize to Pavo when service is restored."
     tags:
       - "Odoo 17"
@@ -550,6 +605,8 @@ projects:
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-18-enterprise-ui-customization.png"
     short_desc: "Independent end-to-end Odoo 18 ERP delivery from business modules through production infrastructure"
+    metric: "E2E"
+    metric_label: "build to production"
     full_desc: "Led this independent July–December 2025 Odoo 18 project alongside full-time employment. Owned Sales, Purchase, user/access management, sales-representative management, reporting/UI customization and the production infrastructure and deployment pipeline."
     tags:
       - "Odoo 18"
@@ -587,6 +644,8 @@ projects:
     odoo_version: "Odoo 18"
     image: "assets/images/odoo-bom-versioning-manufacturing.png"
     short_desc: "Manufacturing, BOM versioning/comparison, Sales, Inventory and custom reporting"
+    metric: "BOM"
+    metric_label: "versioning + compare"
     full_desc: "Led the Silicon Signs manufacturing customization work at Axiom World, covering Manufacturing/MRP, BOM versioning and comparison, Sales, Inventory and custom reports."
     tags:
       - "Odoo 18"
@@ -620,6 +679,8 @@ projects:
     odoo_version: "Odoo 16"
     image: "assets/images/odoo-metered-billing-ringfree-integration.png"
     short_desc: "REST integration for usage-based billing, monthly invoices, payments and reporting"
+    metric: "Usage"
+    metric_label: "based billing"
     full_desc: "Contributed as part of the Axiom World team and personally implemented the core RingFree integration: REST APIs, metered/usage-based billing, monthly invoice automation, payment/bank synchronization and reporting."
     tags:
       - "Odoo 16"
@@ -652,6 +713,8 @@ projects:
     odoo_version: "Odoo 16"
     image: "assets/images/odoo-operational-exception-reporting.png"
     short_desc: "Sales reporting, daily operational reports, automated notifications and SQL optimization"
+    metric: "SQL"
+    metric_label: "report optimization"
     full_desc: "Contributed as part of the Axiom World team with direct responsibility for Sales, daily reports, automated email/notification workflows and SQL/report optimization."
     tags:
       - "Odoo 16"
@@ -684,6 +747,8 @@ projects:
     odoo_version: "Odoo 16 → 17"
     image: "assets/images/odoo-16-to-17-hr-payroll-migration.png"
     short_desc: "Employees, Payroll, Loans and HR Tax migration from Odoo 16 to 17"
+    metric: "16 → 17"
+    metric_label: "HRMS migration"
     full_desc: "Contributed to the complete HRMS migration from Odoo 16 to 17, personally working on Employees, Payroll, Employee Loans, HR Tax, database/data migration, custom module/code migration and regression testing."
     tags:
       - "Odoo 16"
