@@ -2126,26 +2126,37 @@ body::after {
    thumbnail crops to the left zone, where the metric lives. */
 .proj-img, .aimg { height: auto; aspect-ratio: 3 / 1; }
 .proj-img img, .aimg img, .pcard-img img, .proj-banner img { object-position: left center; }
-/* Listing page: same card layout as the home page (banner on top, 2 columns). */
-.proj-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.pcard { flex-direction: column; }
-/* Fixed 3:1 box (padding-top trick) so the banner always fills the top of the
-   card; aspect-ratio alone is unreliable for a child of a flex column. */
+/* Listing page: horizontal rows, banner on the left, details on the right.
+   The banner is shown whole (contain, never cropped); the column carries the
+   banner's own background gradient so any spare height reads as part of it. */
+.proj-list { display: flex; flex-direction: column; gap: 16px; }
+.pcard { flex-direction: row; }
 .pcard-img {
   position: relative;
   display: block;
-  width: 100%;
-  height: 0;
-  padding-top: 33.3333%;
-  min-height: 0;
+  width: 520px;
+  min-height: 180px;
   flex-shrink: 0;
-  border-right: none;
-  border-bottom: 1px solid var(--glass-border);
+  align-self: stretch;
+  background: linear-gradient(135deg, #16204A 0%, #0B1226 100%);
+  border-right: 1px solid var(--glass-border);
+  border-bottom: none;
 }
 .pcard-img > * { position: absolute; inset: 0; width: 100%; height: 100%; }
-.pcard-img > img { object-fit: cover; object-position: left center; }
-.pcard-body { padding: 18px 20px 20px; }
-@media (max-width: 800px) { .proj-list { grid-template-columns: 1fr; } }
+.pcard-img > img { object-fit: contain; object-position: center; }
+.pcard-body { padding: 20px 22px; }
+@media (max-width: 900px) {
+  .pcard { flex-direction: column; }
+  .pcard-img {
+    width: 100%;
+    height: 0;
+    min-height: 0;
+    padding-top: 33.3333%;
+    align-self: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+}
 .proj-banner { height: auto; aspect-ratio: 3 / 1; }
 
 /* ---- Hire me cards ---- */
